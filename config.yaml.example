@@ -1,0 +1,103 @@
+# ============================================================================
+# Tistory 자동 포스팅 프로그램 설정 파일
+# ============================================================================
+# 이 파일을 config.yaml로 복사하여 사용하세요:
+#   cp config.yaml.example config.yaml
+# ============================================================================
+
+tistory:
+  # ========================================================================
+  # 티스토리 인증 설정
+  # ========================================================================
+  
+  # 방법 1: 쿠키 사용 (카카오 로그인 권장) ⭐
+  # 브라우저에서 카카오로 티스토리에 로그인한 후 쿠키를 추출하여 사용
+  # 자세한 방법: COOKIE_GUIDE.md 파일 참고
+  # 최신 방식: TSSESSION, _T_ANO, TOP-XSRF-TOKEN 포함
+  cookies: "TSSESSION=xxx; _T_ANO=yyy; TOP-XSRF-TOKEN=zzz; ..."  # 브라우저 개발자 도구에서 복사
+  
+  # 방법 2: ID/비밀번호 사용 (비권장, 카카오 로그인 사용 불가)
+  # user_id: "YOUR_USER_ID"           # 티스토리 로그인 ID
+  # user_pw: "YOUR_USER_PASSWORD"     # 티스토리 로그인 비밀번호
+  
+  # 블로그 설정
+  blog_name: "YOUR_BLOG_NAME"        # 블로그 이름 (예: example.tistory.com의 example)
+  blog_id: "99"                      # 블로그 ID (선택적, 글쓰기 페이지 URL에서 확인: /manage/newpost/99)
+
+category:
+  # ========================================================================
+  # 카테고리 설정
+  # ========================================================================
+  name: "PaperReview"                # 카테고리 이름
+  id: "1329459"                      # 카테고리 ID (선택적, 티스토리 API 응답에서 확인 가능)
+                                      # 설정하지 않으면 카테고리 이름으로 자동 조회
+
+openai:
+  # ========================================================================
+  # OpenAI API 설정
+  # ========================================================================
+  api_key: "YOUR_OPENAI_API_KEY"     # OpenAI API 키
+  model: "gpt-4o-mini"               # 기본 모델 (논문 리스트 수집 등)
+                                      # - gpt-4o-mini: 빠르고 저렴 (권장)
+                                      # - gpt-4o: 더 강력한 모델
+                                      # - gpt-4-turbo: 고성능 모델
+  review_model: "gpt-4o"             # 글 작성(논문 리뷰)용 모델 (선택적)
+                                      # - gpt-4o: 고품질 모델 (권장)
+                                      # - gpt-4-turbo: 최고 성능 모델
+                                      # - gpt-4o-mini: 빠른 모델
+                                      # - 지정하지 않으면 model 사용
+
+prompts_file: "prompts.yaml"        # 프롬프트 설정 파일 경로
+
+image_search:
+  # ========================================================================
+  # 이미지 검색 설정 (선택)
+  # ========================================================================
+  # Google Custom Search API를 사용하여 논문 아키텍처 이미지 검색
+  # API 키 발급: https://developers.google.com/custom-search/v1/introduction
+  # Custom Search Engine 생성: https://programmablesearchengine.google.com/
+  # google_api_key: "YOUR_GOOGLE_API_KEY"   # Google API 키 (선택)
+  # google_cx: "YOUR_GOOGLE_CX"             # Custom Search Engine ID (선택)
+  # 
+  # API 키가 없어도 arXiv 논문에서 기본 이미지 추출을 시도합니다.
+  # 1개 이미지는 필수로 찾으려 하고, 최대 3개까지 추가합니다.
+
+paper_collection:
+  # ========================================================================
+  # 논문 수집 설정 (2단계 프로세스: 제목 리스트 → 상세 정보)
+  # ========================================================================
+  # 카테고리별 논문 수집 설정
+  categories:
+    - name: "입문 AI 논문"
+      topic: "AI Machine Learning Introduction Beginner"
+      count: 50
+      recent_years: 10
+    
+    - name: "Computer Vision 핵심 논문"
+      topic: "Computer Vision + Multimodal"
+      count: 200
+      recent_years: 7
+    
+    - name: "LLM 핵심 논문"
+      topic: "Large Language Models LLM"
+      count: 50
+      recent_years: 7
+    
+    - name: "최신 논문"
+      topic: "Computer Vision + Multimodal + LLM"
+      count: 50
+      recent_years: 2  # 최근 2년간
+  
+  batch_size: 10  # 한 번에 요청할 논문 개수 (1단계: 제목 리스트 수집 시)
+
+schedule:
+  # ========================================================================
+  # 스케줄러 설정
+  # ========================================================================
+  enabled: false  # 스케줄러 활성화 여부
+                  # - true: 매일 지정된 시간 범위에 자동으로 글 작성 (스케줄러 모드)
+                  # - false: 실행할 때마다 바로 글 작성 (즉시 실행 모드, 권장)
+  start_hour: 18  # 오후 6시 (스케줄러 사용 시)
+  end_hour: 23    # 오후 11시 (스케줄러 사용 시)
+  end_minute: 59  # 59분 (스케줄러 사용 시)
+                  # 실제 포스팅 시간은 start_hour ~ end_hour:end_minute 사이 랜덤

@@ -1,0 +1,38 @@
+# 설정 파일
+config.yaml
+prompts.yaml
+
+# 상태 파일
+post_state.json
+data/post_state.json
+
+# 로그 파일
+*.log
+tistory_poster.log
+data/*.log
+
+# 데이터 디렉토리
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+

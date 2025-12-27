@@ -1,0 +1,46 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# 설정 파일 (도커 볼륨으로 마운트)
+config.yaml
+
+# 상태 및 로그 파일 (도커 볼륨으로 마운트)
+post_state.json
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 문서
+README.md
+*.md
+
+# 테스트
+.pytest_cache/
+.coverage
+htmlcov/
+

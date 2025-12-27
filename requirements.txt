@@ -1,0 +1,8 @@
+# requirements.txt (호환성용)
+# uv 사용 시에는 pyproject.toml의 dependencies를 사용합니다
+
+requests>=2.31.0
+apscheduler>=3.10.4
+pyyaml>=6.0.1
+beautifulsoup4>=4.12.0
+openai>=1.0.0

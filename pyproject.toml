@@ -1,0 +1,25 @@
+[project]
+name = "tistory-writer"
+version = "0.1.0"
+description = "Tistory Auto Posting Program"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "requests>=2.31.0",
+    "apscheduler>=3.10.4",
+    "pyyaml>=6.0.1",
+    "beautifulsoup4>=4.12.0",
+    "openai>=1.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+

@@ -1,0 +1,62 @@
+# ============================================================================
+# Tistory 자동 포스팅 프로그램 docker-compose.yml
+# ============================================================================
+# 설계 원칙:
+# 1. platform: linux/amd64로 리눅스 서버 호환성 보장
+# 2. restart: always로 계속 실행되도록 설정
+# 3. 볼륨 마운트로 설정 파일 및 상태 파일 영속화
+# 4. 환경 변수 분리로 설정 관리 용이
+# ============================================================================
+
+services:
+  tistory-writer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PYTHON_VERSION: 3.11.8
+        UID: 10001
+    
+    # 리눅스 서버 호환성
+    platform: linux/amd64
+    
+    # 볼륨 마운트: 설정 파일 및 상태 파일 영속화
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro  # 읽기 전용
+      # 상태 및 로그는 디렉토리로 마운트하여 파일이 없을 때 자동 생성 가능하도록
+      - ./data:/app/data  # post_state.json과 log 파일 저장용
+    
+    # 환경 변수
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+      - UV_CACHE_DIR=/app/.cache/uv
+      - UV_NO_PROJECT=1
+      - TZ=Asia/Seoul  # 한국 시간대 설정
+    
+    # 작업 디렉토리
+    working_dir: /app
+    
+    # 재시작 정책: 
+    # - 스케줄러 활성화 시: 컨테이너가 계속 실행되므로 restart 정책 필요 없음 (스케줄러가 내부에서 관리)
+    # - 수동 실행 시: 한 번만 실행하고 종료되므로 restart 정책 필요 없음
+    # - 컨테이너가 비정상 종료될 경우를 대비해 unless-stopped 사용
+    restart: unless-stopped
+    
+    # 로그 설정
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # 리소스 제한 (선택적)
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+

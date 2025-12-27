@@ -1,0 +1,25 @@
+{
+  "papers": [
+    {
+      "title": "논문 제목 1",
+      "authors": ["저자1", "저자2"],
+      "year": 2024,
+      "citations": 1000,
+      "arxiv_id": "2401.00001",
+      "url": "https://arxiv.org/abs/2401.00001",
+      "abstract": "논문 초록을 여기에 작성하세요.",
+      "importance_score": 90
+    },
+    {
+      "title": "논문 제목 2",
+      "authors": ["저자1", "저자2"],
+      "year": 2024,
+      "citations": 800,
+      "arxiv_id": "2401.00002",
+      "url": "https://arxiv.org/abs/2401.00002",
+      "abstract": "논문 초록을 여기에 작성하세요.",
+      "importance_score": 85
+    }
+  ]
+}
+
