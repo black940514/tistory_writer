@@ -1,5 +1,5 @@
 {
-  "current_index": 45,
+  "current_index": 51,
   "reviewed_papers": [
     "Deep Residual Learning for Image Recognition_2015",
     "ImageNet Classification with Deep Convolutional Neural Networks_2012",
@@ -45,6 +45,12 @@
     "BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension_2019",
     "A Few Useful Things to Know about Machine Learning_2012",
     "NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis_2020",
-    "Stable Diffusion: High-Resolution Image Synthesis with Latent Diffusion Models_2022"
+    "Stable Diffusion: High-Resolution Image Synthesis with Latent Diffusion Models_2022",
+    "Latent Diffusion Models for High-Resolution Image Synthesis_2022",
+    "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale_2020",
+    "Improving Language Understanding by Generative Pre-Training_2018",
+    "UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction_2018",
+    "Deep Learning with Python_2017",
+    "A Tutorial on Principal Component Analysis_2014"
   ]
 }

@@ -152,7 +152,12 @@ def generate_paper_review_content(
             review = openai_client.generate_paper_review(paper, language="ko", model=review_model)
             return review
         except Exception as e:
-            logger.error(f"OpenAI 리뷰 생성 실패, 템플릿 사용: {e}")
+            # quota 초과 등 예상 가능한 에러는 경고 레벨, 기타 에러는 에러 레벨
+            error_msg = str(e)
+            if "quota" in error_msg.lower() or "429" in error_msg or "insufficient_quota" in error_msg.lower():
+                logger.warning(f"OpenAI API 할당량 초과, 템플릿 사용: {type(e).__name__}")
+            else:
+                logger.error(f"OpenAI 리뷰 생성 실패, 템플릿 사용: {type(e).__name__}: {error_msg[:100]}")
     
     # 템플릿 사용 (fallback)
     import random
