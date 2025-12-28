@@ -1,5 +1,5 @@
 {
-  "current_index": 33,
+  "current_index": 45,
   "reviewed_papers": [
     "Deep Residual Learning for Image Recognition_2015",
     "ImageNet Classification with Deep Convolutional Neural Networks_2012",
@@ -33,6 +33,18 @@
     "Understanding Machine Learning: From Theory to Algorithms_2014",
     "Principal Component Analysis_1933",
     "CLIP: Learning Transferable Visual Models From Natural Language Supervision_2021",
-    "Learning Transferable Visual Models From Natural Language Supervision_2021"
+    "Learning Transferable Visual Models From Natural Language Supervision_2021",
+    "RoBERTa: A Robustly Optimized BERT Pretraining Approach_2019",
+    "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems_2017",
+    "Introduction to Machine Learning_2004",
+    "SimCLR: A Simple Framework for Contrastive Learning of Visual Representations_2020",
+    "GPT-2: Language Models are Unsupervised Multitask Learners_2019",
+    "Introduction to Machine Learning with Python: A Guide for Data Scientists_2016",
+    "A Tutorial on Support Vector Machines for Pattern Recognition_1998",
+    "DETR: End-to-End Object Detection with Transformers_2020",
+    "BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension_2019",
+    "A Few Useful Things to Know about Machine Learning_2012",
+    "NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis_2020",
+    "Stable Diffusion: High-Resolution Image Synthesis with Latent Diffusion Models_2022"
   ]
 }

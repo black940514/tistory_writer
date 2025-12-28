@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
     ca-certificates \
+    gosu \
     && rm -rf /var/lib/apt/lists/*
 
 # uv 설치 (의존성 관리 전용)
@@ -41,11 +42,15 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # 소스 코드 복사
 COPY . .
 
+# Entrypoint 스크립트 복사 및 실행 권한 부여
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 # 필요한 디렉토리 생성 및 권한 설정
 RUN mkdir -p /app/.cache/uv /app/data && \
     chmod -R 755 /app
 
-# 비권한 사용자 생성 및 전환
+# 비권한 사용자 생성
 ARG UID=10001
 RUN adduser \
     --disabled-password \
@@ -58,11 +63,13 @@ RUN adduser \
     chown -R appuser:appuser /app && \
     chown -R appuser:appuser /app/.cache
 
-USER appuser
+# Entrypoint 설정 (entrypoint에서 root 권한으로 권한 조정 후 appuser로 전환)
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
-# uv 캐시 디렉토리 설정
+# uv 캐시 디렉토리 및 Python 경로 설정
 ENV UV_CACHE_DIR=/app/.cache/uv \
-    UV_NO_PROJECT=1
+    UV_NO_PROJECT=1 \
+    PYTHONPATH=/app
 
 # 기본 실행 명령
 CMD ["python", "scripts/main.py"]

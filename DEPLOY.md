@@ -31,10 +31,16 @@ mkdir -p data
 # 4. 스케줄러 활성화
 # config.yaml에서 schedule.enabled: true 로 설정
 
-# 5. Docker Compose로 실행
-docker compose up -d --build
+# 5. Docker 이미지 빌드 (논문 수집을 위해 먼저 빌드)
+docker compose build
 
-# 6. 상태 확인
+# 6. 논문 리스트 수집 (필수 - 처음 배포 시 반드시 실행)
+docker compose run --rm tistory-writer python scripts/collect_papers.py
+
+# 7. Docker Compose로 실행
+docker compose up -d
+
+# 8. 상태 확인
 docker compose ps
 docker compose logs -f
 ```
@@ -84,10 +90,16 @@ nano config.yaml
 # 4. data 디렉토리 생성 (필수 - 볼륨 마운트를 위해 필요)
 mkdir -p data
 
-# 5. Docker 이미지 빌드 및 실행
-docker compose up -d --build
+# 5. Docker 이미지 빌드 (논문 수집을 위해 먼저 빌드)
+docker compose build
 
-# 6. 로그 확인
+# 6. 논문 리스트 수집 (필수 - 처음 배포 시 반드시 실행)
+docker compose run --rm tistory-writer python scripts/collect_papers.py
+
+# 7. Docker Compose로 실행
+docker compose up -d
+
+# 8. 로그 확인
 docker compose logs -f
 ```
 
@@ -243,10 +255,14 @@ docker compose exec tistory-writer cat /app/config.yaml
 
 ### 논문 리스트가 없는 경우
 
+처음 배포 시 또는 `data/papers.json` 파일이 없는 경우:
+
 ```bash
 # 논문 수집 스크립트 실행
 docker compose run --rm tistory-writer python scripts/collect_papers.py
 ```
+
+**참고**: 처음 배포할 때는 반드시 논문 수집을 먼저 실행해야 합니다. [빠른 시작](#빠른-시작) 섹션을 참고하세요.
 
 ## 업데이트
 
@@ -342,6 +358,7 @@ crontab에 등록:
 ## 참고사항
 
 - **data 디렉토리 필수**: `docker-compose.yml`에서 `./data:/app/data`로 볼륨 마운트하므로, 반드시 호스트에 `data` 디렉토리를 미리 생성해야 합니다 (`mkdir -p data`)
+- **논문 리스트 수집 필수**: 처음 배포할 때는 반드시 `docker compose run --rm tistory-writer python scripts/collect_papers.py`를 실행하여 논문 리스트를 수집해야 합니다. `data/papers.json` 파일이 없으면 프로그램이 작동하지 않습니다
 - 스케줄러 모드에서는 컨테이너가 계속 실행되어야 합니다 (`restart: unless-stopped` 설정)
 - 한국 시간대(`TZ=Asia/Seoul`)로 설정되어 있습니다
 - 논문 리스트는 `data/papers.json`에 저장됩니다

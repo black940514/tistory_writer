@@ -120,22 +120,25 @@ nano config.yaml
 # cp prompts.yaml.example prompts.yaml  # 필요시
 ```
 
-### 2.5 논문 리스트 수집 (선택적)
+### 2.5 논문 리스트 수집 (필수 - 처음 배포 시)
 
-처음 실행하기 전에 논문 리스트를 수집할 수 있습니다:
+처음 배포할 때는 반드시 논문 리스트를 수집해야 합니다:
 
 ```bash
+# Docker 이미지 빌드 (먼저 빌드 필요)
+docker compose build
+
 # 논문 수집 (시간이 걸릴 수 있음)
 docker compose run --rm tistory-writer python scripts/collect_papers.py
 ```
 
-또는 나중에 자동으로 수집하도록 할 수도 있습니다.
+**중요**: 논문 리스트(`data/papers.json`)가 없으면 프로그램이 작동하지 않습니다.
 
 ### 2.6 Docker 컨테이너 실행
 
 ```bash
-# Docker 이미지 빌드 및 실행
-docker compose up -d --build
+# Docker Compose로 실행
+docker compose up -d
 
 # 상태 확인
 docker compose ps
