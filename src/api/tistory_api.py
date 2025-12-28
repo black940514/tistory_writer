@@ -117,50 +117,71 @@ class TistoryAPI:
             logger.warning("인증 쿠키(TSSESSION, _T_ANO, JSESSIONID, TISTORY 등)를 찾을 수 없습니다.")
     
     def _verify_login(self):
-        """로그인 상태 확인"""
+        """로그인 상태 확인 (HTTP 상태 코드 기반, HTML 파싱 없이)"""
         try:
-            # 메인 페이지 접근하여 로그인 상태 확인
-            test_url = f"{self.BASE_URL}/"
-            response = self.session.get(test_url, allow_redirects=True)
-            
-            # 최종 URL 확인
-            final_url = response.url
-            
-            # 로그인 페이지로 리다이렉트된 경우
-            if '/login' in final_url or '/auth/login' in final_url:
-                logger.error("로그인 상태 확인 실패: 로그인 페이지로 리다이렉트됨")
-                logger.error("쿠키가 만료되었거나 잘못된 쿠키입니다. 새로 추출해주세요.")
-                raise Exception("쿠키가 유효하지 않습니다. 브라우저에서 다시 로그인하여 쿠키를 추출해주세요.")
-            
-            # 로그아웃 버튼이나 관리 메뉴가 있는지 확인
-            if response.status_code == 200:
-                # 여러 방법으로 로그인 상태 확인
-                text_lower = response.text.lower()
-                login_indicators = [
-                    '로그아웃' in response.text,
-                    'logout' in text_lower,
-                    '관리' in response.text,
-                    '/manage/' in final_url,  # 관리 페이지 URL
-                    'newpost' in text_lower,  # 글쓰기 링크
-                    'tistory.com/manage' in final_url  # 관리 페이지 경로
+            # 인증이 필요한 관리 페이지로 접근하여 상태 코드로 확인
+            if self.blog_name:
+                # 블로그 관리 페이지 접근 (로그인된 사용자만 접근 가능)
+                test_urls = [
+                    f"https://{self.blog_name}.tistory.com/manage/posts",
+                    f"https://{self.blog_name}.tistory.com/manage/newpost",
                 ]
-                
-                if any(login_indicators):
-                    logger.info("로그인 상태 확인 완료: 정상적으로 로그인되어 있습니다.")
-                else:
-                    # 컨테이너 환경에서는 HTML 구조가 다를 수 있으므로 경고만 출력
-                    logger.warning("로그인 상태를 명확히 확인할 수 없지만 계속 진행합니다. (컨테이너 환경에서는 HTML 구조 차이로 인해 정확한 확인이 어려울 수 있습니다)")
             else:
-                logger.warning(f"로그인 상태 확인 중 예상치 못한 상태 코드: {response.status_code}")
+                # 전체 관리 페이지 접근
+                test_urls = [
+                    f"{self.BASE_URL}/manage/posts",
+                    f"{self.BASE_URL}/manage/post/write",
+                ]
+            
+            for test_url in test_urls:
+                try:
+                    # allow_redirects=False로 설정하여 리다이렉트를 명확히 확인
+                    response = self.session.get(test_url, allow_redirects=False, timeout=10)
+                    
+                    # 로그인 페이지로 리다이렉트 (302, 301)
+                    if response.status_code in [301, 302]:
+                        location = response.headers.get('Location', '')
+                        if '/login' in location or '/auth/login' in location:
+                            # 다음 URL 시도
+                            continue
+                        else:
+                            # 다른 페이지로 리다이렉트 (인증 가능한 상태)
+                            logger.info(f"로그인 상태 확인 완료: {test_url} 접근 성공 (리다이렉트: {location})")
+                            return True
+                    
+                    # 200 OK: 정상적으로 로그인되어 있음
+                    if response.status_code == 200:
+                        logger.info(f"로그인 상태 확인 완료: {test_url} 접근 성공")
+                        return True
+                    
+                    # 401 Unauthorized, 403 Forbidden: 인증 실패
+                    if response.status_code in [401, 403]:
+                        # 다음 URL 시도
+                        continue
+                    
+                    # 기타 상태 코드 (일부 환경에서는 작동할 수 있으므로 경고만)
+                    logger.debug(f"로그인 상태 확인: {test_url} - 상태 코드 {response.status_code}")
+                    
+                except requests.exceptions.RequestException as e:
+                    # 네트워크 오류는 다음 URL 시도
+                    logger.debug(f"로그인 상태 확인: {test_url} - 네트워크 오류: {e}")
+                    continue
+            
+            # 모든 URL에서 확인 실패
+            logger.error("로그인 상태 확인 실패: 모든 관리 페이지 접근 실패")
+            logger.error("쿠키가 만료되었거나 잘못된 쿠키입니다. 새로 추출해주세요.")
+            raise Exception("쿠키가 유효하지 않습니다. 브라우저에서 다시 로그인하여 쿠키를 추출해주세요.")
                 
         except requests.exceptions.RequestException as e:
-            logger.error(f"로그인 상태 확인 오류: {e}")
-            # 로그인 상태 확인 실패해도 계속 진행 (쿠키가 올바르면 작동할 수 있음)
-            logger.warning("로그인 상태 확인 실패했지만 계속 진행합니다. 오류가 발생하면 쿠키를 확인해주세요.")
+            logger.error(f"로그인 상태 확인 네트워크 오류: {e}")
+            # 네트워크 오류는 쿠키 문제가 아닐 수 있으므로 경고만 출력하고 계속 진행
+            logger.warning("로그인 상태 확인 실패했지만 계속 진행합니다. 네트워크 문제일 수 있습니다.")
         except Exception as e:
-            logger.error(f"로그인 상태 확인 중 예외 발생: {e}")
-            # 로그인 상태 확인 실패해도 계속 진행
-            logger.warning("로그인 상태 확인 실패했지만 계속 진행합니다.")
+            # 명시적으로 raise한 인증 실패 예외는 그대로 전파
+            if "유효하지 않습니다" in str(e):
+                raise
+            # 기타 예외는 경고만 출력하고 계속 진행
+            logger.warning(f"로그인 상태 확인 중 오류: {e}, 계속 진행합니다.")
     
     def _login(self):
         """티스토리에 로그인"""

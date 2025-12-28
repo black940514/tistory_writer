@@ -1,5 +1,5 @@
 {
-  "current_index": 58,
+  "current_index": 66,
   "reviewed_papers": [
     "Deep Residual Learning for Image Recognition_2015",
     "ImageNet Classification with Deep Convolutional Neural Networks_2012",
@@ -58,6 +58,14 @@
     "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer_2020",
     "LLaMA: Open and Efficient Foundation Language Models_2023",
     "Python Machine Learning_2015",
-    "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks_2020"
+    "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks_2020",
+    "Segment Anything_2023",
+    "Masked Autoencoders Are Scalable Vision Learners_2021",
+    "Bootstrap Your Own Latent: A New Approach to Self-Supervised Learning_2020",
+    "Whisper: Robust Speech Recognition via Large-Scale Weak Supervision_2022",
+    "LoRA: Low-Rank Adaptation of Large Language Models_2021",
+    "Show, Attend and Tell: Neural Image Caption Generation with Visual Attention_2015",
+    "Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion_2010",
+    "ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators_2020"
   ]
 }
