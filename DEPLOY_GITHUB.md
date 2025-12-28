@@ -64,11 +64,14 @@ git clone <your-github-repo-url> Tistory_writer
 cd Tistory_writer
 ```
 
-### 2.3 설정 파일 생성
+### 2.3 설정 파일 생성 및 data 디렉토리 생성
 
 ```bash
 # 설정 파일 복사
 cp config.yaml.example config.yaml
+
+# data 디렉토리 생성 (필수 - 볼륨 마운트를 위해 필요)
+mkdir -p data
 
 # 설정 파일 편집
 nano config.yaml

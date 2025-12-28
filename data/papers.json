@@ -1,0 +1,4187 @@
+{
+  "papers": [
+    {
+      "title": "Deep Residual Learning for Image Recognition",
+      "authors": [
+        "Kaiming He",
+        "Xiangyu Zhang",
+        "Shaoqing Ren"
+      ],
+      "year": 2015,
+      "citations": 250000,
+      "importance_score": 100,
+      "url": "https://arxiv.org/abs/1512.03385",
+      "abstract": "ResNet은 잔차 연결(skip connection)을 통해 매우 깊은 신경망에서도 최적화가 쉬워지도록 하는 잔차 학습 프레임워크를 제안한다. 이 구조는 깊이가 증가할 때 발생하는 성능 저하 문제를 완화하며, ImageNet 및 COCO 등에서 뛰어난 성능을 달성해 이후 비전 모델 설계의 표준 구성요소가 되었다."
+    },
+    {
+      "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+      "authors": [
+        "Alex Krizhevsky",
+        "Ilya Sutskever",
+        "Geoffrey E. Hinton"
+      ],
+      "year": 2012,
+      "citations": 160000,
+      "importance_score": 100,
+      "url": "https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
+      "abstract": "대규모 이미지 분류(ImageNet)에서 깊은 CNN(AlexNet)을 적용해 기존 성능을 크게 개선했다. ReLU, 드롭아웃, 데이터 증강, GPU 병렬 학습 등을 활용해 학습을 가능하게 했고, ILSVRC-2012에서 탁월한 top-5 오류율을 기록하며 딥러닝 기반 비전 연구의 전환점을 만들었다."
+    },
+    {
+      "title": "Attention Is All You Need",
+      "authors": [
+        "Ashish Vaswani",
+        "Noam Shazeer",
+        "Niki Parmar"
+      ],
+      "year": 2017,
+      "citations": 150000,
+      "importance_score": 100,
+      "url": "https://arxiv.org/abs/1706.03762",
+      "abstract": "순환/합성곱 없이 자기어텐션과 포지셔널 인코딩으로 구성된 Transformer 아키텍처를 제안한다. 멀티헤드 어텐션과 인코더-디코더 구조로 병렬화가 용이하며, 기계번역에서 높은 성능과 학습 효율을 보인다. 이후 대규모 언어모델 및 현대 NLP/비전 모델의 핵심 기반이 되었다."
+    },
+    {
+      "title": "The Elements of Statistical Learning: Data Mining, Inference, and Prediction",
+      "authors": [
+        "Trevor Hastie",
+        "Robert Tibshirani",
+        "Jerome Friedman"
+      ],
+      "year": 2001,
+      "citations": 120000,
+      "importance_score": 100,
+      "url": "https://hastie.su.domains/ElemStatLearn/",
+      "abstract": "통계적 학습의 핵심 방법론(선형/비선형 회귀, 분류, 커널 방법, 트리·앙상블, 부스팅, 차원축소, 모델 선택과 정규화 등)을 체계적으로 정리한 대표적 교과서로, 데이터 마이닝·추론·예측 관점에서 알고리즘과 이론적 직관 및 실무 적용을 폭넓게 다룬다."
+    },
+    {
+      "title": "Random Forests",
+      "authors": [
+        "Leo Breiman"
+      ],
+      "year": 2001,
+      "citations": 120000,
+      "importance_score": 100,
+      "url": "https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf",
+      "abstract": "부트스트랩 표본과 무작위 특성 선택을 결합해 다수의 결정트리를 학습하고 평균/투표로 예측하는 랜덤 포레스트를 제안하며, 일반화 오차의 OOB(out-of-bag) 추정, 변수 중요도 등 실용적 평가 기법을 함께 제공한다."
+    },
+    {
+      "title": "Adam: A Method for Stochastic Optimization",
+      "authors": [
+        "Diederik P. Kingma",
+        "Jimmy Ba"
+      ],
+      "year": 2015,
+      "citations": 120000,
+      "importance_score": 100,
+      "url": "https://arxiv.org/abs/1412.6980",
+      "abstract": "1차 모멘트(평균)와 2차 모멘트(분산) 추정치를 이용해 파라미터별 적응적 학습률을 적용하는 Adam 최적화 알고리즘을 제안한다. 편향 보정(bias correction)으로 초기 단계의 추정 편향을 완화하고, RMSProp과 모멘텀의 장점을 결합해 다양한 딥러닝 과제에서 강건하고 효율적인 학습을 제공한다."
+    },
+    {
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "authors": [
+        "Jacob Devlin",
+        "Ming-Wei Chang",
+        "Kenton Lee"
+      ],
+      "year": 2018,
+      "citations": 120000,
+      "importance_score": 99,
+      "url": "https://arxiv.org/abs/1810.04805",
+      "abstract": "BERT는 양방향 Transformer 인코더를 대규모 텍스트 코퍼스에서 사전학습한 뒤, 다양한 자연어 이해 과제에 미세조정(fine-tuning)하는 범용 언어표현 학습 방법을 제안한다. 마스킹 언어모델(MLM)과 다음 문장 예측(NSP) 목표를 사용해 문맥 양방향 정보를 학습하며, GLUE, SQuAD 등 여러 벤치마크에서 당시 최고 성능을 달성했다."
+    },
+    {
+      "title": "Deep Learning",
+      "authors": [
+        "Ian Goodfellow",
+        "Yoshua Bengio",
+        "Aaron Courville"
+      ],
+      "year": 2016,
+      "citations": 120000,
+      "importance_score": 98,
+      "url": "https://www.deeplearningbook.org/",
+      "abstract": "딥러닝의 수학적 기반(선형대수/확률/최적화), 신경망 학습, 정규화, 합성곱/순환 신경망, 표현학습, 생성모형 및 실무적 트릭을 체계적으로 정리한 표준 교과서이다."
+    },
+    {
+      "title": "Reinforcement Learning: An Introduction",
+      "authors": [
+        "Richard S. Sutton",
+        "Andrew G. Barto"
+      ],
+      "year": 2018,
+      "citations": 120000,
+      "importance_score": 98,
+      "url": "http://incompleteideas.net/book/the-book-2nd.html",
+      "abstract": "강화학습의 기본 문제설정(MDP), 동적계획법, 몬테카를로, TD 학습, 정책경사, 함수근사 등 핵심 알고리즘을 체계적으로 정리한 강화학습 분야의 대표 교과서이다."
+    },
+    {
+      "title": "Pattern Recognition and Machine Learning",
+      "authors": [
+        "Christopher M. Bishop"
+      ],
+      "year": 2006,
+      "citations": 120000,
+      "importance_score": 97,
+      "url": "https://link.springer.com/book/10.1007/978-0-387-45528-0",
+      "abstract": "패턴인식과 머신러닝을 확률적 모델링 관점에서 정리하며, 선형모형, 커널 방법, 그래픽 모델, 혼합모형, 근사추론 등을 체계적으로 다룬 고전 교과서이다."
+    },
+    {
+      "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+      "authors": [
+        "Karen Simonyan",
+        "Andrew Zisserman"
+      ],
+      "year": 2014,
+      "citations": 110000,
+      "importance_score": 98,
+      "url": "https://arxiv.org/abs/1409.1556",
+      "abstract": "VGG는 작은 3x3 컨볼루션을 반복적으로 쌓아 네트워크 깊이를 늘리는 단순한 설계 원칙으로 대규모 이미지 인식 성능을 향상시켰다. 깊이(16~19층)가 성능에 미치는 영향을 체계적으로 보여주었고, 전이학습 및 특징 추출 백본으로 널리 사용되었다."
+    },
+    {
+      "title": "Generative Adversarial Nets",
+      "authors": [
+        "Ian J. Goodfellow",
+        "Jean Pouget-Abadie",
+        "Mehdi Mirza"
+      ],
+      "year": 2014,
+      "citations": 90000,
+      "importance_score": 99,
+      "url": "https://arxiv.org/abs/1406.2661",
+      "abstract": "GAN은 생성자와 판별자가 미니맥스 게임을 통해 경쟁적으로 학습하는 생성 모델을 제안한다. 생성자는 실제와 유사한 샘플을 만들고 판별자는 진짜/가짜를 구분하도록 학습되며, 명시적 우도 계산 없이도 고품질 샘플링이 가능함을 보였다."
+    },
+    {
+      "title": "Auto-Encoding Variational Bayes",
+      "authors": [
+        "Diederik P. Kingma",
+        "Max Welling"
+      ],
+      "year": 2013,
+      "citations": 70000,
+      "importance_score": 98,
+      "url": "https://arxiv.org/abs/1312.6114",
+      "abstract": "VAE는 변분추론을 신경망 기반 인코더/디코더로 구현해 연속 잠재변수를 갖는 생성 모델을 효율적으로 학습하는 방법을 제안한다. 재매개변수화 트릭을 통해 확률적 샘플링을 포함한 모델을 역전파로 최적화할 수 있게 했으며, 잠재공간 학습과 생성 모델링의 핵심 틀로 자리잡았다."
+    },
+    {
+      "title": "An Introduction to Statistical Learning: With Applications in R",
+      "authors": [
+        "Gareth James",
+        "Daniela Witten",
+        "Trevor Hastie"
+      ],
+      "year": 2013,
+      "citations": 70000,
+      "importance_score": 92,
+      "url": "https://www.statlearning.com/",
+      "abstract": "회귀·분류·재표본추출·선형모형·정규화(리지/라쏘)·트리/랜덤포레스트·부스팅·SVM·비지도학습 등 핵심 통계학습 기법을 직관적 설명과 함께 R 실습으로 소개하는 대표적 입문서이다."
+    },
+    {
+      "title": "Support-Vector Networks",
+      "authors": [
+        "Corinna Cortes",
+        "Vladimir Vapnik"
+      ],
+      "year": 1995,
+      "citations": 65000,
+      "importance_score": 99,
+      "url": "https://link.springer.com/article/10.1007/BF00994018",
+      "abstract": "최대 마진 원리를 기반으로 한 SVM 분류기를 정식화하고, 비선형 분류를 위한 커널 함수를 도입해 고차원 특징 공간에서의 선형 분리를 가능하게 한다. 소프트 마진(슬랙 변수)로 노이즈/겹침이 있는 데이터에도 적용 가능함을 보이며, 학습이 일부 데이터(서포트 벡터)에 의해 결정되는 희소한 해를 갖는다는 점을 강조한다."
+    },
+    {
+      "title": "The Nature of Statistical Learning Theory",
+      "authors": [
+        "Vladimir N. Vapnik"
+      ],
+      "year": 1995,
+      "citations": 65000,
+      "importance_score": 98,
+      "url": "https://link.springer.com/book/10.1007/978-1-4757-2440-0",
+      "abstract": "통계적 학습이론의 기초를 정립한 저서로, 경험위험 최소화, 구조적 위험 최소화(SRM), VC 차원, 일반화 경계, 서포트 벡터 머신으로 이어지는 이론적 틀을 제시하여 학습 알고리즘의 일반화 성능을 분석하는 방법을 제공한다."
+    },
+    {
+      "title": "Scikit-Learn: Machine Learning in Python",
+      "authors": [
+        "Fabian Pedregosa",
+        "Gaël Varoquaux",
+        "Alexandre Gramfort"
+      ],
+      "year": 2011,
+      "citations": 65000,
+      "importance_score": 97,
+      "url": "https://jmlr.org/papers/v12/pedregosa11a.html",
+      "abstract": "Python 기반 머신러닝 라이브러리 scikit-learn의 설계 철학과 API, 구현된 주요 알고리즘(분류·회귀·클러스터링·차원축소·모델 선택 등), 그리고 일관된 인터페이스와 성능/재현성 측면의 장점을 소개한다."
+    },
+    {
+      "title": "Machine Learning: A Probabilistic Perspective",
+      "authors": [
+        "Kevin P. Murphy"
+      ],
+      "year": 2012,
+      "citations": 65000,
+      "importance_score": 95,
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "abstract": "확률모형 관점에서 지도/비지도 학습, 그래픽 모델, 베이지안 추론, EM, MCMC/변분추론, 시계열/상태공간모형 등 머신러닝 전반을 폭넓고 엄밀하게 다룬 대표 교과서이다."
+    },
+    {
+      "title": "Greedy Function Approximation: A Gradient Boosting Machine",
+      "authors": [
+        "Jerome H. Friedman"
+      ],
+      "year": 2001,
+      "citations": 60000,
+      "importance_score": 99,
+      "url": "https://projecteuclid.org/journals/annals-of-statistics/volume-29/issue-5/Greedy-Function-Approximation-A-Gradient-Boosting-Machine/10.1214/aos/1013203451.full",
+      "abstract": "손실함수를 함수공간에서의 경사하강으로 해석하여 약한 학습기(주로 얕은 트리)를 단계적으로 추가하는 그레이디언트 부스팅 프레임워크를 정식화하고, 다양한 손실(회귀·분류)과 정규화/축소(shrinkage) 아이디어를 제시한다."
+    },
+    {
+      "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
+      "authors": [
+        "Sergey Ioffe",
+        "Christian Szegedy"
+      ],
+      "year": 2015,
+      "citations": 60000,
+      "importance_score": 99,
+      "url": "https://arxiv.org/abs/1502.03167",
+      "abstract": "미니배치 통계(평균/분산)로 중간 활성값을 정규화하고 학습 가능한 스케일/시프트(γ, β)를 추가하는 배치 정규화(BN)를 제안한다. 이를 통해 학습 안정성과 수렴 속도를 개선하고 더 큰 학습률 사용을 가능하게 하며, 깊은 신경망에서 성능과 학습 효율을 크게 향상시킨다."
+    },
+    {
+      "title": "t-SNE: Visualizing Data using t-SNE",
+      "authors": [
+        "Laurens van der Maaten",
+        "Geoffrey Hinton"
+      ],
+      "year": 2008,
+      "citations": 60000,
+      "importance_score": 97,
+      "url": "https://www.jmlr.org/papers/v9/vandermaaten08a.html",
+      "abstract": "고차원 데이터의 국소 이웃 구조를 보존하는 2D/3D 임베딩을 위해, 고차원에서는 가우시안 기반 유사도, 저차원에서는 heavy-tail을 갖는 Student-t 분포 유사도를 사용하고 KL 발산을 최소화하는 t-SNE를 제안한다. crowding problem을 완화해 시각화 품질을 크게 개선했으며, 퍼플렉시티 등 하이퍼파라미터가 결과에 미치는 영향도 논의한다."
+    },
+    {
+      "title": "A Survey of Deep Learning",
+      "authors": [
+        "Yann LeCun",
+        "Yoshua Bengio",
+        "Geoffrey Hinton"
+      ],
+      "year": 2015,
+      "citations": 60000,
+      "importance_score": 94,
+      "url": "https://www.nature.com/articles/nature14539",
+      "abstract": "딥러닝의 핵심 아이디어(표현학습, 계층적 특징), 학습을 가능하게 한 요인(데이터/연산/알고리즘), 그리고 음성·비전·자연어 등 주요 응용 분야에서의 성과를 개관한 대표적 서베이/리뷰 논문이다."
+    },
+    {
+      "title": "Bagging Predictors",
+      "authors": [
+        "Leo Breiman"
+      ],
+      "year": 1996,
+      "citations": 50000,
+      "importance_score": 97,
+      "url": "https://www.stat.berkeley.edu/~breiman/bagging.pdf",
+      "abstract": "부트스트랩으로 생성한 여러 학습 데이터에서 모델을 반복 학습한 뒤 평균(회귀) 또는 다수결(분류)로 결합하는 배깅(bagging)을 제안하여, 불안정한 학습기의 분산을 줄이고 예측 성능을 향상시키는 원리를 설명한다."
+    },
+    {
+      "title": "K-means Clustering",
+      "authors": [
+        "James MacQueen"
+      ],
+      "year": 1967,
+      "citations": 50000,
+      "importance_score": 95,
+      "url": null,
+      "abstract": "데이터를 K개의 군집으로 나누기 위해 군집 중심(centroid)을 반복적으로 갱신하는 K-means 절차를 제시한다. 각 점을 가장 가까운 중심에 할당하고 중심을 재계산하는 단순한 반복으로 제곱오차(SSE)를 감소시키며, 초기값과 지역해(local optimum) 문제 등 실무적 특성을 갖는 대표적 비지도 군집화 방법의 기초를 제공한다."
+    },
+    {
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "authors": [
+        "Tianqi Chen",
+        "Carlos Guestrin"
+      ],
+      "year": 2016,
+      "citations": 45000,
+      "importance_score": 99,
+      "url": "https://arxiv.org/abs/1603.02754",
+      "abstract": "대규모 데이터에서의 그레이디언트 트리 부스팅을 효율적으로 수행하기 위해 정규화된 목적함수, 희소성 인지 분할(sparsity-aware split), 가중치 근사(quantile sketch), 병렬/분산 학습 및 캐시 최적화 등을 결합한 XGBoost 시스템을 제안한다."
+    },
+    {
+      "title": "Language Models are Few-Shot Learners",
+      "authors": [
+        "Tom B. Brown",
+        "Benjamin Mann",
+        "Nick Ryder"
+      ],
+      "year": 2020,
+      "citations": 45000,
+      "importance_score": 98,
+      "url": "https://arxiv.org/abs/2005.14165",
+      "abstract": "GPT-3(최대 175B)를 제안하고, 프롬프트에 소수 예시를 제공하는 few-shot/in-context learning만으로도 다양한 NLP 과제에서 강력한 성능을 보임을 대규모 평가로 입증한다."
+    },
+    {
+      "title": "Microsoft COCO: Common Objects in Context",
+      "authors": [
+        "Tsung-Yi Lin",
+        "Michael Maire",
+        "Serge Belongie"
+      ],
+      "year": 2014,
+      "citations": 40000,
+      "importance_score": 99,
+      "url": "https://arxiv.org/abs/1405.0312",
+      "abstract": "일상 장면에서의 객체 인식/검출/분할/캡셔닝을 위한 대규모 데이터셋 MS COCO를 소개한다. 다양한 객체 카테고리와 복잡한 문맥을 포함하도록 설계되었고, 객체 인스턴스 분할과 캡션 등 풍부한 주석을 제공한다. 표준 평가 지표와 기준선 결과를 통해 컴퓨터 비전의 핵심 벤치마크로 자리잡았다."
+    },
+    {
+      "title": "Dropout: A Simple Way to Prevent Neural Networks from Overfitting",
+      "authors": [
+        "Nitish Srivastava",
+        "Geoffrey Hinton",
+        "Alex Krizhevsky"
+      ],
+      "year": 2014,
+      "citations": 40000,
+      "importance_score": 98,
+      "url": "https://jmlr.org/papers/v15/srivastava14a.html",
+      "abstract": "학습 중 임의로 뉴런(또는 연결)을 비활성화하는 dropout을 통해 공적응(co-adaptation)을 줄이고 과적합을 완화하는 정규화 기법을 제안한다. 테스트 시에는 스케일된 전체 네트워크를 사용해 앙상블 평균과 유사한 효과를 얻으며, 다양한 신경망/데이터셋에서 일반화 성능 향상을 보인다."
+    },
+    {
+      "title": "The Matrix Cookbook",
+      "authors": [
+        "Kaare Brandt Petersen",
+        "Michael Syskind Pedersen"
+      ],
+      "year": 2012,
+      "citations": 40000,
+      "importance_score": 92,
+      "url": "https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf",
+      "abstract": "선형대수 및 행렬미적분에서 자주 쓰이는 항등식, 미분/미분가능성, trace/vec/Kronecker 관련 공식 등을 참고용으로 체계적으로 정리한 문서다. 머신러닝과 최적화에서 반복적으로 필요한 행렬 계산 레퍼런스로 광범위하게 인용된다."
+    },
+    {
+      "title": "Understanding Machine Learning: From Theory to Algorithms",
+      "authors": [
+        "Shai Shalev-Shwartz",
+        "Shai Ben-David"
+      ],
+      "year": 2014,
+      "citations": 35000,
+      "importance_score": 92,
+      "url": "https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/",
+      "abstract": "PAC 학습, 일반화 경계, 최적화 기반 학습, 서포트 벡터 머신, 온라인 학습 등 머신러닝의 이론적 토대를 정리하고 주요 알고리즘을 이론-알고리즘 연결 방식으로 설명하는 표준 교재이다."
+    },
+    {
+      "title": "Principal Component Analysis",
+      "authors": [
+        "Harold Hotelling"
+      ],
+      "year": 1933,
+      "citations": 30000,
+      "importance_score": 96,
+      "url": "https://doi.org/10.1037/h0071325",
+      "abstract": "상관된 다변량 데이터를 분산이 최대가 되는 직교 축(주성분)으로 선형 변환하여 저차원으로 요약하는 방법을 정식화한다. 공분산/상관 행렬의 고유값 분해를 통해 주성분을 구하고, 차원 축소·노이즈 제거·시각화 등 다양한 통계/머신러닝 응용의 기반을 마련한다."
+    },
+    {
+      "title": "CLIP: Learning Transferable Visual Models From Natural Language Supervision",
+      "authors": [
+        "Alec Radford",
+        "Jong Wook Kim",
+        "Chris Hallacy"
+      ],
+      "year": 2021,
+      "citations": 25000,
+      "importance_score": 99,
+      "arxiv_id": "2103.00020",
+      "url": "https://arxiv.org/abs/2103.00020",
+      "abstract": "대규모 이미지-텍스트 쌍을 이용해 이미지와 텍스트를 각각 인코딩한 뒤 대조학습(contrastive learning)으로 정렬하는 방식으로, 광범위한 시각 인식 과제에서 제로샷 전이 성능을 크게 향상시키는 범용 비전 표현을 학습한다."
+    },
+    {
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "authors": [
+        "Alec Radford",
+        "Jong Wook Kim",
+        "Chris Hallacy"
+      ],
+      "year": 2021,
+      "citations": 25000,
+      "importance_score": 97,
+      "url": "https://arxiv.org/abs/2103.00020",
+      "abstract": "이미지-텍스트 쌍을 이용한 대규모 대조학습으로 시각 표현을 학습하는 CLIP을 제안한다. 자연어를 감독 신호로 활용해 다양한 비전 태스크에서 제로샷 전이를 가능하게 하며, 사전학습 데이터/목표 설계가 범용 시각 모델 성능과 전이성에 미치는 영향을 분석한다."
+    },
+    {
+      "title": "RoBERTa: A Robustly Optimized BERT Pretraining Approach",
+      "authors": [
+        "Yinhan Liu",
+        "Myle Ott",
+        "Naman Goyal"
+      ],
+      "year": 2019,
+      "citations": 25000,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/1907.11692",
+      "abstract": "BERT의 사전학습 레시피를 재검토해, 더 큰 데이터/배치, 더 긴 학습, NSP 제거, 동적 마스킹 등 최적화된 학습 설정만으로 성능을 크게 끌어올릴 수 있음을 보인다."
+    },
+    {
+      "title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems",
+      "authors": [
+        "Aurélien Géron"
+      ],
+      "year": 2017,
+      "citations": 25000,
+      "importance_score": 88,
+      "url": "https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/",
+      "abstract": "Scikit-Learn을 활용한 전통적 ML 파이프라인(전처리, 모델 선택, 튜닝)과 Keras/TensorFlow를 활용한 딥러닝(신경망, CNN, RNN 등)을 실습 프로젝트 형태로 연결해 설명하는 실무서이다."
+    },
+    {
+      "title": "Introduction to Machine Learning",
+      "authors": [
+        "Ethem Alpaydin"
+      ],
+      "year": 2004,
+      "citations": 25000,
+      "importance_score": 82,
+      "url": null,
+      "abstract": "통계적 학습의 관점에서 분류/회귀, 커널 방법, 신경망, 모델 선택과 일반화 등 머신러닝의 핵심 이론과 알고리즘을 폭넓게 소개하는 대표적인 교과서이다."
+    },
+    {
+      "title": "SimCLR: A Simple Framework for Contrastive Learning of Visual Representations",
+      "authors": [
+        "Ting Chen",
+        "Simon Kornblith",
+        "Mohammad Norouzi"
+      ],
+      "year": 2020,
+      "citations": 20000,
+      "importance_score": 97,
+      "url": "https://arxiv.org/abs/2002.05709",
+      "abstract": "대규모 데이터 증강과 대조학습(contrastive learning)을 결합해 레이블 없이 강력한 시각 표현을 학습하는 간단한 프레임워크(SimCLR)를 제안한다. 동일 이미지의 두 증강 뷰는 가깝게, 다른 이미지는 멀게 만드는 NT-Xent(temperature-scaled cross entropy) 손실을 사용하며, projection head와 강한 증강, 큰 배치/학습 스케줄이 성능에 중요함을 실증한다. ImageNet에서 선형 평가 및 전이 학습 성능을 크게 향상시킨다."
+    },
+    {
+      "title": "GPT-2: Language Models are Unsupervised Multitask Learners",
+      "authors": [
+        "Alec Radford",
+        "Jeffrey Wu",
+        "Rewon Child"
+      ],
+      "year": 2019,
+      "citations": 20000,
+      "importance_score": 92,
+      "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
+      "abstract": "대규모 Transformer 언어모델(GPT-2)이 별도의 지도학습 없이도 다양한 다운스트림 과제를 ‘제로샷’ 형태로 수행할 수 있음을 보이며, 모델/데이터 스케일링이 범용 언어 능력과 전이 성능을 크게 향상시킨다는 점을 실증한다."
+    },
+    {
+      "title": "Introduction to Machine Learning with Python: A Guide for Data Scientists",
+      "authors": [
+        "Andreas C. Müller",
+        "Sarah Guido"
+      ],
+      "year": 2016,
+      "citations": 20000,
+      "importance_score": 85,
+      "url": null,
+      "abstract": "scikit-learn을 중심으로 전처리, 특징공학, 모델 선택과 평가, 파이프라인 등 실무적인 머신러닝 워크플로를 예제 코드로 설명하는 데이터 과학자용 입문/실전 가이드이다."
+    },
+    {
+      "title": "A Tutorial on Support Vector Machines for Pattern Recognition",
+      "authors": [
+        "Christopher J. C. Burges"
+      ],
+      "year": 1998,
+      "citations": 18000,
+      "importance_score": 92,
+      "url": "https://link.springer.com/article/10.1023/A:1009715923555",
+      "abstract": "서포트 벡터 머신(SVM)의 핵심 아이디어(마진 최대화), 선형 분리/비분리 문제의 소프트 마진, 커널 트릭을 통한 비선형 분류, 구조적 위험 최소화 관점 등을 튜토리얼 형태로 정리한다. SVM의 학습 문제를 최적화(라그랑주 이중문제)로 유도하고, 실무에서의 커널 선택 및 하이퍼파라미터(C, 커널 파라미터) 설정의 직관을 제공한다."
+    },
+    {
+      "title": "DETR: End-to-End Object Detection with Transformers",
+      "authors": [
+        "Nicolas Carion",
+        "Francisco Massa",
+        "Gabriel Synnaeve"
+      ],
+      "year": 2020,
+      "citations": 16000,
+      "importance_score": 97,
+      "url": "https://arxiv.org/abs/2005.12872",
+      "abstract": "객체 검출을 트랜스포머 기반의 엔드투엔드(set prediction) 문제로 정식화한 DETR을 제안한다. Hungarian matching을 통해 중복 제거(NMS) 없이 고정 개수의 객체 쿼리를 예측하며, 백본+트랜스포머 인코더/디코더로 전역 문맥을 활용해 박스와 클래스를 직접 산출한다."
+    },
+    {
+      "title": "BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension",
+      "authors": [
+        "Mike Lewis",
+        "Yinhan Liu",
+        "Naman Goyal"
+      ],
+      "year": 2019,
+      "citations": 16000,
+      "importance_score": 91,
+      "url": "https://arxiv.org/abs/1910.13461",
+      "abstract": "인코더-디코더 Transformer를 다양한 노이즈(토큰 마스킹/삭제/문장 순서 섞기 등)로 훼손된 입력을 복원하도록 사전학습해, 생성/번역/이해 과제에서 강력한 성능을 보인다."
+    },
+    {
+      "title": "A Few Useful Things to Know about Machine Learning",
+      "authors": [
+        "Pedro Domingos"
+      ],
+      "year": 2012,
+      "citations": 16000,
+      "importance_score": 90,
+      "url": "https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf",
+      "abstract": "머신러닝 실무에서 반복적으로 등장하는 핵심 교훈(일반화, 과적합, 고차원, 특성공학, 검증/테스트 분리, 편향-분산, 데이터 누수, 해석 가능성 등)을 직관적으로 정리한 개론적 논문이다."
+    },
+    {
+      "title": "NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis",
+      "authors": [
+        "Ben Mildenhall",
+        "Pratul P. Srinivasan",
+        "Matthew Tancik"
+      ],
+      "year": 2020,
+      "citations": 15000,
+      "importance_score": 99,
+      "url": "https://arxiv.org/abs/2003.08934",
+      "abstract": "연속적인 5D 신경 복사장(공간 좌표와 시선 방향에 따른 밀도/방사)을 MLP로 표현하고, 미분 가능한 볼륨 렌더링을 통해 다중 뷰 이미지로부터 장면을 최적화하여 새로운 시점을 합성한다. 위치 인코딩과 계층적 샘플링을 통해 고주파 디테일과 효율을 확보한다."
+    },
+    {
+      "title": "Stable Diffusion: High-Resolution Image Synthesis with Latent Diffusion Models",
+      "authors": [
+        "Robin Rombach",
+        "Andreas Blattmann",
+        "Dominik Lorenz"
+      ],
+      "year": 2022,
+      "citations": 15000,
+      "importance_score": 98,
+      "url": "https://arxiv.org/abs/2112.10752",
+      "abstract": "이미지 픽셀 공간이 아닌 잠재(latent) 공간에서 디퓨전을 수행하는 Latent Diffusion Models(LDM)를 통해, 계산 효율을 크게 높이면서도 고해상도 이미지 생성을 달성한다. 텍스트 조건(크로스 어텐션)과 잠재 오토인코더를 결합해 대규모 학습 및 공개 배포가 가능해졌고, 이후 생성/편집 생태계에 큰 영향을 준 기반 기술로 자리잡았다."
+    },
+    {
+      "title": "Latent Diffusion Models for High-Resolution Image Synthesis",
+      "authors": [
+        "Robin Rombach",
+        "Andreas Blattmann",
+        "Dominik Lorenz"
+      ],
+      "year": 2022,
+      "citations": 15000,
+      "importance_score": 97,
+      "url": "https://arxiv.org/abs/2112.10752",
+      "abstract": "고해상도 합성을 위해 디퓨전 과정을 잠재 표현 공간에서 수행하는 LDM을 제안한다. 지각적으로 압축된 잠재 공간에서의 확률적 생성은 비용을 절감하면서도 품질을 유지하며, 조건부 생성(텍스트/세그멘테이션/인페인팅 등)을 위한 효율적인 조건 주입(예: 크로스 어텐션) 메커니즘을 포함한다."
+    },
+    {
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "authors": [
+        "Alexey Dosovitskiy",
+        "Lucas Beyer",
+        "Alexander Kolesnikov"
+      ],
+      "year": 2020,
+      "citations": 15000,
+      "importance_score": 96,
+      "url": "https://arxiv.org/abs/2010.11929",
+      "abstract": "이미지를 고정 크기 패치(예: 16×16)로 분할해 토큰 시퀀스로 만들고, 표준 Transformer 인코더로 이미지 분류를 수행하는 Vision Transformer(ViT)를 제안한다. 대규모 사전학습(예: JFT-300M) 후 미세조정하면 CNN과 경쟁하거나 능가하며, 데이터 규모가 커질수록 Transformer의 장점이 커짐을 보인다. 간단한 구조로도 강력한 전이 성능을 달성한다."
+    },
+    {
+      "title": "Improving Language Understanding by Generative Pre-Training",
+      "authors": [
+        "Alec Radford",
+        "Karthik Narasimhan",
+        "Tim Salimans"
+      ],
+      "year": 2018,
+      "citations": 15000,
+      "importance_score": 95,
+      "url": "https://openai.com/research/language-unsupervised",
+      "abstract": "대규모 비지도 사전학습(Generative Pre-Training)으로 언어 표현을 학습한 뒤, 다운스트림 과제에 미세조정(fine-tuning)하는 전이학습 접근을 제안한다. 단일 방향(autoregressive) Transformer 기반 언어모델을 다양한 NLU 벤치마크에 적용해 성능 향상을 보이며, ‘사전학습 후 미세조정’ 패러다임의 효과를 실증한다."
+    },
+    {
+      "title": "UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction",
+      "authors": [
+        "Leland McInnes",
+        "John Healy",
+        "James Melville"
+      ],
+      "year": 2018,
+      "citations": 15000,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/1802.03426",
+      "abstract": "다양체 가정과 위상수학적 관점(퍼지 단체 복합체)을 바탕으로, k-NN 그래프에서의 국소 구조를 구성하고 이를 저차원에서 유사한 퍼지 그래프로 맞추도록 최적화하는 차원 축소 기법 UMAP을 제안한다. t-SNE 대비 더 빠른 계산과 전역 구조 보존 경향, 임베딩 품질 및 확장성(대규모 데이터)에 대한 장점을 제시한다."
+    },
+    {
+      "title": "Deep Learning with Python",
+      "authors": [
+        "François Chollet"
+      ],
+      "year": 2017,
+      "citations": 15000,
+      "importance_score": 85,
+      "url": "https://www.manning.com/books/deep-learning-with-python-second-edition",
+      "abstract": "Keras(및 텐서플로) 기반으로 신경망 기본 개념부터 컴퓨터비전/시계열/텍스트 처리, 과적합 방지, 모델 설계 패턴 등을 코드 중심으로 설명하는 실무 지향 딥러닝 입문서이다."
+    },
+    {
+      "title": "A Tutorial on Principal Component Analysis",
+      "authors": [
+        "Jonathon Shlens"
+      ],
+      "year": 2014,
+      "citations": 15000,
+      "importance_score": 85,
+      "url": "https://arxiv.org/abs/1404.1100",
+      "abstract": "PCA의 목적(분산 최대화/재구성 오차 최소화), 공분산 행렬 고유분해, SVD 관점, 데이터 전처리(평균 제거) 등 핵심 개념을 직관적으로 정리한 튜토리얼이다. 구현에 필요한 수식과 해석을 간결히 제공해 입문 자료로 널리 활용된다."
+    },
+    {
+      "title": "Training language models to follow instructions with human feedback",
+      "authors": [
+        "Long Ouyang",
+        "Jeff Wu",
+        "Xu Jiang"
+      ],
+      "year": 2022,
+      "citations": 12000,
+      "importance_score": 97,
+      "url": "https://arxiv.org/abs/2203.02155",
+      "abstract": "인간 피드백을 활용한 강화학습(RLHF) 파이프라인(지도 미세조정 + 보상모델 학습 + PPO)을 통해 언어모델이 지시를 더 잘 따르고 유해/비선호 응답을 줄이도록 정렬(alignment)할 수 있음을 보인다(InstructGPT)."
+    },
+    {
+      "title": "LightGBM: A Highly Efficient Gradient Boosting Decision Tree",
+      "authors": [
+        "Guolin Ke",
+        "Qi Meng",
+        "Thomas Finley"
+      ],
+      "year": 2017,
+      "citations": 12000,
+      "importance_score": 95,
+      "url": "https://papers.nips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html",
+      "abstract": "히스토그램 기반 학습과 리프-와이즈(leaf-wise) 트리 성장, GOSS(Gradient-based One-Side Sampling), EFB(Exclusive Feature Bundling) 등을 통해 속도와 메모리 효율을 개선한 그레이디언트 부스팅 결정트리 프레임워크 LightGBM을 제안한다."
+    },
+    {
+      "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+      "authors": [
+        "Ze Liu",
+        "Yutong Lin",
+        "Yue Cao"
+      ],
+      "year": 2021,
+      "citations": 12000,
+      "importance_score": 95,
+      "url": "https://arxiv.org/abs/2103.14030",
+      "abstract": "윈도우 기반 self-attention을 사용해 계산량을 입력 크기에 대해 선형으로 만들고, shifted window로 윈도우 간 정보 교환을 가능하게 하는 계층적 비전 트랜스포머(Swin)를 제안한다. 피라미드 형태의 표현을 통해 분류뿐 아니라 검출/분할 등 다운스트림 비전 과제에 적합하며, COCO/ ADE20K 등에서 강력한 성능과 효율을 보인다."
+    },
+    {
+      "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+      "authors": [
+        "Colin Raffel",
+        "Noam Shazeer",
+        "Adam Roberts"
+      ],
+      "year": 2020,
+      "citations": 12000,
+      "importance_score": 93,
+      "url": "https://arxiv.org/abs/1910.10683",
+      "abstract": "모든 NLP 과제를 텍스트-투-텍스트로 통일하는 T5 프레임워크를 제시하고, 데이터/목표함수/스케일링 등 설계 선택을 대규모 실험으로 비교해 전이학습 성능 한계를 탐색한다."
+    },
+    {
+      "title": "LLaMA: Open and Efficient Foundation Language Models",
+      "authors": [
+        "Hugo Touvron",
+        "Thibaut Lavril",
+        "Gautier Izacard"
+      ],
+      "year": 2023,
+      "citations": 11000,
+      "importance_score": 96,
+      "url": "https://arxiv.org/abs/2302.13971",
+      "abstract": "상대적으로 작은 파라미터(7B~65B)로도 고품질 데이터와 효율적 학습을 통해 강력한 성능을 달성하는 LLaMA를 제안하며, 공개(연구용) 모델 계열의 확산을 촉진한 효율적 파운데이션 모델 설계를 제시한다."
+    },
+    {
+      "title": "Python Machine Learning",
+      "authors": [
+        "Sebastian Raschka",
+        "Vahid Mirjalili"
+      ],
+      "year": 2015,
+      "citations": 10000,
+      "importance_score": 80,
+      "url": "https://www.packtpub.com/en-us/product/python-machine-learning-9781789955750",
+      "abstract": "파이썬 생태계(NumPy, scikit-learn 등)로 분류/회귀/군집/차원축소, 모델 평가 및 튜닝, 텍스트/이미지 등 응용까지 다루며 실전 구현 관점에서 머신러닝 흐름을 정리한 책이다."
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "authors": [
+        "Patrick Lewis",
+        "Ethan Perez",
+        "Aleksandra Piktus"
+      ],
+      "year": 2020,
+      "citations": 9500,
+      "importance_score": 97,
+      "arxiv_id": "2005.11401",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "abstract": "Introduces Retrieval-Augmented Generation (RAG), combining a neural retriever over a large text corpus with a seq2seq generator. The model retrieves relevant passages and conditions generation on them, improving factual accuracy and performance on knowledge-intensive tasks like open-domain QA."
+    },
+    {
+      "title": "Segment Anything",
+      "authors": [
+        "Alexander Kirillov",
+        "Eric Mintun",
+        "Nikhila Ravi"
+      ],
+      "year": 2023,
+      "citations": 9000,
+      "importance_score": 98,
+      "url": "https://arxiv.org/abs/2304.02643",
+      "abstract": "대규모 데이터(11M 이미지, 1B 마스크)와 프롬프트 기반 설계를 통해, 새로운 이미지/도메인에서도 강하게 일반화되는 범용 세그멘테이션 모델(SAM)을 제안한다. 포인트/박스/마스크 등의 프롬프트로 다양한 분할 요청을 처리하며, 단일 모델로 광범위한 다운스트림 비전 작업의 기반 모듈로 활용 가능함을 보인다."
+    },
+    {
+      "title": "Masked Autoencoders Are Scalable Vision Learners",
+      "authors": [
+        "Kaiming He",
+        "Xinlei Chen",
+        "Saining Xie"
+      ],
+      "year": 2021,
+      "citations": 9000,
+      "importance_score": 98,
+      "arxiv_id": "2111.06377",
+      "url": "https://arxiv.org/abs/2111.06377",
+      "abstract": "MAE는 입력 이미지 패치를 높은 비율로 마스킹한 뒤, 보이는 일부 패치만 인코더에 넣고 경량 디코더로 원본을 복원하는 단순한 오토인코더 기반 자기지도 학습을 제안한다. 계산 효율적으로 대규모 사전학습이 가능하며, 다양한 비전 다운스트림 과제에서 강력한 전이 성능을 보인다."
+    },
+    {
+      "title": "Bootstrap Your Own Latent: A New Approach to Self-Supervised Learning",
+      "authors": [
+        "Jean-Bastien Grill",
+        "Florian Strub",
+        "Florent Altché"
+      ],
+      "year": 2020,
+      "citations": 9000,
+      "importance_score": 97,
+      "arxiv_id": "2006.07733",
+      "url": "https://arxiv.org/abs/2006.07733",
+      "abstract": "BYOL은 음성 샘플(negative pairs) 없이도 두 뷰의 표현을 일치시키는 자기지도 학습 방법을 제안한다. 온라인 네트워크와 타깃 네트워크(EMA 업데이트), 예측 헤드 구성을 통해 붕괴를 방지하며, 대조학습에 필적하거나 능가하는 표현 학습 성능을 보인다."
+    },
+    {
+      "title": "Whisper: Robust Speech Recognition via Large-Scale Weak Supervision",
+      "authors": [
+        "Alec Radford",
+        "Jong Wook Kim",
+        "Tao Xu"
+      ],
+      "year": 2022,
+      "citations": 9000,
+      "importance_score": 95,
+      "arxiv_id": "2212.04356",
+      "url": "https://arxiv.org/abs/2212.04356",
+      "abstract": "대규모 약지도(웹 규모) 음성-텍스트 데이터로 학습한 범용 음성 인식/번역 모델을 제안한다. 다양한 잡음, 억양, 도메인에서 강인한 성능을 보이며, 다국어 ASR과 음성 번역까지 단일 시퀀스-투-시퀀스 모델로 처리한다."
+    },
+    {
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "authors": [
+        "Edward J. Hu",
+        "Yelong Shen",
+        "Phillip Wallis"
+      ],
+      "year": 2021,
+      "citations": 9000,
+      "importance_score": 93,
+      "url": "https://arxiv.org/abs/2106.09685",
+      "abstract": "대형 모델의 가중치는 고정하고 저랭크 행렬을 추가로 학습하는 LoRA를 제안해, 미세조정 시 학습 파라미터/메모리를 크게 줄이면서도 성능을 유지하거나 향상시키는 방법을 제시한다."
+    },
+    {
+      "title": "Show, Attend and Tell: Neural Image Caption Generation with Visual Attention",
+      "authors": [
+        "Kelvin Xu",
+        "Jimmy Ba",
+        "Ryan Kiros"
+      ],
+      "year": 2015,
+      "citations": 9000,
+      "importance_score": 92,
+      "arxiv_id": "1502.03044",
+      "url": "https://arxiv.org/abs/1502.03044",
+      "abstract": "이미지 캡셔닝에서 시각적 어텐션을 도입해, 단어를 생성할 때마다 이미지의 관련 영역에 동적으로 집중하도록 하는 모델을 제안한다. ‘soft’/‘hard’ 어텐션 변형을 제시하고, 어텐션이 해석 가능성과 성능 향상에 기여함을 보인다."
+    },
+    {
+      "title": "Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion",
+      "authors": [
+        "Pascal Vincent",
+        "Hugo Larochelle",
+        "Yoshua Bengio"
+      ],
+      "year": 2010,
+      "citations": 9000,
+      "importance_score": 90,
+      "url": "https://www.jmlr.org/papers/v11/vincent10a.html",
+      "abstract": "Denoising Autoencoder(DAE)는 입력에 노이즈를 주입한 뒤 원본을 복원하도록 학습함으로써, 데이터의 안정적인 구조를 포착하는 표현을 학습한다. 이러한 지역적 복원(denoising) 기준이 유용한 특징을 만들고, 심층 네트워크 사전학습 및 표현학습에 효과적임을 보인다."
+    },
+    {
+      "title": "ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators",
+      "authors": [
+        "Kevin Clark",
+        "Minh-Thang Luong",
+        "Quoc V. Le"
+      ],
+      "year": 2020,
+      "citations": 9000,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2003.10555",
+      "abstract": "마스크드 LM처럼 토큰을 생성하는 대신, 생성기가 바꿔치기한 토큰을 판별기가 구분하는 Replaced Token Detection으로 사전학습해, 동일 계산량 대비 더 샘플 효율적인 사전학습을 제안한다."
+    },
+    {
+      "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "authors": [
+        "Jason Wei",
+        "Xuezhi Wang",
+        "Dale Schuurmans"
+      ],
+      "year": 2022,
+      "citations": 8500,
+      "importance_score": 96,
+      "arxiv_id": "2201.11903",
+      "url": "https://arxiv.org/abs/2201.11903",
+      "abstract": "Shows that providing exemplars with intermediate reasoning steps (chain-of-thought) in prompts substantially improves performance on multi-step reasoning tasks for sufficiently large language models. Demonstrates strong gains on arithmetic, commonsense, and symbolic reasoning benchmarks."
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "authors": [
+        "Aston Zhang",
+        "Zachary C. Lipton",
+        "Mu Li"
+      ],
+      "year": 2019,
+      "citations": 8000,
+      "importance_score": 88,
+      "url": "https://d2l.ai/",
+      "abstract": "실행 가능한 코드 중심으로 딥러닝의 기본부터 CNN, RNN, 어텐션/트랜스포머, 최적화와 정규화 등 현대 딥러닝의 주요 구성요소를 체계적으로 다루는 오픈소스 교재이다."
+    },
+    {
+      "title": "DINO: Emerging Properties in Self-Supervised Vision Transformers",
+      "authors": [
+        "Mathilde Caron",
+        "Hugo Touvron",
+        "Ishan Misra"
+      ],
+      "year": 2021,
+      "citations": 7500,
+      "importance_score": 97,
+      "arxiv_id": "2104.14294",
+      "url": "https://arxiv.org/abs/2104.14294",
+      "abstract": "DINO는 교사-학생(teacher-student) 자기증류(self-distillation) 방식으로 라벨 없이 ViT를 학습하며, 크롭 기반 다중 뷰 학습과 센터링/샤프닝으로 학습을 안정화한다. 사전학습된 ViT에서 어텐션 맵이 객체 분할과 유사한 성질을 보이는 등 ‘emergent’ 특성을 보고한다."
+    },
+    {
+      "title": "Visual Genome: Connecting Language and Vision Using Crowdsourced Dense Image Annotations",
+      "authors": [
+        "Ranjay Krishna",
+        "Yukang Chen",
+        "Yannis Kalantidis"
+      ],
+      "year": 2017,
+      "citations": 7000,
+      "importance_score": 93,
+      "arxiv_id": "1602.07332",
+      "url": "https://arxiv.org/abs/1602.07332",
+      "abstract": "이미지에 대한 밀집(region-level) 설명, 객체/속성/관계 주석, 질의응답 등 풍부한 언어-시각 주석을 대규모로 구축한 Visual Genome 데이터셋을 제안한다. 장면 그래프 기반의 시각 추론과 비전-언어 학습을 촉진하는 핵심 자원으로 널리 활용된다."
+    },
+    {
+      "title": "Kinetics: A Large-Scale Video Action Recognition Dataset",
+      "authors": [
+        "Will Kay",
+        "Joao Carreira",
+        "Karen Simonyan"
+      ],
+      "year": 2017,
+      "citations": 6500,
+      "importance_score": 97,
+      "url": "https://arxiv.org/abs/1705.06950",
+      "abstract": "유튜브에서 수집된 사람 행동 중심의 대규모 비디오 액션 인식 데이터셋 Kinetics를 제안한다. 수백 개의 행동 클래스를 포함하며, 3D CNN 등 비디오 인식 모델의 사전학습/벤치마크로 표준적으로 활용되며 비디오 표현 학습 연구를 크게 촉진했다."
+    },
+    {
+      "title": "DALL·E 2: Hierarchical Text-Conditional Image Generation with CLIP Latents",
+      "authors": [
+        "Aditya Ramesh",
+        "Prafulla Dhariwal",
+        "Alex Nichol"
+      ],
+      "year": 2022,
+      "citations": 6200,
+      "importance_score": 93,
+      "url": "https://arxiv.org/abs/2204.06125",
+      "abstract": "CLIP 이미지 임베딩 공간에서 텍스트 조건의 ‘prior’를 학습하고, 그 임베딩을 조건으로 디퓨전 디코더가 이미지를 생성하는 계층적(text→CLIP latent→image) 생성 방식을 제안한다. 텍스트 정합성과 이미지 품질을 함께 개선하고, 이미지 변형/편집 등 다운스트림 활용 가능성을 확장한다."
+    },
+    {
+      "title": "GPT-4 Technical Report",
+      "authors": [
+        "OpenAI"
+      ],
+      "year": 2023,
+      "citations": 6000,
+      "importance_score": 98,
+      "url": "https://arxiv.org/abs/2303.08774",
+      "abstract": "GPT-4의 전반적 특성, 안전성 평가, 정렬(alignment) 접근, 그리고 다양한 시험/벤치마크에서의 성능을 기술한 보고서이다. 모델 크기·학습 데이터 등 세부는 제한적으로 공개하면서도, 멀티모달 입력(텍스트+이미지) 가능성, 신뢰성·환각·편향·유해성 등 위험요인과 완화 전략, 그리고 실제 활용 관점에서의 강점/한계를 정리한다."
+    },
+    {
+      "title": "VQA: Visual Question Answering",
+      "authors": [
+        "Stanislaw Antol",
+        "Aishwarya Agrawal",
+        "Jiasen Lu"
+      ],
+      "year": 2015,
+      "citations": 6000,
+      "importance_score": 95,
+      "url": "https://arxiv.org/abs/1505.00468",
+      "abstract": "이미지와 자연어 질문을 입력으로 받아 정답을 생성하는 Visual Question Answering(VQA) 과제를 제안하고, 대규모 VQA 데이터셋과 평가 프로토콜을 제공한다. 다양한 질문 유형(객체/속성/개수/추론 등)에 대해 CNN 기반 시각 표현과 RNN 기반 문장 표현을 결합하는 베이스라인을 제시하며, VQA가 단순 인식뿐 아니라 상식 및 추론 능력을 요구함을 분석한다."
+    },
+    {
+      "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+      "authors": [
+        "Hugo Touvron",
+        "Louis Martin",
+        "Kevin Stone"
+      ],
+      "year": 2023,
+      "citations": 6000,
+      "importance_score": 95,
+      "url": "https://arxiv.org/abs/2307.09288",
+      "abstract": "Llama 2(7B~70B) 및 대화용 미세조정(Llama 2-Chat)을 공개하고, 지도 미세조정과 RLHF를 결합해 유용성/안전성을 개선한다. 공개 생태계에서 고성능 오픈 모델의 표준 중 하나로 자리잡았다."
+    },
+    {
+      "title": "Scaling Laws for Neural Language Models",
+      "authors": [
+        "Jared Kaplan",
+        "Sam McCandlish",
+        "Tom Henighan"
+      ],
+      "year": 2020,
+      "citations": 6000,
+      "importance_score": 94,
+      "url": "https://arxiv.org/abs/2001.08361",
+      "abstract": "모델 크기, 데이터, 학습 계산량에 따른 손실의 거듭제곱 법칙(scaling laws)을 실증적으로 제시하고, 주어진 계산 예산에서 최적의 스케일링 전략(모델/데이터/스텝)을 논의한다."
+    },
+    {
+      "title": "InstructGPT: Aligning Language Models with Human Intent",
+      "authors": [
+        "Long Ouyang",
+        "Jeff Wu",
+        "Xu Jiang"
+      ],
+      "year": 2022,
+      "citations": 6000,
+      "importance_score": 94,
+      "url": "https://arxiv.org/abs/2203.02155",
+      "abstract": "사람이 작성한 데모와 선호도 비교 데이터를 이용해 보상모델을 학습하고, 이를 바탕으로 PPO로 언어모델을 최적화하는 RLHF 파이프라인을 제시한다. 더 작은 모델이더라도 사용자 의도에 더 잘 부합하는 응답을 생성할 수 있음을 보이며, 유해성/사실성/유용성 측면의 정렬 효과를 보고한다."
+    },
+    {
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "authors": [
+        "Samyam Rajbhandari",
+        "Jeff Rasley",
+        "Olatunji Ruwase"
+      ],
+      "year": 2020,
+      "citations": 6000,
+      "importance_score": 93,
+      "url": "https://arxiv.org/abs/1910.02054",
+      "abstract": "데이터 병렬 학습에서 옵티마이저 상태, 그래디언트, 파라미터를 프로세스들에 분산(sharding)해 메모리 중복을 제거하는 ZeRO를 제안한다. ZeRO-1/2/3 단계로 분산 범위를 확장하며, 대규모 모델 학습의 메모리 병목을 완화해 ‘트릴리언 파라미터’ 규모로의 확장을 가능하게 한다."
+    },
+    {
+      "title": "Deformable DETR: Deformable Transformers for End-to-End Object Detection",
+      "authors": [
+        "Xizhou Zhu",
+        "Weijie Su",
+        "Jiajun Lu"
+      ],
+      "year": 2021,
+      "citations": 6000,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/2010.04159",
+      "abstract": "DETR의 느린 수렴과 고해상도 특징에서의 비효율을 해결하기 위해, 다중 스케일 특징에서 소수의 샘플링 포인트만 참조하는 deformable attention을 도입한다. 이를 통해 학습 수렴을 크게 가속하고, 작은 객체 및 다양한 해상도에서의 성능을 개선한다."
+    },
+    {
+      "title": "ConvNeXt: A ConvNet for the 2020s",
+      "authors": [
+        "Zhuang Liu",
+        "Han Cai",
+        "Saining Xie"
+      ],
+      "year": 2022,
+      "citations": 6000,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2201.03545",
+      "abstract": "최근 비전 트랜스포머 설계 요소(학습 레시피, 정규화, 스테이지 설계 등)를 참고해 현대적인 ConvNet 아키텍처 ConvNeXt를 제안한다. 순수 컨볼루션 기반이면서도 ImageNet 및 다양한 전이 설정에서 Swin 등 강력한 Transformer 계열과 경쟁하는 성능을 달성하며, ‘ConvNet도 올바른 설계/학습으로 여전히 강력함’을 보여준다."
+    },
+    {
+      "title": "Data Science from Scratch: First Principles with Python",
+      "authors": [
+        "Joel Grus"
+      ],
+      "year": 2015,
+      "citations": 6000,
+      "importance_score": 72,
+      "url": null,
+      "abstract": "파이썬으로 기초 선형대수/확률/통계부터 간단한 머신러닝 알고리즘을 직접 구현하며 데이터 과학의 기본 원리를 ‘처음 principles’ 관점에서 학습하도록 돕는 교재이다."
+    },
+    {
+      "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "authors": [
+        "Tri Dao",
+        "Daniel Y. Fu",
+        "Stefano Ermon"
+      ],
+      "year": 2022,
+      "citations": 5500,
+      "importance_score": 94,
+      "url": "https://arxiv.org/abs/2205.14135",
+      "abstract": "어텐션을 타일링/재계산 방식으로 커널 수준에서 최적화해, HBM 메모리 접근을 줄이고 IO 효율을 극대화하는 FlashAttention을 제안한다. 정확한(근사 아님) softmax attention을 더 빠르고 메모리 효율적으로 계산하며, 긴 컨텍스트 학습/추론에서 큰 속도 향상과 메모리 절감을 보인다."
+    },
+    {
+      "title": "ControlNet: Adding Conditional Control to Text-to-Image Diffusion Models",
+      "authors": [
+        "Lvmin Zhang",
+        "Anyi Rao",
+        "Maneesh Agrawala"
+      ],
+      "year": 2023,
+      "citations": 5200,
+      "importance_score": 97,
+      "arxiv_id": "2302.05543",
+      "url": "https://arxiv.org/abs/2302.05543",
+      "abstract": "기존 텍스트-투-이미지 확산 모델의 가중치를 보존하면서, 에지/포즈/깊이 등 구조 조건을 강하게 반영하는 추가 네트워크(ControlNet)를 도입한다. ‘zero-conv’ 등으로 안정적으로 결합해 다양한 조건 제어를 가능하게 하고, 적은 비용으로 고품질 조건부 생성을 달성한다."
+    },
+    {
+      "title": "LXMERT: Learning Cross-Modality Encoder Representations from Transformers",
+      "authors": [
+        "Hao Tan",
+        "Mohit Bansal"
+      ],
+      "year": 2019,
+      "citations": 5200,
+      "importance_score": 90,
+      "arxiv_id": "1908.07490",
+      "url": "https://arxiv.org/abs/1908.07490",
+      "abstract": "언어 인코더, 비전 인코더, 그리고 cross-modality 인코더로 구성된 트랜스포머 기반 아키텍처를 제안하며, 마스크드 토큰/오브젝트 예측 및 크로스모달 정합 과제 등으로 사전학습하여 VQA, GQA, NLVR2 등에서 성능을 향상시킨다."
+    },
+    {
+      "title": "Unsupervised Learning of Visual Features by Contrasting Cluster Assignments",
+      "authors": [
+        "Mathilde Caron",
+        "Ishan Misra",
+        "Julien Mairal"
+      ],
+      "year": 2020,
+      "citations": 5000,
+      "importance_score": 94,
+      "arxiv_id": "2006.09882",
+      "url": "https://arxiv.org/abs/2006.09882",
+      "abstract": "SwAV는 대조학습을 인스턴스 단위가 아니라 ‘클러스터 할당’ 단위로 수행하는 자기지도 학습을 제안한다. 여러 뷰 간 클러스터 일관성을 맞추고, 온라인 클러스터링과 샘플 큐를 활용해 대규모 학습을 효율화하여 강력한 시각 표현을 학습한다."
+    },
+    {
+      "title": "PaLM: Scaling Language Modeling with Pathways",
+      "authors": [
+        "Aakanksha Chowdhery",
+        "Sharan Narang",
+        "Jacob Devlin"
+      ],
+      "year": 2022,
+      "citations": 5000,
+      "importance_score": 93,
+      "url": "https://arxiv.org/abs/2204.02311",
+      "abstract": "Pathways 기반의 대규모 분산 학습으로 540B 파라미터 PaLM을 학습하고, 다수의 언어 이해/생성 및 추론 벤치마크에서 스케일링에 따른 성능 향상을 보여주며 특히 다단계 추론(예: chain-of-thought)에서 강점을 보고한다."
+    },
+    {
+      "title": "BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation (Revisited)",
+      "authors": [
+        "Junnan Li",
+        "Dongxu Li",
+        "Caiming Xiong"
+      ],
+      "year": 2022,
+      "citations": 5000,
+      "importance_score": 90,
+      "arxiv_id": "2201.12086",
+      "url": "https://arxiv.org/abs/2201.12086",
+      "abstract": "노이즈가 많은 웹 이미지-텍스트 데이터의 품질 문제를 완화하기 위해, 캡션 생성과 필터링을 결합한 ‘bootstrapping’ 방식으로 더 나은 학습 쌍을 구성하고 비전-언어 사전학습을 수행한다. 이해(검색/분류/VQA)와 생성(캡셔닝) 과제를 단일 프레임워크로 지원하며 강력한 성능을 보인다."
+    },
+    {
+      "title": "DeBERTa: Decoding-enhanced BERT with Disentangled Attention",
+      "authors": [
+        "Pengcheng He",
+        "Xiaodong Liu",
+        "Jianfeng Gao"
+      ],
+      "year": 2020,
+      "citations": 5000,
+      "importance_score": 85,
+      "url": "https://arxiv.org/abs/2006.03654",
+      "abstract": "토큰 내용(content)과 위치(position) 정보를 분리(disentangle)해 어텐션을 계산하고, 디코딩-강화(예: 상대적 위치/표현 개선) 기법을 결합하여 BERT 계열의 언어이해 성능을 향상시킨다."
+    },
+    {
+      "title": "Neural Networks and Deep Learning",
+      "authors": [
+        "Michael Nielsen"
+      ],
+      "year": 2015,
+      "citations": 5000,
+      "importance_score": 80,
+      "url": "http://neuralnetworksanddeeplearning.com/",
+      "abstract": "신경망과 딥러닝의 핵심 개념을 직관적으로 소개하는 온라인 교재로, 역전파(backpropagation), 경사하강법, 표현학습의 기본을 설명하고 간단한 실험과 예제로 이해를 돕는다."
+    },
+    {
+      "title": "Training Compute-Optimal Large Language Models",
+      "authors": [
+        "Jordan Hoffmann",
+        "Sebastian Borgeaud",
+        "Arthur Mensch"
+      ],
+      "year": 2022,
+      "citations": 4500,
+      "importance_score": 95,
+      "url": "https://arxiv.org/abs/2203.15556",
+      "abstract": "고정된 학습 계산량에서 최적 성능을 위해서는 모델 크기만 키우기보다 더 많은 데이터로 더 오래 학습해야 함을 보이며, compute-optimal 스케일링(일명 Chinchilla 법칙)을 제안한다."
+    },
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "authors": [
+        "Tim Dettmers",
+        "Artidoro Pagnoni",
+        "Ari Holtzman"
+      ],
+      "year": 2023,
+      "citations": 4500,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/2305.14314",
+      "abstract": "4-bit 양자화된 기반 모델을 유지하면서 LoRA 어댑터만 학습하는 QLoRA를 제안해, 메모리 사용량을 크게 줄이면서도 고성능 미세조정을 가능하게 한다. NF4 양자화, 더블 양자화, 페이징 옵티마이저 등 실용적 기법을 결합해 단일/소수 GPU 환경에서 대형 LLM 튜닝을 촉진한다."
+    },
+    {
+      "title": "VQGAN: Taming Transformers for High-Resolution Image Synthesis",
+      "authors": [
+        "Patrick Esser",
+        "Robin Rombach",
+        "Björn Ommer"
+      ],
+      "year": 2021,
+      "citations": 4500,
+      "importance_score": 87,
+      "url": "https://arxiv.org/abs/2012.09841",
+      "abstract": "벡터 양자화 기반 오토인코더(VQ)와 GAN 학습을 결합한 VQGAN을 제안해, 고해상도 이미지 생성을 위한 효과적인 토큰(잠재 코드) 표현을 학습한다. 이후 Transformer를 이산 토큰 시퀀스 모델링에 적용해 고품질 이미지를 생성하며, 지각적 손실/판별기 손실을 통해 재구성 품질과 샘플 품질을 동시에 개선한다."
+    },
+    {
+      "title": "ViLBERT: Pretraining Task-Agnostic Visiolinguistic Representations for Vision-and-Language Tasks",
+      "authors": [
+        "Jiasen Lu",
+        "Dhruv Batra",
+        "Devi Parikh"
+      ],
+      "year": 2019,
+      "citations": 4300,
+      "importance_score": 88,
+      "arxiv_id": "1908.02265",
+      "url": "https://arxiv.org/abs/1908.02265",
+      "abstract": "이미지와 텍스트를 각각 별도 스트림으로 인코딩한 뒤 co-attention으로 상호작용시키는 2-stream 트랜스포머를 제안하고, 마스크드 언어/비전 예측 및 이미지-문장 정합 등 사전학습 과제로 다양한 비전-언어 다운스트림 작업에 전이한다."
+    },
+    {
+      "title": "AudioSet: An Ontology and Human-Labeled Dataset for Audio Events",
+      "authors": [
+        "Jort F. Gemmeke",
+        "Daniel P. W. Ellis",
+        "Dylan Freedman"
+      ],
+      "year": 2017,
+      "citations": 4200,
+      "importance_score": 96,
+      "url": "https://arxiv.org/abs/1705.02320",
+      "abstract": "오디오 이벤트 인식을 위한 대규모 온톨로지(클래스 체계)와 사람 라벨 기반 데이터셋(AudioSet)을 소개한다. 유튜브에서 수집한 10초 오디오 클립에 다중 라벨을 부여해, 오디오 태깅/이벤트 검출 모델의 학습 및 평가 표준으로 널리 사용된다."
+    },
+    {
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "authors": [
+        "Shunyu Yao",
+        "Jeffrey Zhao",
+        "Dian Yu"
+      ],
+      "year": 2022,
+      "citations": 4200,
+      "importance_score": 93,
+      "arxiv_id": "2210.03629",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "abstract": "Presents ReAct, a prompting framework that interleaves natural-language reasoning traces with action steps (e.g., tool use, environment interactions). Demonstrates improved interpretability and performance on tasks requiring both reasoning and information gathering/interaction."
+    },
+    {
+      "title": "DALL·E: Zero-Shot Text-to-Image Generation",
+      "authors": [
+        "Aditya Ramesh",
+        "Mikhail Pavlov",
+        "Gabriel Goh"
+      ],
+      "year": 2021,
+      "citations": 4200,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2102.12092",
+      "abstract": "텍스트와 이미지를 하나의 토큰 시퀀스로 결합해 Transformer로 학습하고, 텍스트 프롬프트로부터 이미지를 제로샷으로 생성하는 DALL·E를 제시한다. 자연어 조합성(속성/관계/스타일 결합)과 다양한 시각 개념의 생성 가능성을 보이며, 텍스트-이미지 생성의 가능성을 대중적으로 확장한 초기 대표 연구다."
+    },
+    {
+      "title": "CatBoost: Unbiased Boosting with Categorical Features",
+      "authors": [
+        "Liudmila Prokhorenkova",
+        "Gleb Gusev",
+        "Aleksandr Vorobev"
+      ],
+      "year": 2018,
+      "citations": 4000,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/1706.09516",
+      "abstract": "범주형 특성을 효과적으로 처리하기 위한 순서 기반(target leakage 방지) 통계적 인코딩과 예측 편향을 줄이는 ordered boosting을 제안하여, 그레이디언트 부스팅에서의 과적합 및 편향 문제를 완화하고 실무 성능을 개선한다."
+    },
+    {
+      "title": "The Hundred-Page Machine Learning Book",
+      "authors": [
+        "Andriy Burkov"
+      ],
+      "year": 2019,
+      "citations": 4000,
+      "importance_score": 78,
+      "url": "http://themlbook.com/",
+      "abstract": "지도·비지도 학습의 핵심 개념, 일반화/평가, 주요 알고리즘의 직관과 수식, 실무에서의 모델 선택 및 운영 관점을 매우 압축적으로 정리한 요약형 머신러닝 입문서이다."
+    },
+    {
+      "title": "Imagen: Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding",
+      "authors": [
+        "Chitwan Saharia",
+        "William Chan",
+        "Saurabh Saxena"
+      ],
+      "year": 2022,
+      "citations": 3800,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/2205.11487",
+      "abstract": "대규모 텍스트 인코더(언어 이해가 강한 모델)를 조건으로 하는 디퓨전 기반 텍스트-투-이미지 모델 Imagen을 제안한다. 고해상도 합성을 위해 캐스케이드(저해상도→초해상도) 디퓨전 구조를 사용하며, 강력한 언어 표현이 이미지-텍스트 정합성과 사실적 품질을 크게 향상시킴을 보인다."
+    },
+    {
+      "title": "Practical Statistics for Data Scientists: 50+ Essential Concepts Using R and Python",
+      "authors": [
+        "Peter Bruce",
+        "Andrew Bruce",
+        "Peter Gedeck"
+      ],
+      "year": 2020,
+      "citations": 4000,
+      "importance_score": 70,
+      "url": null,
+      "abstract": "데이터 과학 실무에 필요한 통계 개념(추정/검정, 리샘플링, 회귀, 실험, 베이지안 관점 등)을 R/Python 예제로 정리해 모델링과 의사결정에 연결하는 실용 통계서이다."
+    },
+    {
+      "title": "UNITER: UNiversal Image-TExt Representation Learning",
+      "authors": [
+        "Yen-Chun Chen",
+        "Linjie Li",
+        "Licheng Yu"
+      ],
+      "year": 2020,
+      "citations": 3600,
+      "importance_score": 87,
+      "arxiv_id": "1909.11740",
+      "url": "https://arxiv.org/abs/1909.11740",
+      "abstract": "여러 이미지-텍스트 데이터셋을 통합해 단일 트랜스포머로 공동 표현을 학습하며, 마스크드 언어/영역 예측, 이미지-텍스트 매칭, 워드-리전 정렬(예: optimal transport 기반) 등의 사전학습 과제로 범용 비전-언어 표현을 강화한다."
+    },
+    {
+      "title": "MMLU: Measuring Massive Multitask Language Understanding",
+      "authors": [
+        "Dan Hendrycks",
+        "Collin Burns",
+        "Steven Basart"
+      ],
+      "year": 2020,
+      "citations": 3500,
+      "importance_score": 95,
+      "url": "https://arxiv.org/abs/2009.03300",
+      "abstract": "57개 과목(인문, STEM, 사회과학 등)에 걸친 객관식 문제로 구성된 MMLU 벤치마크를 소개한다. 제로샷/퓨샷 설정에서 언어모델의 폭넓은 지식과 추론 능력을 측정하며, 모델 규모 및 학습 방식에 따른 성능 차이를 분석한다."
+    },
+    {
+      "title": "BEiT: BERT Pre-Training of Image Transformers",
+      "authors": [
+        "Hangbo Bao",
+        "Li Dong",
+        "Furu Wei"
+      ],
+      "year": 2021,
+      "citations": 3500,
+      "importance_score": 93,
+      "arxiv_id": "2106.08254",
+      "url": "https://arxiv.org/abs/2106.08254",
+      "abstract": "BEiT는 이미지 패치를 토큰으로 보고, 사전학습 단계에서 마스크드 이미지 모델링을 수행하되 목표를 픽셀 복원이 아니라 ‘비주얼 토큰(예: dVAE 코드)’ 예측으로 설정한다. BERT식 사전학습을 ViT에 적용해 분류/검출/분할 등 다양한 과제에서 전이 성능을 향상시킨다."
+    },
+    {
+      "title": "VQA v2: Balanced Datasets for Visual Question Answering",
+      "authors": [
+        "Yash Goyal",
+        "Tejas Khot",
+        "Douglas Summers-Stay"
+      ],
+      "year": 2017,
+      "citations": 3500,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/1612.00837",
+      "abstract": "기존 VQA 데이터셋의 언어 편향(질문만으로 답을 맞히는 현상)을 줄이기 위해, 동일 질문에 대해 서로 다른 정답이 나오도록 보완 이미지(Complementary images)를 수집해 균형 잡힌 VQA v2를 구축한다. 이를 통해 시각 정보 활용을 강화하고, 모델들이 실제로 이미지를 보도록 유도하는 평가 환경을 제공한다."
+    },
+    {
+      "title": "RLHF: Reinforcement Learning from Human Feedback",
+      "authors": [
+        "Paul F. Christiano",
+        "Jan Leike",
+        "Tom B. Brown"
+      ],
+      "year": 2017,
+      "citations": 3500,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/1706.03741",
+      "abstract": "사람의 비교 선호(comparisons)로 보상모델을 학습하고, 그 보상모델을 이용해 강화학습으로 에이전트를 최적화하는 프레임워크를 제안한다. 명시적 보상 함수를 설계하기 어려운 과제에서도 인간 피드백을 통해 목표를 정의/학습할 수 있음을 보이며, 이후 언어모델 정렬(RLHF)의 기반이 되는 핵심 아이디어를 제공한다."
+    },
+    {
+      "title": "DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation",
+      "authors": [
+        "Nataniel Ruiz",
+        "Yuanzhen Li",
+        "Vered Shwartz"
+      ],
+      "year": 2022,
+      "citations": 3200,
+      "importance_score": 95,
+      "arxiv_id": "2208.12242",
+      "url": "https://arxiv.org/abs/2208.12242",
+      "abstract": "소수의 대상(사람/물체) 이미지로 텍스트-투-이미지 확산 모델을 미세조정하여 특정 대상을 다양한 장면/스타일로 생성하는 방법을 제안한다. 고유 토큰을 프롬프트에 삽입해 대상을 안정적으로 보존하고, 클래스 기반 정규화(prior preservation)로 과적합과 언어 드리프트를 완화한다."
+    },
+    {
+      "title": "BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation",
+      "authors": [
+        "Junnan Li",
+        "Dongxu Li",
+        "Caiming Xiong"
+      ],
+      "year": 2022,
+      "citations": 3100,
+      "importance_score": 92,
+      "arxiv_id": "2201.12086",
+      "url": "https://arxiv.org/abs/2201.12086",
+      "abstract": "이해(ITM/대조)와 생성(캡셔닝) 목적을 통합한 사전학습을 제안하고, 웹 캡션 노이즈를 줄이기 위해 캡션을 재생성/필터링하는 부트스트래핑(예: CapFilt) 전략을 도입하여 다양한 비전-언어 과제에서 범용 성능을 달성한다."
+    },
+    {
+      "title": "Video Swin Transformer",
+      "authors": [
+        "Ze Liu",
+        "Jiahui Yu",
+        "Yutong Lin"
+      ],
+      "year": 2022,
+      "citations": 3000,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/2106.13230",
+      "abstract": "이미지용 Swin Transformer의 shifted-window 아이디어를 비디오로 확장한 Video Swin Transformer를 제안한다. 3D 윈도우 기반의 지역 어텐션과 윈도우 시프트를 통해 계산 효율과 장거리 상호작용을 균형 있게 확보한다. Kinetics, Something-Something 및 비디오 인식/검출 등 다양한 다운스트림에서 강력한 성능과 범용성을 보인다."
+    },
+    {
+      "title": "OPT: Open Pre-trained Transformer Language Models",
+      "authors": [
+        "Susan Zhang",
+        "Stephen Roller",
+        "Naman Goyal"
+      ],
+      "year": 2022,
+      "citations": 3000,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2205.01068",
+      "abstract": "최대 175B까지의 OPT 모델군을 공개하고, 대규모 언어모델 학습의 재현성과 접근성을 높이기 위한 학습 설정, 로그, 평가 및 공개 전략을 제시한다."
+    },
+    {
+      "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity",
+      "authors": [
+        "William Fedus",
+        "Barret Zoph",
+        "Noam Shazeer"
+      ],
+      "year": 2021,
+      "citations": 3000,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2101.03961",
+      "abstract": "MoE에서 토큰당 하나의 전문가만 선택하는 단순한 라우팅(스위치)을 통해 통신/안정성 문제를 줄이고, 희소성으로 계산 효율을 확보해 초거대(조 단위) 파라미터 스케일링을 가능하게 한다."
+    },
+    {
+      "title": "Deep Learning for Coders with fastai and PyTorch: AI Applications Without a PhD",
+      "authors": [
+        "Jeremy Howard",
+        "Sylvain Gugger"
+      ],
+      "year": 2020,
+      "citations": 3000,
+      "importance_score": 78,
+      "url": "https://course.fast.ai/",
+      "abstract": "fastai와 PyTorch 생태계를 활용해 비전/텍스트 등 응용 문제를 빠르게 구현하며, 전이학습, 미세조정, 학습률 스케줄링 등 실전 딥러닝 기법을 코드 중심으로 학습하도록 구성된 실무 지향 교재이다."
+    },
+    {
+      "title": "Machine Learning Yearning",
+      "authors": [
+        "Andrew Ng"
+      ],
+      "year": 2018,
+      "citations": 3000,
+      "importance_score": 75,
+      "url": "https://www.deeplearning.ai/machine-learning-yearning/",
+      "abstract": "실무 머신러닝 프로젝트를 어떻게 구조화하고(데이터 수집/라벨링, 개발·테스트 셋 구성), 오류 분석을 통해 다음 실험 우선순위를 정하며, 편향-분산 및 데이터 불일치 문제를 진단해 성능을 체계적으로 개선하는지에 대한 실전 지침을 정리한 글/교재이다."
+    },
+    {
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+      "authors": [
+        "Junnan Li",
+        "Dongxu Li",
+        "Silvio Savarese"
+      ],
+      "year": 2023,
+      "citations": 2600,
+      "importance_score": 94,
+      "arxiv_id": "2301.12597",
+      "url": "https://arxiv.org/abs/2301.12597",
+      "abstract": "동결된 이미지 인코더와 대형 언어 모델(LLM)을 직접 미세조정하지 않고, 둘 사이를 연결하는 경량 모듈(Q-Former)을 학습해 효율적으로 비전-언어 능력을 부트스트랩하며, 캡셔닝/질의응답 등 생성 및 이해 과제에서 강력한 성능을 보인다."
+    },
+    {
+      "title": "HowTo100M: Learning a Text-Video Embedding from Instructional Videos",
+      "authors": [
+        "Antoine Miech",
+        "Jean-Baptiste Alayrac",
+        "Ivan Laptev"
+      ],
+      "year": 2019,
+      "citations": 2600,
+      "importance_score": 94,
+      "url": "https://arxiv.org/abs/1906.03327",
+      "abstract": "유튜브 기반의 1억+ 클립 규모(약 12만 시간)의 인스트럭셔널 비디오와 자막을 활용해 텍스트-비디오 공동 임베딩을 약지도(weakly supervised)로 학습하는 방법과 대규모 데이터셋을 제시한다. 비디오-텍스트 검색 및 비디오 이해 전이에서 큰 성능 향상을 보인다."
+    },
+    {
+      "title": "InstructPix2Pix: Learning to Follow Image Editing Instructions",
+      "authors": [
+        "Tim Brooks",
+        "Aleksander Holynski",
+        "Alexei A. Efros"
+      ],
+      "year": 2022,
+      "citations": 2600,
+      "importance_score": 93,
+      "arxiv_id": "2211.09800",
+      "url": "https://arxiv.org/abs/2211.09800",
+      "abstract": "자연어 편집 지시문을 입력으로 받아 원본 이미지를 원하는 형태로 변환하는 확산 기반 편집 모델을 학습한다. (이미지, 지시문, 결과) 형태의 대규모 합성 데이터로 지도학습을 구성해 다양한 편집을 한 번에 수행할 수 있도록 한다."
+    },
+    {
+      "title": "3D Gaussian Splatting for Real-Time Radiance Field Rendering",
+      "authors": [
+        "Bernhard Kerbl",
+        "Georgios Kopanas",
+        "Thomas Leimkühler"
+      ],
+      "year": 2023,
+      "citations": 2500,
+      "importance_score": 96,
+      "url": "https://arxiv.org/abs/2308.04079",
+      "abstract": "장면을 3D 가우시안(위치, 공분산, 색/특성, 불투명도)들의 집합으로 표현하고, 가우시안 스플래팅 기반의 미분 가능 렌더링으로 고품질 뷰 합성을 실시간에 가깝게 수행한다. 효율적인 최적화(가우시안 분할/병합 등)와 렌더링 파이프라인을 통해 NeRF 대비 빠른 학습/렌더링과 높은 시각 품질을 달성한다."
+    },
+    {
+      "title": "Gemini: A Family of Highly Capable Multimodal Models",
+      "authors": [
+        "Gemini Team",
+        "Oriol Vinyals",
+        "Koray Kavukcuoglu"
+      ],
+      "year": 2023,
+      "citations": 2500,
+      "importance_score": 96,
+      "url": "https://arxiv.org/abs/2312.11805",
+      "abstract": "텍스트, 이미지, 오디오, 비디오 등 다양한 모달리티를 다루는 Gemini 모델 패밀리를 소개한다. 모델 설계 및 학습(멀티모달 사전학습과 지시튜닝), 추론 효율(예: 경량 모델 포함), 그리고 광범위한 벤치마크에서의 성능을 보고하며, 멀티모달 이해·추론·코딩 등에서의 강점을 제시한다."
+    },
+    {
+      "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+      "authors": [
+        "Jean-Baptiste Alayrac",
+        "Jeff Donahue",
+        "Paul Luc"
+      ],
+      "year": 2022,
+      "citations": 2500,
+      "importance_score": 95,
+      "url": "https://arxiv.org/abs/2204.14198",
+      "abstract": "대규모 사전학습 언어모델에 시각 인코더를 결합하고, Perceiver 기반의 cross-attention 모듈을 통해 이미지/비디오 정보를 언어 토큰 생성에 주입하는 비전-언어 모델을 제안한다. 다양한 멀티모달 태스크에서 few-shot(예시 몇 개)만으로 강력한 성능을 보이며, 단일 모델로 캡셔닝, VQA, 분류 등 여러 작업을 통합적으로 수행할 수 있음을 보인다."
+    },
+    {
+      "title": "Visual Instruction Tuning",
+      "authors": [
+        "Haotian Liu",
+        "Chunyuan Li",
+        "Yong Jae Lee"
+      ],
+      "year": 2023,
+      "citations": 2500,
+      "importance_score": 95,
+      "arxiv_id": "2304.08485",
+      "url": "https://arxiv.org/abs/2304.08485",
+      "abstract": "본 논문은 대규모 언어모델(LLM)을 시각-언어 지시(instruction) 데이터로 튜닝하여 범용 비전-언어 어시스턴트를 만드는 방법을 제안한다. 이미지 인코더와 LLM을 연결하는 단순한 프로젝터를 사용하고, (1) 이미지-텍스트 정렬 사전학습과 (2) 시각 지시 튜닝의 2단계 학습으로 시각적 질의응답, 설명, 추론 등 다양한 작업에서 성능을 향상한다."
+    },
+    {
+      "title": "Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection",
+      "authors": [
+        "Shilong Liu",
+        "Zhaoyang Zeng",
+        "Tianhe Ren"
+      ],
+      "year": 2023,
+      "citations": 2500,
+      "importance_score": 94,
+      "url": "https://arxiv.org/abs/2303.05499",
+      "abstract": "DETR 계열(DINO)의 검출 프레임워크에 언어-시각 grounded pre-training을 결합해, 텍스트 질의로 오픈-세트 객체를 탐지하는 모델을 제안한다. 텍스트-이미지 정렬과 검출 학습을 함께 수행하여, 다양한 개념에 대한 제로샷/오픈 보캐브러리 탐지 성능을 크게 향상시키고, 이후 분할(SAM 결합) 등으로 확장 가능한 강력한 기반을 제공한다."
+    },
+    {
+      "title": "DINOv2: Learning Robust Visual Features without Supervision",
+      "authors": [
+        "Maxime Oquab",
+        "Timothée Darcet",
+        "Théo Moutakanni"
+      ],
+      "year": 2023,
+      "citations": 2500,
+      "importance_score": 92,
+      "arxiv_id": "2304.07193",
+      "url": "https://arxiv.org/abs/2304.07193",
+      "abstract": "DINOv2는 대규모 데이터와 안정적인 학습 레시피를 바탕으로, 라벨 없이도 다양한 다운스트림 과제에 잘 전이되는 범용 시각 특징을 학습하는 자기지도 학습 방법을 제안한다. 강건한 ViT 백본 특징을 얻기 위한 데이터/모델 스케일링, 학습 안정화, 평가 프로토콜을 체계적으로 제시한다."
+    },
+    {
+      "title": "VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training",
+      "authors": [
+        "Zicheng He",
+        "Xiaohan Wang",
+        "Yue Zhao"
+      ],
+      "year": 2022,
+      "citations": 2500,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/2203.12602",
+      "abstract": "비디오에 마스킹 오토인코더(MAE) 사전학습을 적용한 VideoMAE를 제안한다. 높은 마스킹 비율에서 소수의 가시 토큰만으로 인코딩하고, 경량 디코더로 원본을 복원하도록 학습해 데이터 효율적인 자기지도 학습을 달성한다. Kinetics 등에서 미세조정 시 강한 성능을 보이며, 비디오 사전학습의 효율성과 확장성을 개선한다."
+    },
+    {
+      "title": "The Pile: An 800GB Dataset of Diverse Text for Language Modeling",
+      "authors": [
+        "Leo Gao",
+        "Stella Biderman",
+        "Sid Black"
+      ],
+      "year": 2020,
+      "citations": 2500,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/2101.00027",
+      "abstract": "언어모델 학습을 위한 대규모 공개 말뭉치인 The Pile(약 800GB)을 소개한다. 다양한 도메인의 텍스트(학술, 웹, 코드, 대화 등)를 혼합해 범용 LM 사전학습에 적합하도록 구성했으며, 데이터 구성/정제 원칙과 벤치마크 학습 결과를 함께 제공한다."
+    },
+    {
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "authors": [
+        "Yuntao Bai",
+        "Andy Jones",
+        "Kamal Ndousse"
+      ],
+      "year": 2022,
+      "citations": 2500,
+      "importance_score": 91,
+      "url": "https://arxiv.org/abs/2212.08073",
+      "abstract": "인간 피드백을 최소화하고 ‘헌법(원칙 집합)’에 기반한 자기비평/수정과 AI 피드백을 통해 유해성을 낮추는 정렬 방법(Constitutional AI)을 제안한다. 모델이 원칙에 따라 응답을 수정하도록 학습하고, 이후 선호도 학습을 결합해 안전성과 유용성을 함께 개선하는 절차를 제시한다."
+    },
+    {
+      "title": "TimeSformer: Is Space-Time Attention All You Need for Video Understanding?",
+      "authors": [
+        "Gedas Bertasius",
+        "Heng Wang",
+        "Lorenzo Torresani"
+      ],
+      "year": 2021,
+      "citations": 2500,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2102.05095",
+      "abstract": "비디오 이해를 위해 순수 Transformer 기반의 시공간 어텐션(TimeSformer)을 제안한다. 프레임을 패치 토큰으로 분해해 공간·시간 차원의 어텐션을 적용하며, 분리형(space-only + time-only) 어텐션 등 설계를 비교해 효율과 성능을 개선한다. Kinetics, Something-Something 등에서 강력한 성능을 보이며 비디오용 ViT 계열의 대표적 기준점을 제시한다."
+    },
+    {
+      "title": "BLOOM: A 176B-Parameter Open-Access Multilingual Language Model",
+      "authors": [
+        "BigScience Workshop",
+        "Teven Le Scao",
+        "Thomas Wang"
+      ],
+      "year": 2022,
+      "citations": 2500,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2211.05100",
+      "abstract": "다국어(및 다중 도메인) 데이터로 학습된 176B 파라미터 BLOOM을 공개하며, 협업 기반 거대 모델 개발(BigScience)의 과정과 책임 있는 공개, 다국어 생성/이해 역량을 보고한다."
+    },
+    {
+      "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+      "authors": [
+        "Xuezhi Wang",
+        "Jason Wei",
+        "Dale Schuurmans"
+      ],
+      "year": 2022,
+      "citations": 2500,
+      "importance_score": 90,
+      "arxiv_id": "2203.11171",
+      "url": "https://arxiv.org/abs/2203.11171",
+      "abstract": "Introduces self-consistency decoding for chain-of-thought prompting: sample multiple diverse reasoning paths and select the most consistent final answer (e.g., via majority vote). Improves accuracy on reasoning tasks without additional training."
+    },
+    {
+      "title": "GLIDE: Towards Photorealistic Image Generation and Editing with Text-Guided Diffusion Models",
+      "authors": [
+        "Alex Nichol",
+        "Prafulla Dhariwal",
+        "Aditya Ramesh"
+      ],
+      "year": 2021,
+      "citations": 2500,
+      "importance_score": 88,
+      "arxiv_id": "2112.10741",
+      "url": "https://arxiv.org/abs/2112.10741",
+      "abstract": "텍스트 조건을 활용한 확산( diffusion ) 모델 기반의 고해상도·포토리얼 이미지 생성 및 편집을 제안한다. classifier-free guidance 등으로 텍스트 정합성과 품질을 높이고, 마스킹/조건 변경을 통해 텍스트 기반 이미지 편집이 가능함을 보인다."
+    },
+    {
+      "title": "OSCAR: Object-Semantics Aligned Pre-training for Vision-Language Tasks",
+      "authors": [
+        "Xiujun Li",
+        "Xi Yin",
+        "Chunyuan Li"
+      ],
+      "year": 2020,
+      "citations": 2500,
+      "importance_score": 85,
+      "arxiv_id": "2004.06165",
+      "url": "https://arxiv.org/abs/2004.06165",
+      "abstract": "이미지에서 추출한 객체 태그(객체 검출기의 라벨)를 텍스트와 함께 '앵커'로 사용해 시각-언어 정렬을 강화하는 사전학습을 제안하며, 이미지-텍스트 이해/검색 등 다양한 과제에서 성능을 향상시킨다."
+    },
+    {
+      "title": "Prefix-Tuning: Optimizing Continuous Prompts for Generation",
+      "authors": [
+        "Xiang Lisa Li",
+        "Percy Liang",
+        "Tatsunori B. Hashimoto"
+      ],
+      "year": 2021,
+      "citations": 2400,
+      "importance_score": 88,
+      "arxiv_id": "2101.00190",
+      "url": "https://arxiv.org/abs/2101.00190",
+      "abstract": "Introduces prefix-tuning, a parameter-efficient method for adapting large pretrained language models by optimizing a small set of continuous “prefix” vectors prepended to the model’s activations. It enables strong task performance for generation while keeping the base model frozen, reducing storage and training cost across many tasks."
+    },
+    {
+      "title": "LLaVA: Large Language and Vision Assistant",
+      "authors": [
+        "Haotian Liu",
+        "Chunyuan Li",
+        "Qingyang Wu"
+      ],
+      "year": 2023,
+      "citations": 2200,
+      "importance_score": 93,
+      "url": "https://arxiv.org/abs/2304.08485",
+      "abstract": "비전 인코더와 LLM을 연결하고, GPT-4로 생성한 시각 지시(instruction) 데이터로 시각-언어 지시튜닝을 수행한 LLaVA를 제안한다. 대화형 시각 질의응답과 멀티모달 대화에서 강력한 성능을 보이며, ‘시각 지시 데이터 + 정렬 학습’이 범용 비전-언어 어시스턴트 구축에 효과적임을 보여준다."
+    },
+    {
+      "title": "ALIGN: Scaling Up Visual and Vision-Language Representation Learning With Noisy Text Supervision",
+      "authors": [
+        "Chao Jia",
+        "Yinfei Yang",
+        "Ye Xia"
+      ],
+      "year": 2021,
+      "citations": 2200,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/2102.05918",
+      "abstract": "웹에서 수집한 대규모 노이즈 이미지-텍스트 쌍을 이용해 대조학습 방식으로 비전-언어 표현을 학습하는 ALIGN을 제안한다. 데이터 정제에 크게 의존하지 않고도 스케일업을 통해 강력한 제로샷 전이 성능을 얻을 수 있음을 보이며, 이후 CLIP 계열 연구의 대규모 학습 패러다임에 중요한 근거를 제공한다."
+    },
+    {
+      "title": "Mask2Former: Masked-attention Mask Transformer for Universal Image Segmentation",
+      "authors": [
+        "Bowen Cheng",
+        "Alex Schwing",
+        "Alexander Kirillov"
+      ],
+      "year": 2022,
+      "citations": 2200,
+      "importance_score": 89,
+      "url": "https://arxiv.org/abs/2112.01527",
+      "abstract": "범용 이미지 분할(semantic/instance/panoptic)을 하나의 통합된 트랜스포머 기반 마스크 예측 프레임워크로 해결하는 Mask2Former를 제안한다. 마스크드 어텐션을 통해 연산을 효율화하고, 쿼리 기반 마스크 예측으로 다양한 분할 과제를 일관된 형태로 처리한다."
+    },
+    {
+      "title": "VisualBERT: A Simple and Performant Baseline for Vision and Language",
+      "authors": [
+        "Liunian Harold Li",
+        "Mark Yatskar",
+        "Da Yin"
+      ],
+      "year": 2019,
+      "citations": 2200,
+      "importance_score": 82,
+      "arxiv_id": "1908.03557",
+      "url": "https://arxiv.org/abs/1908.03557",
+      "abstract": "BERT 구조에 이미지의 지역 특징(예: Faster R-CNN region features)을 토큰처럼 입력해 텍스트와 함께 단일 트랜스포머에서 공동 인코딩하는 간단한 비전-언어 사전학습 방법을 제시하고, VQA 및 캡셔닝 등에서 강력한 기준 성능을 보인다."
+    },
+    {
+      "title": "Textual Inversion: Inverting the Text Embedding for Image Generation",
+      "authors": [
+        "Rinon Gal",
+        "Dana Cohen",
+        "Yohai Chechik"
+      ],
+      "year": 2022,
+      "citations": 2100,
+      "importance_score": 90,
+      "arxiv_id": "2208.01618",
+      "url": "https://arxiv.org/abs/2208.01618",
+      "abstract": "모델 가중치를 고정한 채, 특정 개념/대상을 나타내는 ‘새로운 단어’의 텍스트 임베딩만 최적화해 개인화된 이미지 생성을 가능하게 한다. 소량의 예시 이미지로도 개념을 프롬프트에 결합해 조합적 생성이 가능함을 보인다."
+    },
+    {
+      "title": "MSR-VTT: A Large Video Description Dataset for Bridging Video and Language",
+      "authors": [
+        "Jun Xu",
+        "Tao Mei",
+        "Ting Yao"
+      ],
+      "year": 2016,
+      "citations": 2100,
+      "importance_score": 90,
+      "arxiv_id": "1609.01715",
+      "url": "https://arxiv.org/abs/1609.01715",
+      "abstract": "웹 비디오에 대해 다수의 자연어 캡션을 제공하는 대규모 비디오-텍스트 데이터셋 MSR-VTT를 소개한다. 비디오 캡셔닝과 비디오-텍스트 검색 등 멀티모달 학습 과제를 지원하며, 다양한 주제/장르의 비디오로 비전-언어 간 간극을 줄이는 것을 목표로 한다."
+    },
+    {
+      "title": "GLIP: Grounded Language-Image Pre-training",
+      "authors": [
+        "Liunian Harold Li",
+        "Pengchuan Zhang",
+        "Jianwei Yang"
+      ],
+      "year": 2022,
+      "citations": 2000,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/2112.03857",
+      "abstract": "객체 검출을 ‘문장-구문 grounding’ 문제로 재정의하고, 대규모 언어-이미지 데이터로부터 검출기를 사전학습하는 GLIP을 제안한다. 텍스트 토큰과 이미지 영역을 정렬하며, 검출과 언어 이해를 통합해 오픈 보캐브러리 검출/grounding에서 강한 성능을 보이고, 다양한 데이터셋으로의 전이 능력을 입증한다."
+    },
+    {
+      "title": "OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework (Extended)",
+      "authors": [
+        "Peng Wang",
+        "Liangliang Zhang",
+        "Jianfeng Dong"
+      ],
+      "year": 2022,
+      "citations": 2000,
+      "importance_score": 88,
+      "arxiv_id": "2202.03052",
+      "url": "https://arxiv.org/abs/2202.03052",
+      "abstract": "다양한 비전-언어 과제를 텍스트 시퀀스 생성 문제로 통일하는 단순한 seq2seq 프레임워크를 제안한다. 입력 모달리티(이미지/텍스트 등)와 과제(VQA, 캡셔닝, 분류, 검출 등)를 프롬프트/토큰화로 통합하여, 하나의 모델로 여러 벤치마크에서 경쟁력 있는 결과를 달성한다."
+    },
+    {
+      "title": "GQA: A New Dataset for Real-World Visual Reasoning and Compositional Question Answering",
+      "authors": [
+        "Drew A. Hudson",
+        "Christopher D. Manning"
+      ],
+      "year": 2019,
+      "citations": 2000,
+      "importance_score": 86,
+      "arxiv_id": "1902.09506",
+      "url": "https://arxiv.org/abs/1902.09506",
+      "abstract": "현실 이미지에 대해 조합적(컴포지셔널) 시각 추론을 요구하는 질문-응답 데이터셋 GQA를 제안한다. 장면 그래프를 활용해 질문을 체계적으로 생성/균형화하여 편향을 줄이고, 모델의 실제 추론 능력을 평가할 수 있도록 설계했다."
+    },
+    {
+      "title": "Prompt Tuning: The Power of Scale for Parameter-Efficient Prompt Tuning",
+      "authors": [
+        "Brian Lester",
+        "Rami Al-Rfou",
+        "Noam Constant"
+      ],
+      "year": 2021,
+      "citations": 2000,
+      "importance_score": 86,
+      "arxiv_id": "2104.08691",
+      "url": "https://arxiv.org/abs/2104.08691",
+      "abstract": "Proposes prompt tuning, which learns a small number of continuous prompt embeddings while keeping the model fixed. Shows that as model size increases, prompt tuning can match fine-tuning on many tasks, offering a simple and scalable approach to parameter-efficient adaptation."
+    },
+    {
+      "title": "MoCo v3: An Empirical Study of Training Self-Supervised Vision Transformers",
+      "authors": [
+        "Xinlei Chen",
+        "Saining Xie",
+        "Kaiming He"
+      ],
+      "year": 2021,
+      "citations": 1900,
+      "importance_score": 88,
+      "arxiv_id": "2104.02057",
+      "url": "https://arxiv.org/abs/2104.02057",
+      "abstract": "MoCo v3는 ViT에서의 대조학습을 체계적으로 분석하고, 모멘텀 인코더와 대조 목적을 기반으로 안정적으로 자기지도 학습을 수행하는 설정을 제시한다. 데이터 증강, 옵티마이저, 학습 스케줄 등 실증적 레시피를 통해 ViT의 자기지도 학습 성능을 개선한다."
+    },
+    {
+      "title": "DreamFusion: Text-to-3D using 2D Diffusion",
+      "authors": [
+        "Ben Poole",
+        "Ajay Jain",
+        "Jonathan T. Barron"
+      ],
+      "year": 2022,
+      "citations": 1800,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/2209.14988",
+      "abstract": "사전학습된 텍스트-투-이미지 확산 모델의 점수 함수를 이용해 3D NeRF 파라미터를 직접 최적화하는 방법(SDS)을 통해, 추가 3D 데이터 없이 텍스트 프롬프트로부터 3D 객체를 생성한다. 다양한 카메라 뷰에서 렌더링한 이미지가 텍스트 조건에 부합하도록 최적화하여 일관된 3D 형상과 외관을 얻는다."
+    },
+    {
+      "title": "VCR: Visual Commonsense Reasoning",
+      "authors": [
+        "Rowan Zellers",
+        "Yonatan Bisk",
+        "Ali Farhadi"
+      ],
+      "year": 2019,
+      "citations": 1800,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/1811.10830",
+      "abstract": "영화 장면 이미지에 대해 '무슨 일이 일어나는가'와 '왜 그런가'를 묻는 다지선다형 시각 상식 추론(VCR) 데이터셋을 제안한다. 객체 태그 기반의 질문/답/근거(rationale)를 제공하여 단순 인식이 아닌 상식적 추론과 설명 생성 능력을 평가한다."
+    },
+    {
+      "title": "Learning to Prompt for Vision-Language Models",
+      "authors": [
+        "Kaiyang Zhou",
+        "Jingkang Yang",
+        "Chen Change Loy"
+      ],
+      "year": 2022,
+      "citations": 1800,
+      "importance_score": 90,
+      "arxiv_id": "2109.01134",
+      "url": "https://arxiv.org/abs/2109.01134",
+      "abstract": "사전학습된 비전-언어 모델(예: CLIP)을 다운스트림 데이터에 맞게 전체 파라미터를 미세조정하지 않고, 학습 가능한 연속 프롬프트(컨텍스트 토큰)를 최적화하는 CoOp/CoCoOp 프레임워크를 제안하여 효율적이고 강건한 전이를 달성한다."
+    },
+    {
+      "title": "OWL-ViT: Open-Vocabulary Object Detection with Vision Transformers",
+      "authors": [
+        "Matthias Minderer",
+        "Alexey Gritsenko",
+        "Neil Houlsby"
+      ],
+      "year": 2022,
+      "citations": 1800,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2205.06230",
+      "abstract": "CLIP류의 이미지-텍스트 사전학습 표현을 비전 트랜스포머 기반 검출기로 확장해, 텍스트 질의로 오픈 보캐브러리 객체 검출을 수행하는 OWL-ViT를 제안한다. 분류기 헤드를 텍스트 임베딩과 결합해 새로운 클래스에 대한 제로샷 검출을 가능케 하며, 표준 검출 벤치마크에서 강한 일반화 성능을 보고한다."
+    },
+    {
+      "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "authors": [
+        "Rafael Rafailov",
+        "Archit Sharma",
+        "Eric Mitchell"
+      ],
+      "year": 2023,
+      "citations": 1800,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2305.18290",
+      "abstract": "보상모델 학습과 강화학습 단계를 분리하지 않고, 선호도 데이터로부터 정책(언어모델)을 직접 최적화하는 DPO를 제안한다. KL 정규화가 있는 RLHF 목적과의 연결을 통해 간단한 분류형 손실로 안정적 학습이 가능함을 보이며, 구현 복잡도와 튜닝 부담을 줄이면서 경쟁력 있는 성능을 달성한다."
+    },
+    {
+      "title": "GSM8K: Training Verifiers to Solve Math Word Problems",
+      "authors": [
+        "Karl Cobbe",
+        "Vineet Kosaraju",
+        "Mohammad Bavarian"
+      ],
+      "year": 2021,
+      "citations": 1800,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2110.14168",
+      "abstract": "초등 수준의 수학 서술형 문제 데이터셋 GSM8K를 제시하고, 해답 생성기와 검증기(verifier)를 결합해 풀이의 정확도를 높이는 방법을 제안한다. 다수 후보 풀이를 생성한 뒤 검증기가 올바른 풀이를 선택하도록 학습해, 수학 추론 성능 향상을 보인다."
+    },
+    {
+      "title": "Prompt-to-Prompt Image Editing with Cross Attention Control",
+      "authors": [
+        "Dani Valevski",
+        "Matan Kalman",
+        "Yossi Matias"
+      ],
+      "year": 2022,
+      "citations": 1800,
+      "importance_score": 89,
+      "arxiv_id": "2208.01626",
+      "url": "https://arxiv.org/abs/2208.01626",
+      "abstract": "텍스트 프롬프트를 수정해 이미지를 편집할 때, 확산 모델의 cross-attention 맵을 제어(치환/리웨이팅)하여 원하는 부분만 국소적으로 바꾸고 나머지 구조는 유지하는 편집 기법을 제안한다. 동일 시드/노이즈 경로를 활용해 편집 일관성을 높인다."
+    },
+    {
+      "title": "DINO: DETR with Improved DeNoising Anchor Boxes for End-to-End Object Detection",
+      "authors": [
+        "Hao Zhang",
+        "Feng Li",
+        "Shilong Liu"
+      ],
+      "year": 2022,
+      "citations": 1800,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2203.03605",
+      "abstract": "DETR 계열의 학습 안정성과 수렴을 개선하기 위해 디노이징(denoising) 학습을 강화하고, 앵커 박스 기반의 초기화 및 학습 전략을 결합한 DINO를 제안한다. 더 강한 학습 신호와 효율적 매칭을 통해 성능을 끌어올리고 학습을 안정화한다."
+    },
+    {
+      "title": "Something-Something: A Dataset for Learning and Evaluating Visual Common Sense",
+      "authors": [
+        "Ranjay Krishna",
+        "Kenji Hata",
+        "Frederic Ren"
+      ],
+      "year": 2017,
+      "citations": 1800,
+      "importance_score": 88,
+      "arxiv_id": "1706.04261",
+      "url": "https://arxiv.org/abs/1706.04261",
+      "abstract": "사람이 물체를 조작하는 짧은 비디오로 구성된 Something-Something 데이터셋을 제안하며, 미세한 동작/상호작용 차이를 구분해야 하는 ‘시각적 상식(visual common sense)’ 기반 행동 인식을 평가하도록 설계되었다. 대규모 라벨(자연어 템플릿 기반)과 베이스라인 모델들을 제공해, 정적 단서보다 시간적 추론이 중요한 과제를 강조한다."
+    },
+    {
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "authors": [
+        "Kelvin Guu",
+        "Kenton Lee",
+        "Zora Tung"
+      ],
+      "year": 2020,
+      "citations": 1800,
+      "importance_score": 88,
+      "arxiv_id": "2002.08909",
+      "url": "https://arxiv.org/abs/2002.08909",
+      "abstract": "Presents REALM, a retrieval-augmented pretraining approach where a language model learns to retrieve documents from a large corpus as part of pretraining. By jointly learning retrieval and language modeling, REALM improves downstream performance on knowledge-heavy tasks such as open-domain question answering."
+    },
+    {
+      "title": "LayoutLMv2: Multi-modal Pre-training for Visually-rich Document Understanding",
+      "authors": [
+        "Yiheng Xu",
+        "Minghao Li",
+        "Lei Cui"
+      ],
+      "year": 2021,
+      "citations": 1700,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/2012.14740",
+      "abstract": "문서 이미지의 텍스트(토큰), 레이아웃(2D 위치), 시각 특징을 공동으로 사전학습하는 멀티모달 Transformer를 제안한다. 텍스트/이미지 마스킹, 교차모달 정렬 등 목표를 통해 문서 VQA, 정보추출, 분류 등 다양한 문서 이해 과제에서 기존 방법을 크게 개선한다."
+    },
+    {
+      "title": "DragGAN: Interactive Point-based Manipulation on the Generative Image Manifold",
+      "authors": [
+        "Xingang Pan",
+        "Xiaohang Zhan",
+        "Bo Dai"
+      ],
+      "year": 2023,
+      "citations": 1700,
+      "importance_score": 90,
+      "arxiv_id": "2305.10973",
+      "url": "https://arxiv.org/abs/2305.10973",
+      "abstract": "생성 모델의 잠재 공간에서 사용자가 지정한 핸들 포인트를 목표 위치로 ‘드래그’하여 이미지 구조를 직관적으로 변형하는 인터랙티브 편집 방법을 제안한다. 점 기반 제약과 특징 기반 최적화를 통해 세밀한 기하 변형을 자연스럽게 수행한다."
+    },
+    {
+      "title": "ALBEF: Align Before Fuse: Vision and Language Representation Learning with Momentum Distillation",
+      "authors": [
+        "Junnan Li",
+        "Ramprasaath R. Selvaraju",
+        "Akshat Zhai"
+      ],
+      "year": 2021,
+      "citations": 1700,
+      "importance_score": 86,
+      "arxiv_id": "2107.07651",
+      "url": "https://arxiv.org/abs/2107.07651",
+      "abstract": "대조학습으로 비전/언어 표현을 먼저 정렬(align)한 뒤 트랜스포머로 결합(fuse)하는 2단계 관점을 취하고, 모멘텀 디스틸레이션으로 노이즈가 있는 웹 캡션에서 안정적으로 학습하여 검색 및 VQA 등에서 강력한 성능을 보인다."
+    },
+    {
+      "title": "ViViT: A Video Vision Transformer",
+      "authors": [
+        "Anurag Arnab",
+        "Mostafa Dehghani",
+        "Georg Heigold"
+      ],
+      "year": 2021,
+      "citations": 1700,
+      "importance_score": 86,
+      "url": "https://arxiv.org/abs/2103.15691",
+      "abstract": "비디오 분류를 위한 Vision Transformer 확장인 ViViT를 제안한다. 시공간 토큰화를 직접 수행하는 방식과, 공간 인코더와 시간 인코더를 분리하는 팩터라이즈드(factorized) 설계 등 다양한 아키텍처 변형을 비교한다. 대규모 데이터/사전학습과 결합해 비디오 벤치마크에서 높은 정확도를 달성함을 보인다."
+    },
+    {
+      "title": "Detic: A Detector with Vision-Language Knowledge",
+      "authors": [
+        "Chong Zhou",
+        "Shuaicheng Niu",
+        "Kaining Huang"
+      ],
+      "year": 2022,
+      "citations": 1600,
+      "importance_score": 90,
+      "arxiv_id": "2201.02605",
+      "url": "https://arxiv.org/abs/2201.02605",
+      "abstract": "대규모 이미지-텍스트 사전학습(예: CLIP)에서 얻은 비전-언어 지식을 검출기에 주입해, 오픈보캐브러리 객체 검출을 강화하는 Detic을 제안한다. 라벨 공간 확장과 분류기 재사용/정렬을 통해 제한된 검출 데이터로도 많은 클래스에 일반화되는 검출 성능을 달성하는 것을 목표로 한다."
+    },
+    {
+      "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+      "authors": [
+        "Timo Schick",
+        "Jane Dwivedi-Yu",
+        "Roberto Dessì"
+      ],
+      "year": 2023,
+      "citations": 1600,
+      "importance_score": 89,
+      "arxiv_id": "2302.04761",
+      "url": "https://arxiv.org/abs/2302.04761",
+      "abstract": "Introduces Toolformer, a method for enabling language models to use external tools (e.g., search, calculators, translators) by self-supervised data generation. The model learns when and how to call tools by inserting API calls into text and training on tool-augmented sequences."
+    },
+    {
+      "title": "ImageBind: One Embedding Space To Bind Them All",
+      "authors": [
+        "Junnan Li",
+        "Dongxu Li",
+        "Caiming Xiong"
+      ],
+      "year": 2023,
+      "citations": 1500,
+      "importance_score": 93,
+      "url": "https://arxiv.org/abs/2305.05665",
+      "abstract": "이미지(비전)를 중심 앵커로 두고 텍스트, 오디오, 깊이, 열(thermal), IMU 등 여러 모달리티를 단일 임베딩 공간에 정렬하는 ImageBind를 제안한다. 제한된 페어링 데이터와 대조학습을 통해 다중 모달을 결합하며, 보지 못한 모달 조합(예: 오디오-텍스트)에서도 제로샷 크로스모달 능력을 보인다. 다양한 멀티모달 검색/매칭 및 조합적 일반화 가능성을 제시한다."
+    },
+    {
+      "title": "VinVL: Revisiting Visual Representations in Vision-Language Models",
+      "authors": [
+        "Pengchuan Zhang",
+        "Xiyang Dai",
+        "Kaining Li"
+      ],
+      "year": 2021,
+      "citations": 1500,
+      "importance_score": 90,
+      "arxiv_id": "2101.00529",
+      "url": "https://arxiv.org/abs/2101.00529",
+      "abstract": "VinVL은 비전-언어 모델에서 '시각 표현(visual representations)'의 중요성을 재조명하며, 더 강한 객체-속성 기반 비주얼 피처를 사용하면 V+L 성능이 크게 향상됨을 보인다. 개선된 검출기/비주얼 백본과 사전학습 목표를 결합해 캡셔닝, VQA, 리트리벌 등에서 당시 SOTA를 달성했다."
+    },
+    {
+      "title": "MiniGPT-4: Enhancing Vision-Language Understanding with Advanced Large Language Models",
+      "authors": [
+        "Deyao Zhu",
+        "Jun Chen",
+        "Xiang Li"
+      ],
+      "year": 2023,
+      "citations": 1500,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2304.10592",
+      "abstract": "강력한 LLM과 시각 인코더를 경량 정렬 모듈로 연결하고, 두 단계 정렬(대규모 이미지-텍스트 정렬 후 고품질 대화 데이터로 튜닝)로 멀티모달 대화 능력을 강화한 MiniGPT-4를 제시한다. 비교적 적은 추가 학습으로도 유창한 이미지 설명/질의응답을 수행함을 보인다."
+    },
+    {
+      "title": "GPT-4V(ision) System Card",
+      "authors": [
+        "OpenAI"
+      ],
+      "year": 2023,
+      "citations": 1500,
+      "importance_score": 90,
+      "url": "https://openai.com/research/gpt-4v-system-card",
+      "abstract": "GPT-4의 비전(이미지 이해) 기능에 대한 시스템 카드로, 모델의 의도된 사용, 능력 범위, 안전성 평가, 위험(환각, 편향, 프라이버시, 악용 가능성 등)과 완화 전략을 정리한다. 실제 사용 시나리오에서의 실패 양상과 정책/제품적 가드레일을 포함해, 멀티모달 모델 배포 시 안전성·책임성 관점의 고려사항을 체계적으로 제시한다."
+    },
+    {
+      "title": "LM Evaluation Harness",
+      "authors": [
+        "EleutherAI"
+      ],
+      "year": 2021,
+      "citations": 1500,
+      "importance_score": 85,
+      "url": "https://github.com/EleutherAI/lm-evaluation-harness",
+      "abstract": "다양한 언어모델을 동일한 설정으로 평가하기 위한 오픈소스 평가 프레임워크를 제공한다. 다수의 벤치마크 태스크를 통합하고, 프롬프트/토크나이저/모델 래퍼 차이를 최소화해 재현 가능한 평가를 지원한다."
+    },
+    {
+      "title": "InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning",
+      "authors": [
+        "Wenliang Dai",
+        "Junnan Li",
+        "Dongxu Li"
+      ],
+      "year": 2023,
+      "citations": 1400,
+      "importance_score": 92,
+      "url": "https://arxiv.org/abs/2305.06500",
+      "abstract": "BLIP-2 계열 구조를 기반으로, 다양한 비전-언어 작업을 ‘지시문 형태’로 통일해 instruction tuning을 수행하는 InstructBLIP을 제안한다. 여러 데이터셋/태스크를 혼합한 지시 튜닝으로 제로샷/전이 성능을 개선하고, 범용 비전-언어 모델로의 확장 가능성을 보여준다."
+    },
+    {
+      "title": "OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework",
+      "authors": [
+        "Peng Wang",
+        "Liangchen Wei",
+        "Jianfeng Dong"
+      ],
+      "year": 2022,
+      "citations": 1400,
+      "importance_score": 91,
+      "arxiv_id": "2202.03052",
+      "url": "https://arxiv.org/abs/2202.03052",
+      "abstract": "OFA는 다양한 모달리티(이미지, 텍스트 등)와 과제(캡셔닝, VQA, 분류, 검출 등)를 단일 시퀀스-투-시퀀스 프레임워크로 통합한다. 입력과 출력을 모두 텍스트 시퀀스로 정규화하고, 태스크를 프롬프트 형태로 기술해 하나의 모델로 폭넓은 비전-언어 문제를 해결하도록 설계했다."
+    },
+    {
+      "title": "Score Distillation Sampling: Generating Images from Text with Diffusion Models",
+      "authors": [
+        "Ben Poole",
+        "Ajay Jain",
+        "Jonathan T. Barron"
+      ],
+      "year": 2022,
+      "citations": 1400,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2211.01324",
+      "abstract": "사전학습된 확산 모델을 이용해 명시적 생성기 없이도 샘플(또는 다른 파라미터화된 표현)을 최적화하는 점수 증류(SDS) 목적함수를 정식화한다. 텍스트 조건 확산 모델의 노이즈 예측을 통해 목표 샘플의 그래디언트를 구성하여, 텍스트 조건에 맞는 이미지를 직접 최적화/생성할 수 있음을 보인다."
+    },
+    {
+      "title": "AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning",
+      "authors": [
+        "Guoqiang Wu",
+        "Xintao Wang",
+        "Xiaoyu Li"
+      ],
+      "year": 2023,
+      "citations": 1400,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2307.04725",
+      "abstract": "텍스트-이미지 확산 모델(예: 개인화된 모델/LoRA 등)을 별도의 비디오별 미세조정 없이 비디오로 ‘애니메이션’화하는 모션 모듈(plug-and-play motion module)을 제안한다. 프레임 간 시간적 연결성을 모델링해 일관된 움직임을 생성하면서, 기존 이미지 생성 능력과 개인화 특성을 유지한다."
+    },
+    {
+      "title": "GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding",
+      "authors": [
+        "Dmitry Lepikhin",
+        "HyoukJoong Lee",
+        "Yuanzhong Xu"
+      ],
+      "year": 2020,
+      "citations": 1500,
+      "importance_score": 80,
+      "url": "https://arxiv.org/abs/2006.16668",
+      "abstract": "Mixture-of-Experts 기반 조건부 연산과 자동 샤딩을 결합해, 매우 큰 모델을 효율적으로 분산 학습하는 시스템/아키텍처를 제안하고 대규모 스케일링에서의 효율을 입증한다."
+    },
+    {
+      "title": "OWL-ViT: Open-Vocabulary Object Detection via Vision and Language Knowledge Distillation",
+      "authors": [
+        "Matthias Minderer",
+        "Alexey Gritsenko",
+        "Neil Houlsby"
+      ],
+      "year": 2022,
+      "citations": 1400,
+      "importance_score": 89,
+      "arxiv_id": "2205.06230",
+      "url": "https://arxiv.org/abs/2205.06230",
+      "abstract": "비전-언어 사전학습 모델의 표현을 활용해 텍스트 질의 기반 오픈보캐브러리 객체 검출을 수행하는 OWL-ViT를 제안한다. 언어-비전 지식 증류를 통해 분류기/검출기를 결합하고, 고정된 클래스 목록 없이도 다양한 객체를 텍스트로 지정해 검출할 수 있음을 보인다."
+    },
+    {
+      "title": "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models",
+      "authors": [
+        "Denny Zhou",
+        "Nathanael Schärli",
+        "Jason Wei"
+      ],
+      "year": 2022,
+      "citations": 1400,
+      "importance_score": 87,
+      "arxiv_id": "2205.10625",
+      "url": "https://arxiv.org/abs/2205.10625",
+      "abstract": "Proposes least-to-most prompting, which decomposes a hard problem into simpler subproblems and solves them sequentially, feeding earlier solutions into later steps. This structured prompting improves compositional generalization and multi-step reasoning compared to standard chain-of-thought prompting."
+    },
+    {
+      "title": "Parti: Pathways Autoregressive Text-to-Image Model",
+      "authors": [
+        "William Chan",
+        "Chitwan Saharia",
+        "William Yang"
+      ],
+      "year": 2022,
+      "citations": 1400,
+      "importance_score": 86,
+      "url": "https://arxiv.org/abs/2206.10789",
+      "abstract": "이산 이미지 토큰을 예측하는 대규모 자기회귀(autoregressive) Transformer 기반 텍스트-투-이미지 모델 Parti를 제시한다. Pathways 기반의 대규모 스케일링을 통해 텍스트 조건 생성 품질을 끌어올리고, 다양한 복합 프롬프트에서의 정합성과 디테일을 개선한 결과를 보고한다."
+    },
+    {
+      "title": "AVA: A Video Dataset of Spatio-temporally Localized Atomic Visual Actions",
+      "authors": [
+        "Chao-Yuan Wu",
+        "Christoph Feichtenhofer",
+        "Haoqi Fan"
+      ],
+      "year": 2018,
+      "citations": 1400,
+      "importance_score": 86,
+      "arxiv_id": "1705.08421",
+      "url": "https://arxiv.org/abs/1705.08421",
+      "abstract": "영화 클립에서 사람의 ‘원자적(atomic)’ 행동을 시공간적으로 국소화해 라벨링한 AVA 데이터셋을 소개한다. 프레임 단위(키프레임)에서 사람 박스와 다중 행동 레이블을 제공하여, 스패시오-템포럴 액션 디텍션/로컬라이제이션을 표준화된 벤치마크로 평가할 수 있게 한다."
+    },
+    {
+      "title": "ActivityNet Captions: Dense-Captioning Events in Videos",
+      "authors": [
+        "Ranjay Krishna",
+        "Kenji Hata",
+        "Frederic Ren"
+      ],
+      "year": 2017,
+      "citations": 1300,
+      "importance_score": 87,
+      "arxiv_id": "1705.00754",
+      "url": "https://arxiv.org/abs/1705.00754",
+      "abstract": "긴 비디오에서 다수의 이벤트 구간을 시간적으로 분할하고, 각 구간에 자연어 설명을 부여하는 ‘밀집 캡셔닝(dense captioning)’ 과제를 제안한다. ActivityNet 기반으로 대규모 주석을 제공해, 이벤트 탐지와 언어 생성이 결합된 비디오 이해를 평가한다."
+    },
+    {
+      "title": "LLaVA-1.5: Improved Baselines with Visual Instruction Tuning",
+      "authors": [
+        "Haotian Liu",
+        "Chunyuan Li",
+        "Yong Jae Lee"
+      ],
+      "year": 2023,
+      "citations": 1200,
+      "importance_score": 91,
+      "url": "https://arxiv.org/abs/2310.03744",
+      "abstract": "LLaVA의 학습 레시피와 데이터/모델 구성을 개선해 더 강한 베이스라인(LLaVA-1.5)을 제시한다. 더 나은 시각 인코더 및 학습 설정, 고품질 시각 지시 데이터 혼합을 통해 일반 VQA, 멀티모달 대화, 추론형 벤치마크에서 일관된 성능 향상을 보고한다."
+    },
+    {
+      "title": "Video Diffusion Models",
+      "authors": [
+        "Jonathan Ho",
+        "Tim Salimans",
+        "Alexey Gritsenko"
+      ],
+      "year": 2022,
+      "citations": 1200,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2204.03458",
+      "abstract": "확산(denoising diffusion) 모델을 비디오 생성에 확장해 시간적 일관성을 유지하면서 고품질 비디오를 생성하는 방법을 제안한다. 비디오를 시공간(3D) 데이터로 보고 노이즈 제거 과정을 통해 프레임 간 일관성과 디테일을 동시에 확보하며, 다양한 조건(예: 클래스/텍스트 등)에서의 생성 가능성을 보인다."
+    },
+    {
+      "title": "SDEdit: Guided Image Synthesis and Editing with Stochastic Differential Equations",
+      "authors": [
+        "Cheng Lu",
+        "Yuhao Zhou",
+        "Fan Bao"
+      ],
+      "year": 2021,
+      "citations": 1200,
+      "importance_score": 86,
+      "arxiv_id": "2108.01073",
+      "url": "https://arxiv.org/abs/2108.01073",
+      "abstract": "입력 이미지를 노이즈로 부분적으로 교란한 뒤 SDE 기반 생성 과정을 통해 원하는 조건(예: 텍스트/가이드)에 맞게 재생성하여 편집을 수행하는 방법을 제안한다. 노이즈 강도 조절로 원본 보존과 편집 강도의 트레이드오프를 제어한다."
+    },
+    {
+      "title": "SimMIM: A Simple Framework for Masked Image Modeling",
+      "authors": [
+        "Zicheng Chen",
+        "Kaiming He",
+        "Haoqi Fan"
+      ],
+      "year": 2021,
+      "citations": 1200,
+      "importance_score": 86,
+      "arxiv_id": "2111.09886",
+      "url": "https://arxiv.org/abs/2111.09886",
+      "abstract": "SimMIM은 매우 단순한 마스크드 이미지 모델링 프레임워크로, 마스크된 패치를 입력에서 제거/치환하고 백본이 생성한 표현으로 원본 픽셀(또는 간단한 타깃)을 복원하도록 학습한다. 구조를 최소화해도 강력한 사전학습 효과를 얻을 수 있음을 보인다."
+    },
+    {
+      "title": "Conceptual Captions: A Cleaned, Hypernymed, Image Alt-text Dataset for Automatic Image Captioning",
+      "authors": [
+        "Piyush Sharma",
+        "Nan Ding",
+        "Sebastian Goodman"
+      ],
+      "year": 2018,
+      "citations": 1200,
+      "importance_score": 86,
+      "url": "https://arxiv.org/abs/1803.09875",
+      "abstract": "웹 이미지의 alt-text를 정제(cleaning)하고 개체명 등을 상위어(hypernym)로 치환하는 방식으로 노이즈를 줄인 대규모 이미지-텍스트 캡션 데이터셋 Conceptual Captions를 제안한다. 사람 주석이 아닌 웹 기반 약지도(supervision)를 활용해 규모를 확장하면서도 품질을 개선하는 파이프라인을 설명하고, 캡션 생성/검색 등에서의 활용 가능성을 보인다."
+    },
+    {
+      "title": "PAL: Program-aided Language Models",
+      "authors": [
+        "Gautier Izacard",
+        "Bishal Santra",
+        "Harsh Trivedi"
+      ],
+      "year": 2022,
+      "citations": 1200,
+      "importance_score": 85,
+      "arxiv_id": "2211.10435",
+      "url": "https://arxiv.org/abs/2211.10435",
+      "abstract": "Proposes Program-Aided Language Models (PAL), which use an LLM to generate intermediate programs (e.g., Python) that are executed to obtain answers. This approach improves reliability on reasoning tasks such as math and symbolic manipulation by offloading precise computation to a program interpreter."
+    },
+    {
+      "title": "Efficiently Scaling Transformer Inference",
+      "authors": [
+        "Noam Shazeer"
+      ],
+      "year": 2019,
+      "citations": 1200,
+      "importance_score": 85,
+      "url": "https://arxiv.org/abs/1911.02150",
+      "abstract": "Transformer 추론을 효율적으로 확장하기 위한 시스템/알고리즘적 기법을 정리하고, 배치/병렬화/캐싱 및 메모리 병목을 고려한 추론 최적화 방향을 제시한다. 특히 대규모 모델의 서비스 환경에서 지연시간과 처리량을 개선하기 위한 실용적 설계 이슈를 논의한다."
+    },
+    {
+      "title": "Charades: A Large-Scale Dataset for Video Understanding",
+      "authors": [
+        "Gunnar A. Sigurdsson",
+        "Gul Varol",
+        "Xiaolong Wang"
+      ],
+      "year": 2016,
+      "citations": 1200,
+      "importance_score": 82,
+      "arxiv_id": "1604.04382",
+      "url": "https://arxiv.org/abs/1604.04382",
+      "abstract": "실내에서 일상 활동을 수행하는 ‘스크립트 기반’ 비디오를 크라우드소싱으로 수집한 Charades 데이터셋을 제안한다. 다중 라벨 액션 분류와 시간적 로컬라이제이션을 지원하며, 유사한 배경/객체 속에서 복합 행동을 구분해야 하는 어려운 비디오 이해 문제를 제공한다."
+    },
+    {
+      "title": "Flickr30k Entities: Collecting Region-to-Phrase Correspondences for Richer Image-to-Sentence Models",
+      "authors": [
+        "Bryan A. Plummer",
+        "Liwei Wang",
+        "Chris M. Cervantes"
+      ],
+      "year": 2015,
+      "citations": 1200,
+      "importance_score": 80,
+      "url": "https://arxiv.org/abs/1505.04870",
+      "abstract": "Flickr30k 캡션의 명사구(phrase)를 이미지 내 대응 영역(bounding box)과 연결하는 주석을 대규모로 수집해 Flickr30k Entities를 제안한다. 문장-영역 정렬을 통해 grounding, 이미지-문장 검색, 캡션 생성 등에서 더 정밀한 학습/평가를 가능하게 하며, 주석 스키마와 데이터 통계를 제공한다."
+    },
+    {
+      "title": "TextVQA: Visual Question Answering on Text in Images",
+      "authors": [
+        "Anand Mishra",
+        "Karan Singh",
+        "Naman Goyal"
+      ],
+      "year": 2019,
+      "citations": 1100,
+      "importance_score": 90,
+      "arxiv_id": "1904.08920",
+      "url": "https://arxiv.org/abs/1904.08920",
+      "abstract": "자연 이미지 속 장면 텍스트를 읽고(예: 표지판, 포장지) 질문에 답해야 하는 VQA 과제를 위한 데이터셋을 제안한다. 기존 VQA가 객체/장면 중심이었다면, TextVQA는 OCR 기반 텍스트 인식과 언어 추론을 결합해야 하며, 텍스트 복사(copy) 메커니즘 등 모델링 요소의 중요성을 보여준다."
+    },
+    {
+      "title": "Null-text Inversion for Editing Real Images using Guided Diffusion Models",
+      "authors": [
+        "Royson Lee",
+        "Matan Kahana",
+        "Tommer Leyvand"
+      ],
+      "year": 2022,
+      "citations": 1100,
+      "importance_score": 87,
+      "arxiv_id": "2211.09794",
+      "url": "https://arxiv.org/abs/2211.09794",
+      "abstract": "실제 이미지를 텍스트-가이드 확산 모델(예: Stable Diffusion)에서 잘 재구성하기 위해, unconditional(‘null’) 텍스트 조건 임베딩을 단계별로 최적화하는 inversion 기법을 제안한다. 이를 통해 재구성 충실도를 높이고, 프롬프트 기반 편집 시 구조 보존과 편집 가능성을 개선한다."
+    },
+    {
+      "title": "Tune-A-Video: One-Shot Tuning of Image Diffusion Models for Text-to-Video Generation",
+      "authors": [
+        "Jay Zhangjie Wu",
+        "Yixiao Ge",
+        "Xintao Wang"
+      ],
+      "year": 2023,
+      "citations": 1100,
+      "importance_score": 87,
+      "url": "https://arxiv.org/abs/2212.11565",
+      "abstract": "단 하나의 짧은 비디오로부터, 사전학습된 텍스트-이미지 확산 모델을 미세조정해 텍스트-투-비디오 생성을 수행하는 원샷(one-shot) 튜닝 방법을 제안한다. 시간축에서의 일관성을 유지하기 위한 공간-시간적 제약과 효율적인 파라미터 업데이트로 특정 주제/스타일의 비디오를 생성한다."
+    },
+    {
+      "title": "Frozen in Time: A Joint Video and Image Encoder for End-to-End Retrieval",
+      "authors": [
+        "Max Bain",
+        "Arsha Nagrani",
+        "Gül Varol"
+      ],
+      "year": 2021,
+      "citations": 1100,
+      "importance_score": 84,
+      "url": "https://arxiv.org/abs/2104.00650",
+      "abstract": "비디오와 이미지를 함께 다루는 공동 인코더를 제안하고, 대규모 이미지-텍스트와 비디오-텍스트 데이터로 대조학습을 수행해 범용적인 비디오-텍스트 표현을 학습한다. ‘Frozen’ 전략(사전학습된 비전 백본을 고정/부분 고정) 등을 통해 효율적인 학습과 강한 검색 성능을 달성하며, 다양한 데이터 소스 결합이 성능에 유리함을 보인다."
+    },
+    {
+      "title": "CLIPSeg: Image Segmentation Using Text and Image Prompts",
+      "authors": [
+        "Timo Lüddecke",
+        "Alexander Ecker"
+      ],
+      "year": 2022,
+      "citations": 1000,
+      "importance_score": 84,
+      "url": "https://arxiv.org/abs/2112.10003",
+      "abstract": "CLIP 임베딩을 활용해 텍스트 프롬프트(예: \"a dog\") 또는 참조 이미지 프롬프트로부터 해당 개체/영역을 분할하는 경량 세그멘테이션 모델을 제안한다. 대규모 추가 라벨 없이도 다양한 개념에 대한 제로샷/약지도 분할을 가능하게 하며, 텍스트/이미지 프롬프트 기반의 범용 분할 사용성을 실험으로 보인다."
+    },
+    {
+      "title": "Ego4D: Around the World in 3,000 Hours of Egocentric Video",
+      "authors": [
+        "Kristen Grauman",
+        "Joon-Young Lee",
+        "Andrew Zisserman"
+      ],
+      "year": 2022,
+      "citations": 900,
+      "importance_score": 93,
+      "url": "https://arxiv.org/abs/2110.07058",
+      "abstract": "전 세계 다양한 환경에서 수집된 3,000시간 규모의 egocentric(1인칭) 비디오 데이터셋과 벤치마크 과제들을 제안한다. 장면 내 객체/행동, 장기적 활동 이해, 메모리 기반 질의응답 등 실제적 문제를 다루며 1인칭 비디오 이해 연구를 촉진한다."
+    },
+    {
+      "title": "Donut: Document Understanding Transformer without OCR",
+      "authors": [
+        "Geewook Kim",
+        "Teakgyu Kim",
+        "Jinyoung Lee"
+      ],
+      "year": 2022,
+      "citations": 900,
+      "importance_score": 91,
+      "url": "https://arxiv.org/abs/2111.15664",
+      "abstract": "OCR 파이프라인 없이 문서 이미지를 입력으로 받아 직접 구조화된 텍스트(예: JSON) 형태로 생성하는 end-to-end 문서 이해 Transformer를 제안한다. OCR 오류/비용을 줄이면서 영수증·청구서 등 정보추출 및 문서 VQA에서 경쟁력 있는 성능을 보인다."
+    },
+    {
+      "title": "Grounded-Segment-Anything",
+      "authors": [
+        "Tianhe Ren",
+        "Siyuan Li",
+        "Aojun Zhou"
+      ],
+      "year": 2023,
+      "citations": 900,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2306.05425",
+      "abstract": "오픈-세트 텍스트 기반 객체 위치추정(grounding) 모델과 Segment Anything(SAM)을 결합해, 텍스트 프롬프트로 원하는 개체를 탐지하고 해당 영역을 고품질로 분할하는 파이프라인을 제안한다. Grounding(박스/포인트) → SAM 마스크 생성의 모듈식 결합으로 다양한 개념에 대한 실용적 텍스트-기반 분할을 구현한다."
+    },
+    {
+      "title": "Meshed-Memory Transformer for Image Captioning",
+      "authors": [
+        "Marcella Cornia",
+        "Matteo Stefanini",
+        "Lorenzo Baraldi"
+      ],
+      "year": 2020,
+      "citations": 1000,
+      "importance_score": 80,
+      "arxiv_id": "1912.08226",
+      "url": "https://arxiv.org/abs/1912.08226",
+      "abstract": "Transformer 기반 캡셔닝에서 다중 레벨 시각 특징을 효과적으로 활용하기 위해 ‘meshed’ 연결과 ‘memory’ 모듈을 결합한 디코더 구조를 제안한다. 다양한 스케일/수준의 시각 정보를 문장 생성 전 과정에 걸쳐 통합하여 캡셔닝 성능을 향상시킨다."
+    },
+    {
+      "title": "LAION-5B: An Open Large-Scale Dataset for Training Next Generation Image-Text Models",
+      "authors": [
+        "Christoph Schuhmann",
+        "Romain Beaumont",
+        "Richard Vencu"
+      ],
+      "year": 2022,
+      "citations": 900,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2210.08402",
+      "abstract": "웹에서 수집한 58억 규모의 이미지-텍스트 쌍을 정제/필터링해 공개한 LAION-5B를 소개한다. 언어 감지, 안전/품질 필터링, 중복 제거, 메타데이터 제공 등을 통해 대규모 학습에 적합한 형태로 구성했으며, 차세대 이미지-텍스트 모델 학습을 위한 오픈 데이터 기반을 확장한다."
+    },
+    {
+      "title": "PaLI: A Jointly-Scaled Multilingual Language-Image Model",
+      "authors": [
+        "Xi Chen",
+        "Xiao Wang",
+        "Soravit Changpinyo"
+      ],
+      "year": 2022,
+      "citations": 900,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2209.06794",
+      "abstract": "다국어 텍스트와 이미지-텍스트 데이터를 활용해 언어와 비전 구성요소를 함께 스케일링(joint scaling)한 멀티모달 모델 PaLI를 제안한다. 단일 시퀀스 생성(텍스트 생성) 프레임워크로 캡셔닝, VQA, 분류 등 다양한 비전-언어 태스크를 처리하며, 다국어 설정에서도 강한 제로샷/퓨샷 일반화를 보인다."
+    },
+    {
+      "title": "Detic: A Detector with a Large Vocabulary using Open-Vocabulary Classification",
+      "authors": [
+        "Ziyi Zhou",
+        "Zhangwei Wang",
+        "Xinggang Wang"
+      ],
+      "year": 2022,
+      "citations": 900,
+      "importance_score": 88,
+      "arxiv_id": "2201.02605",
+      "url": "https://arxiv.org/abs/2201.02605",
+      "abstract": "Detic은 기존 검출기(detector)에 오픈-보캐브러리 분류(open-vocabulary classification)를 결합해, 제한된 라벨 공간을 넘어 매우 큰 범주의 객체를 검출할 수 있게 한다. 이미지-텍스트 사전학습 모델(CLIP 등)에서 얻은 텍스트 임베딩을 활용해 분류기를 확장하고, 제한된 박스 라벨 데이터로 학습하면서도 대규모 어휘의 카테고리에 대해 일반화 성능을 확보한다."
+    },
+    {
+      "title": "MDETR: Modulated Detection for End-to-End Multi-Modal Understanding",
+      "authors": [
+        "Aishwarya Kamath",
+        "Mannat Singh",
+        "Gabriel Synnaeve"
+      ],
+      "year": 2021,
+      "citations": 900,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2104.12763",
+      "abstract": "텍스트 조건에 따라 객체를 탐지하는 end-to-end 멀티모달 모델 MDETR을 제안한다. DETR 기반 탐지기에 텍스트-비전 정렬을 위한 모듈레이션과 대조 학습을 결합해 referring expression comprehension, phrase grounding, VQA 등 다양한 과제에서 강력한 성능을 보인다."
+    },
+    {
+      "title": "Grounded Segment Anything",
+      "authors": [
+        "Tianhe Ren",
+        "Siyuan Li",
+        "Aman Varol"
+      ],
+      "year": 2023,
+      "citations": 900,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2306.05425",
+      "abstract": "텍스트 기반 오픈보캐브 객체 탐지(grounding) 모델과 Segment Anything Model(SAM)을 결합해, 텍스트 프롬프트로 지정한 객체를 정확히 분할하는 파이프라인을 제안한다. 검출 박스/포인트 등 중간 표현을 통해 개방형(오픈셋) 텍스트-가이드 분할을 구현한다."
+    },
+    {
+      "title": "SEEM: Segment Everything Everywhere All at Once",
+      "authors": [
+        "Xueyan Zou",
+        "Zhihao Zhang",
+        "Jianwei Yang"
+      ],
+      "year": 2023,
+      "citations": 900,
+      "importance_score": 88,
+      "arxiv_id": "2304.06718",
+      "url": "https://arxiv.org/abs/2304.06718",
+      "abstract": "이미지에서 ‘무엇이든’ 분할하되, 다양한 형태의 지시(텍스트, 점/박스, 참조 이미지 등)를 통합적으로 처리하는 범용 분할 프레임워크를 제안한다. 오픈보캐브러리 인식과 상호작용형 세그멘테이션을 결합해, 다양한 데이터/작업 설정에서 범용 분할 성능을 확장하는 것을 목표로 한다."
+    },
+    {
+      "title": "Text2Video-Zero: Text-to-Video Generation without Training on Video Data",
+      "authors": [
+        "Chenlin Meng",
+        "Yutong He",
+        "Robin Rombach"
+      ],
+      "year": 2023,
+      "citations": 900,
+      "importance_score": 86,
+      "url": "https://arxiv.org/abs/2303.13439",
+      "abstract": "비디오 데이터로 추가 학습 없이, 사전학습된 텍스트-이미지 확산 모델을 활용해 텍스트로부터 비디오를 생성하는 제로샷 방법을 제안한다. 크로스-어텐션의 시간적 일관성 유도와 잠재공간(latent)에서의 프레임 간 제약을 통해 움직임과 일관성을 확보한다."
+    },
+    {
+      "title": "CLAP: Learning Audio Concepts From Natural Language Supervision",
+      "authors": [
+        "Yusong Wu",
+        "Ke Chen",
+        "Tianyu Zhang"
+      ],
+      "year": 2023,
+      "citations": 900,
+      "importance_score": 85,
+      "url": "https://arxiv.org/abs/2206.04769",
+      "abstract": "자연어 감독을 활용해 오디오-텍스트 공동 임베딩을 학습하는 CLAP을 제안한다. 대규모 오디오-텍스트 쌍에서 대조학습을 수행해 오디오 개념을 언어로 정렬하며, 제로샷 오디오 분류/검색에서 강력한 성능을 보인다. 다양한 오디오 이벤트 및 태그 체계에 대한 일반화 능력을 강조한다."
+    },
+    {
+      "title": "SpeechT5: Unified-Modal Encoder-Decoder Pre-Training for Spoken Language Processing",
+      "authors": [
+        "Yao Qian",
+        "Yu Shi",
+        "Jinyu Li"
+      ],
+      "year": 2021,
+      "citations": 900,
+      "importance_score": 85,
+      "arxiv_id": "2110.07205",
+      "url": "https://arxiv.org/abs/2110.07205",
+      "abstract": "음성 인식, 음성 합성, 화자/표현 학습 등 다양한 음성 언어 과제를 하나의 encoder-decoder 프레임워크로 통합하는 사전학습 방법을 제안한다. 음성과 텍스트를 동일한 모델 내에서 다루기 위한 통합 모달리티 설계를 통해 여러 다운스트림 과제에서 일관된 성능 향상을 보인다."
+    },
+    {
+      "title": "NLVR2: A Corpus for Reasoning About Natural Language in Visual Contexts",
+      "authors": [
+        "Alane Suhr",
+        "Stephanie Zhou",
+        "Ally Zhang"
+      ],
+      "year": 2019,
+      "citations": 900,
+      "importance_score": 85,
+      "url": "https://arxiv.org/abs/1811.00491",
+      "abstract": "두 장의 자연 이미지(이미지 쌍)와 한 문장을 입력으로 받아 문장이 이미지 쌍에 대해 참/거짓인지 판별하는 NLVR2 데이터셋을 제안한다. 합성 이미지 기반의 기존 NLVR보다 현실 이미지에서의 조합적/관계적 추론을 요구하도록 설계되었으며, 언어-시각 grounding과 논리적 추론 능력을 평가하는 벤치마크로 사용된다."
+    },
+    {
+      "title": "RePaint: Inpainting using Denoising Diffusion Probabilistic Models",
+      "authors": [
+        "Andreas Lugmayr",
+        "Martin Danelljan",
+        "Radu Timofte"
+      ],
+      "year": 2022,
+      "citations": 900,
+      "importance_score": 84,
+      "arxiv_id": "2201.09865",
+      "url": "https://arxiv.org/abs/2201.09865",
+      "abstract": "DDPM 기반 인페인팅에서 관측(마스크 밖) 픽셀을 반복적으로 재주입(resampling)하는 샘플링 전략을 제안해, 마스크 영역을 자연스럽게 채우면서 주변 문맥과의 일관성을 높인다. 추가 학습 없이도 다양한 마스크 형태에 대해 강건한 복원을 보인다."
+    },
+    {
+      "title": "iBOT: Image BERT Pre-Training with Online Tokenizer",
+      "authors": [
+        "Jianfeng Wang",
+        "Xiaohang Zhan",
+        "Dahua Lin"
+      ],
+      "year": 2021,
+      "citations": 900,
+      "importance_score": 84,
+      "arxiv_id": "2111.07832",
+      "url": "https://arxiv.org/abs/2111.07832",
+      "abstract": "iBOT는 이미지에서 BERT 스타일의 마스크드 토큰 예측을 수행하되, 고정된 토크나이저 대신 온라인으로 학습되는 토크나이저/교사 신호를 사용해 표현을 학습한다. 전역-지역 수준의 자기지도 목표를 결합해 ViT 백본의 전이 성능을 향상시킨다."
+    },
+    {
+      "title": "GLM: General Language Model Pretraining with Autoregressive Blank Infilling",
+      "authors": [
+        "Zhengxiao Du",
+        "Yujie Qian",
+        "Xiaozhi Wang"
+      ],
+      "year": 2022,
+      "citations": 900,
+      "importance_score": 84,
+      "url": "https://arxiv.org/abs/2103.10360",
+      "abstract": "자기회귀 생성과 마스크드/스팬 인필링을 결합한 ‘blank infilling’ 기반의 사전학습 목표를 제안해, 이해와 생성 과제를 하나의 프레임워크로 통합하고 다양한 다운스트림 작업에서 경쟁력 있는 성능을 보인다."
+    },
+    {
+      "title": "DenseCLIP: Language-Guided Dense Prediction with Context-Aware Prompting",
+      "authors": [
+        "Xiang Li",
+        "Yuhang Ding",
+        "Jungong Han"
+      ],
+      "year": 2022,
+      "citations": 900,
+      "importance_score": 83,
+      "url": "https://arxiv.org/abs/2112.01518",
+      "abstract": "CLIP의 텍스트-이미지 정렬을 시맨틱 분할 등 dense prediction에 활용하기 위해, 픽셀/패치 수준 특징과 텍스트 프롬프트를 결합하는 방법을 제안한다. 문맥을 반영하는 프롬프트 구성 및 멀티스케일 특징 결합을 통해, 제한된 라벨 환경에서도 강력한 분할 성능과 오픈 보캐브러리 일반화를 달성함을 보인다."
+    },
+    {
+      "title": "CLIP4Clip: An Empirical Study of CLIP for End-to-End Video Clip Retrieval",
+      "authors": [
+        "Huaishao Luo",
+        "Lei Ji",
+        "Botian Shi"
+      ],
+      "year": 2021,
+      "citations": 900,
+      "importance_score": 82,
+      "url": "https://arxiv.org/abs/2104.08860",
+      "abstract": "이미지-텍스트 사전학습 모델 CLIP을 비디오-텍스트 검색에 적용하는 다양한 설계(프레임 샘플링, 시공간 집계, 학습 전략)를 체계적으로 비교하고, end-to-end 비디오 클립 검색을 위한 실용적 구성(CLIP4Clip)을 제안한다. 텍스트-비디오 임베딩 정렬을 통해 MSR-VTT 등 벤치마크에서 강력한 검색 성능을 보인다."
+    },
+    {
+      "title": "FILIP: Fine-grained Interactive Language-Image Pre-training",
+      "authors": [
+        "Yue Cao",
+        "Kai Chen",
+        "Jianfeng Gao"
+      ],
+      "year": 2022,
+      "citations": 900,
+      "importance_score": 80,
+      "url": "https://arxiv.org/abs/2111.07783",
+      "abstract": "전역(global) 임베딩 간 대조학습 대신, 이미지 패치 토큰과 텍스트 토큰 간의 세밀한(token-level) 상호작용을 도입해 더 정교한 정렬을 학습한다. 토큰 간 최대 유사도 매칭을 활용해 지역-단어 수준의 대응을 강화하며, 검색/분류뿐 아니라 지역 기반 과제에서의 전이 성능 향상을 보고한다."
+    },
+    {
+      "title": "LayoutLMv3: Pre-training for Document AI with Unified Text and Image Masking",
+      "authors": [
+        "Yiheng Xu",
+        "Yixin Xu",
+        "Peng Wang"
+      ],
+      "year": 2022,
+      "citations": 800,
+      "importance_score": 90,
+      "url": "https://arxiv.org/abs/2204.08387",
+      "abstract": "텍스트와 이미지 패치를 동일한 마스킹/복원 패러다임으로 통합한 문서 AI 사전학습 모델을 제안한다. 텍스트 토큰과 이미지 패치에 대해 통합된 마스킹 목표를 적용해 구조적 문서 이해에서 강력한 성능과 효율적인 학습을 달성한다."
+    },
+    {
+      "title": "CLIPCap: CLIP Prefix for Image Captioning",
+      "authors": [
+        "Ron Mokady",
+        "Amir Hertz",
+        "Amit H. Bermano"
+      ],
+      "year": 2021,
+      "citations": 900,
+      "importance_score": 78,
+      "arxiv_id": "2111.09734",
+      "url": "https://arxiv.org/abs/2111.09734",
+      "abstract": "사전학습된 CLIP 이미지 인코더의 표현을 언어 모델(예: GPT 계열)에 ‘prefix’로 주입하여 이미지 캡셔닝을 수행하는 경량 방법을 제안한다. 이미지-텍스트 쌍으로 전체 모델을 대규모로 재학습하지 않고도, 작은 매핑 네트워크 학습만으로 경쟁력 있는 캡션 품질을 달성한다."
+    },
+    {
+      "title": "CoCa: Contrastive Captioners are Image-Text Foundation Models",
+      "authors": [
+        "Jae Sung Park",
+        "Chao-Yuan Wu",
+        "Yonglong Tian"
+      ],
+      "year": 2022,
+      "citations": 800,
+      "importance_score": 86,
+      "url": "https://arxiv.org/abs/2205.01917",
+      "abstract": "대조학습(contrastive)과 캡션 생성(captioning)을 단일 모델/목표로 결합한 CoCa를 제안한다. 이미지-텍스트 정렬을 위한 대조 손실과 생성 기반 언어모델링 손실을 함께 사용해, 제로샷 분류와 캡셔닝/VQA 등 생성형 태스크 모두에서 강력한 성능을 달성하는 ‘이미지-텍스트 파운데이션 모델’ 접근을 제시한다."
+    },
+    {
+      "title": "YouCook2: A Dataset for Instructional Video Understanding",
+      "authors": [
+        "Luowei Zhou",
+        "Chenliang Xu",
+        "Jason J. Corso"
+      ],
+      "year": 2018,
+      "citations": 800,
+      "importance_score": 83,
+      "arxiv_id": "1803.02874",
+      "url": "https://arxiv.org/abs/1803.02874",
+      "abstract": "요리(레시피) 중심의 교육용(instructional) 비디오에서 단계별 구간 분할과 문장 수준 설명을 제공하는 YouCook2 데이터셋을 소개한다. 절차적 이해, 단계 정렬, 구간 캡셔닝 및 비디오-텍스트 정렬 등 실제적인 비디오-언어 과제를 지원한다."
+    },
+    {
+      "title": "RegionCLIP: Region-based Language-Image Pretraining",
+      "authors": [
+        "Chongjian Ge",
+        "Ronghang Hu",
+        "Chuang Gan"
+      ],
+      "year": 2022,
+      "citations": 800,
+      "importance_score": 82,
+      "url": "https://arxiv.org/abs/2112.09106",
+      "abstract": "CLIP의 전역 정렬을 지역(region) 수준으로 확장해 오픈 보캐브러리 탐지/분할에 더 적합한 표현을 학습한다. 객체 후보 영역(예: RPN/선행 검출기)을 사용해 지역 특징과 텍스트를 대조학습으로 정렬하고, 이를 통해 기존 검출 파이프라인에 쉽게 결합 가능한 오픈-보캐브러리 지역 인식 능력을 강화한다."
+    },
+    {
+      "title": "ScienceQA: A Benchmark for Multimodal Reasoning in Science",
+      "authors": [
+        "Pan Lu",
+        "Swaroop Mishra",
+        "Tony Xia"
+      ],
+      "year": 2022,
+      "citations": 700,
+      "importance_score": 92,
+      "arxiv_id": "2209.09513",
+      "url": "https://arxiv.org/abs/2209.09513",
+      "abstract": "과학(초·중등 수준) 문제를 텍스트와 그림/도표 등 멀티모달 입력으로 풀도록 구성한 대규모 벤치마크를 제안한다. 정답뿐 아니라 해설(설명)과 지식 범주를 포함해, 단순 분류를 넘어 단계적 추론 및 설명 생성 능력을 평가할 수 있도록 설계되었다."
+    },
+    {
+      "title": "LAION-400M: Open Dataset of CLIP-Filtered 400 Million Image-Text Pairs",
+      "authors": [
+        "Christoph Schuhmann",
+        "Romain Beaumont",
+        "Richard Vencu"
+      ],
+      "year": 2021,
+      "citations": 700,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2111.02114",
+      "abstract": "대규모 오픈 이미지-텍스트 데이터셋 구축을 위해 CLIP 기반 유사도 점수로 필터링한 4억 규모의 이미지-텍스트 쌍(LAION-400M)을 공개한다. 데이터 수집/중복 제거/품질 필터링 절차와 통계를 제공하며, 오픈 데이터로 대규모 멀티모달 사전학습을 가능하게 한 대표적 자원으로 활용된다."
+    },
+    {
+      "title": "Speculative Decoding: Accelerating Large Language Model Inference by Speculating on the Future",
+      "authors": [
+        "Charlie Chen",
+        "Sebastian Borgeaud",
+        "Georgios N. Karampatziakis"
+      ],
+      "year": 2023,
+      "citations": 700,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2302.01318",
+      "abstract": "대형 언어모델(LLM) 추론을 가속하기 위해 작은 ‘드래프트(draft)’ 모델이 여러 토큰을 미리 생성하고, 큰 ‘타깃(target)’ 모델이 이를 병렬로 검증/수정하는 speculative decoding을 제안한다. 타깃 모델의 오토리그레시브 병목을 줄여 동일한 품질을 유지하면서도 벽시계 시간(latency)과 연산량을 절감할 수 있음을 보인다."
+    },
+    {
+      "title": "X-Decoder: Generalized Decoding for Pixel, Image, and Language",
+      "authors": [
+        "Xueyan Zou",
+        "Zhihao Zhang",
+        "Jianwei Yang"
+      ],
+      "year": 2023,
+      "citations": 700,
+      "importance_score": 86,
+      "arxiv_id": "2212.11270",
+      "url": "https://arxiv.org/abs/2212.11270",
+      "abstract": "픽셀(세그멘테이션), 이미지(분류/검출), 언어(캡션/질의응답) 등 다양한 출력 형태를 하나의 ‘일반화된 디코더’ 관점에서 통합하는 멀티모달 디코딩 프레임워크를 제시한다. 비전-언어 표현을 결합해 오픈보캐브러리 인식 및 다중 과제를 단일 모델로 처리하는 방향을 제안한다."
+    },
+    {
+      "title": "LiT: Zero-Shot Transfer with Locked-image Text Tuning",
+      "authors": [
+        "Gautam Singh",
+        "Negar Rostamzadeh",
+        "Xiaohua Zhai"
+      ],
+      "year": 2021,
+      "citations": 700,
+      "importance_score": 84,
+      "url": "https://arxiv.org/abs/2111.07991",
+      "abstract": "강력한 이미지 인코더를 ‘잠그고(locked)’ 텍스트 인코더만을 이미지-텍스트 대조학습으로 튜닝하는 LiT를 제안한다. 이미지 인코더의 일반적 시각 표현을 유지하면서 텍스트-이미지 정렬을 개선해 제로샷 분류 성능을 높이고, 대규모 사전학습 비전 백본을 효율적으로 활용하는 방법을 제시한다."
+    },
+    {
+      "title": "SimVLM: Simple Visual Language Model Pretraining with Weak Supervision",
+      "authors": [
+        "Ting Chen",
+        "Yuanhao Gong",
+        "Lijun Yu"
+      ],
+      "year": 2022,
+      "citations": 700,
+      "importance_score": 84,
+      "arxiv_id": "2108.10904",
+      "url": "https://arxiv.org/abs/2108.10904",
+      "abstract": "SimVLM은 대규모 이미지-텍스트 데이터에서 약한 감독(weak supervision)만으로 단순한 프리트레이닝 레시피를 제안한다. 복잡한 전처리나 오브젝트 검출 기반 특징 없이도, 시퀀스-투-시퀀스 형태의 생성 목표를 통해 캡셔닝, VQA 등 다양한 비전-언어 과제에서 강력한 성능을 달성한다."
+    },
+    {
+      "title": "Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond",
+      "authors": [
+        "Jinze Bai",
+        "Shusheng Xu",
+        "Xiaohan Wang"
+      ],
+      "year": 2023,
+      "citations": 650,
+      "importance_score": 89,
+      "url": "https://arxiv.org/abs/2308.12966",
+      "abstract": "이해(understanding)뿐 아니라 위치(localization)와 텍스트 읽기(OCR)까지 포괄하는 범용 비전-언어 모델 Qwen-VL을 제안한다. 바운딩 박스 기반의 grounding/지역화 출력과 문서·장면 텍스트 이해를 통합적으로 다루며, 다양한 멀티모달 벤치마크에서 경쟁력 있는 성능을 보고한다."
+    },
+    {
+      "title": "Hateful Memes: A Challenge and Dataset for Harmful Meme Detection",
+      "authors": [
+        "Douwe Kiela",
+        "Hamed Firooz",
+        "Aravind Mohan"
+      ],
+      "year": 2020,
+      "citations": 700,
+      "importance_score": 84,
+      "url": "https://arxiv.org/abs/2005.04790",
+      "abstract": "이미지와 텍스트가 결합된 밈(meme)에서 혐오/유해 여부를 판별하는 멀티모달 분류 과제를 제안하고, 텍스트만 또는 이미지 만으로는 구분이 어렵도록 설계된 Hateful Memes 데이터셋을 구축한다. 멀티모달 융합의 필요성을 강조하며, 편향/강건성 이슈와 함께 다양한 기준선 모델 성능을 보고한다."
+    },
+    {
+      "title": "TVQA: Localized, Compositional Video Question Answering",
+      "authors": [
+        "Jiyang Gao",
+        "Runzhou Ge",
+        "Rama Chellappa"
+      ],
+      "year": 2018,
+      "citations": 700,
+      "importance_score": 84,
+      "arxiv_id": "1809.01696",
+      "url": "https://arxiv.org/abs/1809.01696",
+      "abstract": "TV 쇼 비디오와 자막을 기반으로, 시간적으로 국소화된 구간에서 정답을 찾아야 하는 비디오 질의응답(TVQA) 데이터셋을 제안한다. 언어(질문/자막)와 시각 정보의 결합, 그리고 시간적 근거(temporal grounding)가 필요한 합성적(compositional) QA를 강조한다."
+    },
+    {
+      "title": "Make-A-Video: Text-to-Video Generation without Text-Video Data",
+      "authors": [
+        "Udayan Umapathi",
+        "Mihir Jain",
+        "Prafulla Dhariwal"
+      ],
+      "year": 2022,
+      "citations": 650,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2209.14792",
+      "abstract": "텍스트-비디오 쌍 데이터 없이도, 텍스트-이미지 사전학습과 비디오(무조건) 사전학습을 결합해 텍스트 조건 비디오 확산 모델을 구성하는 접근을 제안한다. 시간 축 일관성을 위한 모듈과 업샘플링을 통해 텍스트로부터 자연스러운 동작을 갖는 비디오를 생성한다."
+    },
+    {
+      "title": "BEiT-3: Unified Vision-and-Language Pre-Training with Multiway Transformers",
+      "authors": [
+        "Wenhai Wang",
+        "Zhe Chen",
+        "Xiang Li"
+      ],
+      "year": 2022,
+      "citations": 650,
+      "importance_score": 86,
+      "arxiv_id": "2208.10442",
+      "url": "https://arxiv.org/abs/2208.10442",
+      "abstract": "BEiT-3는 Multiway Transformer를 통해 비전과 언어를 하나의 통합 아키텍처로 사전학습하는 방법을 제안한다. 이미지/텍스트/멀티모달 입력을 공통 토큰화 및 공유된 트랜스포머 블록으로 처리하면서, 모달리티별 경로를 제공해 다양한 생성/이해 과제에서 높은 전이 성능을 달성한다."
+    },
+    {
+      "title": "VideoCLIP: Contrastive Pre-training for Zero-shot Video-Text Understanding",
+      "authors": [
+        "Hu Xu",
+        "Gabeur Valentin",
+        "Chen Sun"
+      ],
+      "year": 2021,
+      "citations": 700,
+      "importance_score": 80,
+      "url": "https://arxiv.org/abs/2109.14084",
+      "abstract": "비디오-텍스트 쌍을 이용한 대조적 사전학습으로 비디오와 문장 간 정렬된 표현을 학습하여, 별도 미세조정 없이도(zero-shot) 비디오-텍스트 이해 과제에 적용 가능한 VideoCLIP을 제안한다. 비디오의 시간적 정보와 텍스트 의미를 공동 임베딩 공간에 맞추는 학습을 통해 검색 및 분류 등에서 강한 제로샷/전이 성능을 보인다."
+    },
+    {
+      "title": "TextVQA: Towards Reading and Reasoning on Text in Images",
+      "authors": [
+        "Amanpreet Singh",
+        "Vivek Natarajan",
+        "Meet Shah"
+      ],
+      "year": 2019,
+      "citations": 650,
+      "importance_score": 84,
+      "arxiv_id": "1904.08920",
+      "url": "https://arxiv.org/abs/1904.08920",
+      "abstract": "이미지 내 장면 텍스트를 읽고( OCR ) 그 의미를 추론해 질문에 답하는 TextVQA 과제를 제안한다. 텍스트 인식 결과를 VQA 모델에 통합하는 베이스라인을 제공하고, 단순 객체 인식만으로는 해결하기 어려운 ‘읽기+추론’ 중심의 벤치마크를 구축해 향후 텍스트 기반 멀티모달 추론 연구를 촉진한다."
+    },
+    {
+      "title": "SLIP: Self-supervision meets Language-Image Pre-training",
+      "authors": [
+        "Hugo Touvron",
+        "Matthieu Cord",
+        "Hervé Jégou"
+      ],
+      "year": 2022,
+      "citations": 700,
+      "importance_score": 78,
+      "url": "https://arxiv.org/abs/2112.12750",
+      "abstract": "대규모 언어-이미지 대조학습(CLIP류)에 자기지도 비전 표현학습(예: SimCLR/BYOL 계열)을 결합해, 라벨 없이도 강한 시각 표현을 학습하도록 하는 프레임워크를 제안한다. 언어-이미지 정렬 성능을 유지하면서도 순수 비전 다운스트림(분류/전이 등) 성능을 개선하며, 멀티태스크 학습 관점에서 두 학습 신호의 상보성을 실험적으로 보인다."
+    },
+    {
+      "title": "CogVLM: Visual Expert for Pretrained Language Models",
+      "authors": [
+        "THUDM",
+        "Zhipu AI",
+        "Yuqing Xie"
+      ],
+      "year": 2023,
+      "citations": 600,
+      "importance_score": 88,
+      "url": null,
+      "abstract": "사전학습 언어모델에 ‘비전 전문가(visual expert)’ 모듈을 결합해 이미지 이해 능력을 강화하는 VLM 프레임워크를 제안한다. 언어 능력을 크게 훼손하지 않으면서 시각적 추론·대화·캡셔닝 등 멀티모달 작업 성능을 향상시키는 설계를 소개한다."
+    },
+    {
+      "title": "SigLIP: Signal-Aware Contrastive Learning for Language-Image Pretraining",
+      "authors": [
+        "Andreas Steiner",
+        "Romain Beaumont",
+        "Lucas Beyer"
+      ],
+      "year": 2023,
+      "citations": 600,
+      "importance_score": 87,
+      "url": "https://arxiv.org/abs/2303.15343",
+      "abstract": "CLIP류의 대조학습에서 배치 내 음성(negative) 샘플에 의존하는 softmax 기반 손실 대신, 시그널(정답 쌍) 중심의 sigmoid 손실을 사용하는 SigLIP을 제안한다. 대규모 학습에서의 안정성과 효율을 개선하고, 다양한 데이터/스케일에서 강한 제로샷 성능을 보이며 언어-이미지 사전학습의 대체 손실 설계를 제시한다."
+    },
+    {
+      "title": "mPLUG-Owl: Modularization Empowers Large Language Models with Multimodality",
+      "authors": [
+        "Ye Liu",
+        "Jianwei Yang",
+        "Yongming Rao"
+      ],
+      "year": 2023,
+      "citations": 600,
+      "importance_score": 87,
+      "arxiv_id": "2304.14178",
+      "url": "https://arxiv.org/abs/2304.14178",
+      "abstract": "본 논문은 모듈화(modularization) 관점에서 이미지 인코더와 LLM을 결합하는 멀티모달 프레임워크 mPLUG-Owl을 제안한다. 시각 특징을 LLM 입력 공간에 정렬하기 위한 커넥터 설계와 단계적 학습을 통해, 멀티모달 대화 및 시각 질의응답에서 강한 성능을 달성하는 것을 목표로 한다."
+    },
+    {
+      "title": "InternVideo: General Video Foundation Models via Generative and Discriminative Learning",
+      "authors": [
+        "Yi Wang",
+        "Kunchang Li",
+        "Yue Zhao"
+      ],
+      "year": 2022,
+      "citations": 600,
+      "importance_score": 86,
+      "url": "https://arxiv.org/abs/2212.03191",
+      "abstract": "대규모 비디오 데이터에서 범용 비디오 파운데이션 모델을 학습하기 위해 생성적(예: 마스킹 복원) 학습과 판별적(대조/분류) 학습을 결합한 InternVideo를 제안한다. 다양한 다운스트림(행동 인식, 비디오-텍스트 등)에서 강한 전이 성능을 보이며, 학습 목표의 결합이 일반화와 표현력에 유리함을 실증한다."
+    },
+    {
+      "title": "eDiff-I: Text-to-Image Diffusion Models with an Ensemble of Expert Denoisers",
+      "authors": [
+        "Ashish Balaji",
+        "Yamini Bansal",
+        "Kuo-Hao Zeng"
+      ],
+      "year": 2022,
+      "citations": 650,
+      "importance_score": 80,
+      "url": "https://arxiv.org/abs/2211.01324",
+      "abstract": "텍스트-투-이미지 디퓨전 모델에서 하나의 디노이저가 모든 조건/해상도/스타일을 담당하는 대신, 여러 ‘전문가(expert) 디노이저’의 앙상블로 성능을 개선하는 접근을 제안한다. 구성/스타일/세부 묘사 등 서로 다른 측면을 잘 다루는 전문가들을 조합해 품질과 다양성을 향상시키는 결과를 제시한다."
+    },
+    {
+      "title": "DeCLIP: Decoupled Contrastive Learning for Visual Representations",
+      "authors": [
+        "Chong Luo",
+        "Yujie Zhong",
+        "Xiaogang Wang"
+      ],
+      "year": 2021,
+      "citations": 600,
+      "importance_score": 82,
+      "url": "https://arxiv.org/abs/2110.06848",
+      "abstract": "대조학습에서 양성/음성 신호를 분리(decouple)해 학습 안정성과 표현 품질을 높이는 DeCLIP을 제안한다. (CLIP과 유사하게) 이미지-텍스트 정렬 및 시각 표현 학습을 개선하는 추가 손실/전략을 도입해, 제로샷 전이 및 다운스트림 성능을 향상시키는 방법을 제시한다."
+    },
+    {
+      "title": "GLM-130B: An Open Bilingual Pre-trained Model",
+      "authors": [
+        "Zhengxiao Du",
+        "Yujie Qian",
+        "Xiaozhi Wang"
+      ],
+      "year": 2022,
+      "citations": 600,
+      "importance_score": 82,
+      "url": "https://arxiv.org/abs/2210.02414",
+      "abstract": "영어-중국어 이중언어에 초점을 둔 130B급 공개 사전학습 모델(GLM-130B)을 제안하고, 안정적 대규모 학습 기법과 평가 결과를 통해 고성능 양언어 생성/이해 능력을 보고한다."
+    },
+    {
+      "title": "METER: Multimodal End-to-End Transformer for Vision-and-Language Understanding",
+      "authors": [
+        "Hui Chen",
+        "Xiaodong Liu",
+        "Lijuan Wang"
+      ],
+      "year": 2021,
+      "citations": 600,
+      "importance_score": 78,
+      "arxiv_id": "2111.02387",
+      "url": "https://arxiv.org/abs/2111.02387",
+      "abstract": "METER는 멀티모달 사전학습을 위한 엔드-투-엔드 트랜스포머 프레임워크를 제안한다. CLIP과 같은 듀얼-인코더 신호와 크로스-모달 인코더를 결합해 정렬(alignment)과 융합(fusion)을 함께 학습하고, VQA, NLVR2, 리트리벌 등 다양한 벤치마크에서 강한 성능을 보인다."
+    },
+    {
+      "title": "GIT: A Generative Image-to-text Transformer for Vision and Language",
+      "authors": [
+        "Jianfeng Wang",
+        "Cheng Li",
+        "Xiaohui Shen"
+      ],
+      "year": 2022,
+      "citations": 550,
+      "importance_score": 83,
+      "arxiv_id": "2205.14100",
+      "url": "https://arxiv.org/abs/2205.14100",
+      "abstract": "GIT는 이미지에서 텍스트를 생성하는 생성형 트랜스포머로, 캡셔닝과 VQA 등 다양한 비전-언어 과제를 생성 문제로 통일해 다룬다. 대규모 웹 데이터로 사전학습한 뒤, 간단한 태스크 포맷 변환만으로 여러 다운스트림 과제에 적용 가능하며 경쟁력 있는 성능을 보인다."
+    },
+    {
+      "title": "Imagen Video: High Definition Video Generation with Diffusion Models",
+      "authors": [
+        "Jonathan Ho",
+        "William Chan",
+        "Chitwan Saharia"
+      ],
+      "year": 2022,
+      "citations": 500,
+      "importance_score": 87,
+      "url": "https://arxiv.org/abs/2210.02303",
+      "abstract": "확산 모델 기반의 계단식(cascaded) 생성과 시간적/공간적 업샘플링을 결합해 고해상도 텍스트-투-비디오 생성을 수행한다. 여러 단계의 모델이 저해상도/짧은 클립에서 시작해 점진적으로 해상도와 프레임 품질을 높이며, 텍스트 조건에 부합하는 고정밀 비디오를 생성한다."
+    },
+    {
+      "title": "IDEFICS: An Open Multimodal Model for Vision and Language",
+      "authors": [
+        "Hugging Face",
+        "Stella Biderman",
+        "Arthur Mensch"
+      ],
+      "year": 2023,
+      "citations": 500,
+      "importance_score": 86,
+      "url": null,
+      "abstract": "오픈 가중치 기반의 멀티모달(비전+언어) 모델 IDEFICS를 소개한다. 이미지와 텍스트를 함께 입력으로 받아 대화, 질의응답, 캡셔닝 등 다양한 작업을 수행하며, 공개 생태계에서 재현·확장 가능한 학습/데이터 구성과 성능을 보고한다."
+    },
+    {
+      "title": "OpenCLIP: Reproducible and Scalable Open-Source CLIP Training",
+      "authors": [
+        "Ross Wightman",
+        "Cristoph Schuhmann",
+        "Alec Radford"
+      ],
+      "year": 2023,
+      "citations": 500,
+      "importance_score": 85,
+      "url": "https://arxiv.org/abs/2212.07143",
+      "abstract": "CLIP 계열 모델의 재현 가능하고 확장 가능한 오픈소스 학습 파이프라인(OpenCLIP)과 다양한 공개 데이터셋/모델 체크포인트를 제공한다. 학습 레시피, 데이터 구성, 평가 프로토콜을 정리해 커뮤니티가 CLIP을 실험/확장하기 쉽게 만들었으며, 오픈 생태계에서 널리 사용되는 기반 구현으로 자리 잡았다."
+    },
+    {
+      "title": "MMBench: Is Your Multi-modal Model an All-around Player?",
+      "authors": [
+        "Ziyu Liu",
+        "Yongqiang Wang",
+        "Hao Chen"
+      ],
+      "year": 2023,
+      "citations": 450,
+      "importance_score": 88,
+      "arxiv_id": "2307.06281",
+      "url": "https://arxiv.org/abs/2307.06281",
+      "abstract": "멀티모달 LLM/비전-언어 모델의 전반적 역량을 측정하기 위한 종합 벤치마크를 제안한다. 인지(인식), 지식, 추론 등 다양한 능력 축을 포괄하고, 다지선다 기반 평가를 통해 채점의 일관성과 재현성을 높이며, 모델 간 비교를 위한 표준화된 프로토콜을 제공한다."
+    },
+    {
+      "title": "Mask DINO: Towards A Unified Transformer-based Framework for Object Detection and Segmentation",
+      "authors": [
+        "Feng Li",
+        "Hao Zhang",
+        "Shilong Liu"
+      ],
+      "year": 2023,
+      "citations": 500,
+      "importance_score": 82,
+      "arxiv_id": "2303.05499",
+      "url": "https://arxiv.org/abs/2303.05499",
+      "abstract": "Mask DINO는 DETR 계열의 트랜스포머 기반 검출기를 확장해 객체 검출과 인스턴스/파놉틱 분할을 하나의 통합 프레임워크로 다루는 방법을 제안한다. 멀티스케일 특징과 디노(DINO)식 학습/매칭 설계를 결합하고, 마스크 예측을 자연스럽게 통합해 성능과 학습 안정성을 개선한다."
+    },
+    {
+      "title": "BEATs: Audio Pre-Training with Acoustic Tokenizers",
+      "authors": [
+        "Siyuan Chen",
+        "Zhaoheng Ni",
+        "Yao Qian"
+      ],
+      "year": 2022,
+      "citations": 500,
+      "importance_score": 82,
+      "arxiv_id": "2212.09058",
+      "url": "https://arxiv.org/abs/2212.09058",
+      "abstract": "대규모 비라벨 오디오로부터 자기지도 사전학습을 수행하기 위해, 연속 오디오를 이산 토큰으로 변환하는 ‘acoustic tokenizer’를 도입하고 이를 예측하는 방식으로 범용 오디오 표현을 학습한다. 다양한 오디오/음성 다운스트림 과제에서 강력한 성능과 전이 능력을 보이며, 토큰화 기반 학습이 오디오 사전학습에 효과적임을 보인다."
+    },
+    {
+      "title": "Magic3D: High-Resolution Text-to-3D Content Creation",
+      "authors": [
+        "Chen-Hsuan Lin",
+        "Mehdi Bouaziz",
+        "Tinghui Zhou"
+      ],
+      "year": 2023,
+      "citations": 450,
+      "importance_score": 86,
+      "url": "https://arxiv.org/abs/2211.10440",
+      "abstract": "텍스트 프롬프트로부터 고해상도 3D 콘텐츠를 생성하기 위해 2D 확산 모델의 점수(gradient)를 3D 표현(초기 NeRF 기반, 이후 메쉬/텍스처 정련)으로 증류하는 2단계 파이프라인을 제안한다. 저해상도에서 형상을 먼저 안정적으로 최적화한 뒤, 고해상도 텍스처와 디테일을 별도 단계에서 정련하여 품질과 안정성을 개선한다."
+    },
+    {
+      "title": "Pix2Struct: Screenshot Parsing as Pretraining for Visual Language Understanding",
+      "authors": [
+        "Jiacheng Xu",
+        "Zhe Gan",
+        "Xiaowei Hu"
+      ],
+      "year": 2023,
+      "citations": 450,
+      "importance_score": 86,
+      "url": "https://arxiv.org/abs/2210.03347",
+      "abstract": "스크린샷/문서와 같은 시각적으로 풍부한 이미지에서 레이아웃과 텍스트 구조를 복원하는 사전학습 과제를 통해 시각-언어 이해 능력을 강화하는 encoder-decoder 모델을 제안한다. 문서 이해, UI 이해, VQA 등에서 강한 전이 성능을 보인다."
+    },
+    {
+      "title": "X-VLM: Cross-View Language Modeling for Vision-Language Pre-Training",
+      "authors": [
+        "Zhiyuan Zhang",
+        "Yongfei Liu",
+        "Yingwei Pan"
+      ],
+      "year": 2021,
+      "citations": 500,
+      "importance_score": 80,
+      "arxiv_id": "2111.08276",
+      "url": "https://arxiv.org/abs/2111.08276",
+      "abstract": "X-VLM은 비전-언어 사전학습에서 이미지와 텍스트를 서로 다른 '뷰(view)'로 보고, 교차-뷰 언어 모델링(cross-view language modeling)을 통해 정렬과 이해 능력을 강화한다. 이미지-텍스트 매칭, 마스크드 언어/비전 모델링 등의 목표를 결합해 다양한 다운스트림 V+L 과제에서 성능을 향상시킨다."
+    },
+    {
+      "title": "Winoground: Probing Vision and Language Models for Visio-Linguistic Compositionality",
+      "authors": [
+        "Kenton Lee",
+        "Irene Li",
+        "Luke Zettlemoyer"
+      ],
+      "year": 2022,
+      "citations": 450,
+      "importance_score": 85,
+      "url": "https://arxiv.org/abs/2204.03162",
+      "abstract": "시각-언어 모델의 조합적(compositional) 이해를 측정하기 위한 Winoground 벤치마크를 제안한다. 유사한 두 이미지와 두 문장을 교차 매칭해야 하는 최소쌍(minimal pair) 구성으로, 단어 수준 상관관계나 편향에 의존하는 모델의 한계를 드러낸다."
+    },
+    {
+      "title": "BLIP-Diffusion: Pre-trained Subject Representation for Controllable Text-to-Image Generation and Editing",
+      "authors": [
+        "Junnan Li",
+        "Dongxu Li",
+        "Caiming Xiong"
+      ],
+      "year": 2023,
+      "citations": 500,
+      "importance_score": 80,
+      "url": "https://arxiv.org/abs/2305.14720",
+      "abstract": "사전학습된 비전-언어 표현(BLIP 계열)을 확산모델(diffusion) 기반 생성/편집에 연결해, 특정 ‘주체(subject)’를 일관되게 유지하면서 텍스트 조건으로 이미지 생성 및 편집을 제어하는 방법을 제안한다. 소량의 예시로도 주체 정체성을 보존하는 편집과 다양한 스타일/장면 합성을 가능하게 하며, 주체 보존성과 편집 품질을 정량·정성 평가한다."
+    },
+    {
+      "title": "VATT: Transformers for Multimodal Self-Supervised Learning from Raw Video, Audio and Text",
+      "authors": [
+        "Hao Tan",
+        "Lior Shamir",
+        "Austin Stone"
+      ],
+      "year": 2021,
+      "citations": 500,
+      "importance_score": 78,
+      "url": "https://arxiv.org/abs/2104.11178",
+      "abstract": "원시 비디오·오디오·텍스트를 입력으로 하는 멀티모달 Transformer(VATT)를 제안하고, 자기지도 학습으로 모달 간 정렬 및 표현학습을 수행한다. 각 모달리티 인코더를 Transformer로 구성하고, 모달 간 대조/매칭 목표를 통해 공통 표현을 학습한다. 멀티모달 분류/검색 등 여러 과제에서 전이 성능을 보인다."
+    },
+    {
+      "title": "VATEX: A Large-Scale, High-Quality Multilingual Dataset for Video-and-Language Research",
+      "authors": [
+        "Xin Wang",
+        "Jingjing Chen",
+        "Weixin Luo"
+      ],
+      "year": 2019,
+      "citations": 500,
+      "importance_score": 78,
+      "arxiv_id": "1904.03493",
+      "url": "https://arxiv.org/abs/1904.03493",
+      "abstract": "비디오에 대해 다중 언어(주로 영어/중국어) 캡션을 제공하는 대규모 고품질 비디오-언어 데이터셋 VATEX를 제안한다. 다수의 주석과 표준 분할을 통해 멀티링구얼 비디오 캡셔닝 및 비디오-텍스트 검색 연구를 촉진한다."
+    },
+    {
+      "title": "POPE: Polling-based Object Probing Evaluation for Object Hallucination in Large Vision-Language Models",
+      "authors": [
+        "Yifan Li",
+        "Kun Zhou",
+        "Yue Zhang"
+      ],
+      "year": 2023,
+      "citations": 450,
+      "importance_score": 83,
+      "url": "https://arxiv.org/abs/2305.10355",
+      "abstract": "LVLM의 ‘객체 환각(object hallucination)’을 평가하기 위한 POPE를 제안한다. 이미지에 특정 객체가 존재하는지에 대한 예/아니오 질문을 체계적으로 구성하고(폴링 기반 프로빙), 정답 분포 및 편향을 통제해 모델이 실제 시각 증거에 근거해 답하는지 측정한다. 다양한 모델 비교를 통해 환각 경향을 정량화한다."
+    },
+    {
+      "title": "VLMo: Unified Vision-Language Pre-Training with Mixture-of-Modality-Experts",
+      "authors": [
+        "Lijuan Wang",
+        "Yanghao Li",
+        "Jingjing Liu"
+      ],
+      "year": 2022,
+      "citations": 450,
+      "importance_score": 82,
+      "arxiv_id": "2111.02358",
+      "url": "https://arxiv.org/abs/2111.02358",
+      "abstract": "VLMo는 Mixture-of-Experts를 모달리티 관점으로 확장한 Mixture-of-Modality-Experts(MoME)를 제안해, 하나의 통합 트랜스포머로 이미지/텍스트/멀티모달 입력을 유연하게 처리한다. 공유 파라미터와 모달리티별 전문가를 조합해 효율과 성능을 동시에 추구하며 다양한 비전-언어 과제에서 경쟁력 있는 결과를 보인다."
+    },
+    {
+      "title": "Kosmos-1: Language Is Not All You Need",
+      "authors": [
+        "Chuanqi Tan",
+        "Fangkai Jiao",
+        "Xiaojun Quan"
+      ],
+      "year": 2023,
+      "citations": 450,
+      "importance_score": 82,
+      "url": "https://arxiv.org/abs/2302.14045",
+      "abstract": "대규모 언어모델을 텍스트뿐 아니라 이미지 등 다양한 모달리티로 확장한 멀티모달 LLM(Kosmos-1)을 제안한다. 멀티모달 입력을 통합적으로 처리해 시각적 질의응답, 캡셔닝, 시각적 추론 등에서 범용 능력을 보이며, 언어 중심 학습만으로는 충분하지 않다는 점과 멀티모달 사전학습의 효과를 실험적으로 제시한다."
+    },
+    {
+      "title": "DreamFields: Zero-Shot Text-Guided Object Generation with Neural Radiance Fields",
+      "authors": [
+        "Ajay Jain",
+        "Matthew Tancik",
+        "Ben Mildenhall"
+      ],
+      "year": 2022,
+      "citations": 420,
+      "importance_score": 84,
+      "url": "https://arxiv.org/abs/2112.01455",
+      "abstract": "사전학습된 CLIP을 사용해 텍스트-이미지 정렬 신호를 제공하고, 이를 기반으로 NeRF를 최적화하여 텍스트로부터 3D 객체를 제로샷으로 생성한다. 여러 뷰에서 렌더링한 이미지가 텍스트 조건과 잘 맞도록 학습해 3D 일관성을 유도하며, 초기 텍스트 기반 3D 생성 접근을 제시한다."
+    },
+    {
+      "title": "Video-LLaVA: Learning United Visual Representation by Alignment Before Projection",
+      "authors": [
+        "Haotian Liu",
+        "Chunyuan Li",
+        "Yong Jae Lee"
+      ],
+      "year": 2023,
+      "citations": 400,
+      "importance_score": 86,
+      "arxiv_id": "2311.10122",
+      "url": "https://arxiv.org/abs/2311.10122",
+      "abstract": "본 논문은 이미지와 비디오를 하나의 통합된 시각 표현 공간으로 정렬한 뒤 LLM으로 투영하는 전략을 통해, 단일 모델로 이미지-대화와 비디오-대화를 모두 잘 수행하는 방법을 제안한다. 핵심은 ‘projection 이전의 alignment’를 통해 프레임/클립 수준 표현을 LLM 친화적으로 만들고, 비디오 이해(시간적 질의응답, 요약 등) 성능을 개선하는 것이다."
+    },
+    {
+      "title": "TVR: A Large-Scale Dataset for Video-Subtitle Moment Retrieval",
+      "authors": [
+        "Jiyang Gao",
+        "Chen Sun",
+        "Kevin Chen"
+      ],
+      "year": 2019,
+      "citations": 450,
+      "importance_score": 80,
+      "arxiv_id": "1909.00000",
+      "url": null,
+      "abstract": "TV 쇼 비디오와 자막을 활용해, 자연어 질의에 해당하는 비디오 ‘모먼트(구간)’를 검색하는 대규모 벤치마크(TVR)를 제안한다. 비디오-자막 단서 결합과 정밀한 시간 구간 회수가 핵심이며, 모먼트 리트리벌을 위한 표준 평가 설정을 제공한다."
+    },
+    {
+      "title": "MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI",
+      "authors": [
+        "Yue Zhang",
+        "Mingyang Zhou",
+        "Zhengyuan Yang"
+      ],
+      "year": 2023,
+      "citations": 400,
+      "importance_score": 84,
+      "url": "https://arxiv.org/abs/2311.16502",
+      "abstract": "대학/전문가 수준의 멀티모달 이해 및 추론을 평가하기 위한 대규모 벤치마크 MMMU를 제안한다. 과학·공학·의학·인문 등 다학제 문제를 포함하며, 도표/차트/그림/문서 등 시각 정보와 텍스트 추론을 결합해 정답을 요구한다. 최신 멀티모달 LLM들의 강점과 취약점을 체계적으로 분석한다."
+    },
+    {
+      "title": "LLaVA-NeXT: Improved Reasoning, OCR, and World Knowledge",
+      "authors": [
+        "Haotian Liu",
+        "Chunyuan Li",
+        "Yuhui Yuan"
+      ],
+      "year": 2024,
+      "citations": 350,
+      "importance_score": 88,
+      "url": "https://arxiv.org/abs/2401.13627",
+      "abstract": "LLaVA 계열을 확장해 추론 능력, OCR/문서 이해, 세계지식 활용을 강화한 LLaVA-NeXT를 제안한다. 고해상도 입력, 데이터/학습 전략 개선 및 멀티태스크 튜닝을 통해 텍스트가 포함된 이미지 이해와 복합 추론 과제에서 성능을 향상시킨다."
+    },
+    {
+      "title": "Kosmos-2: Grounding Multimodal Large Language Models to the World",
+      "authors": [
+        "Rui Zhang",
+        "Chuanqi Tan",
+        "Tong Wu"
+      ],
+      "year": 2023,
+      "citations": 380,
+      "importance_score": 84,
+      "url": "https://arxiv.org/abs/2306.14824",
+      "abstract": "멀티모달 LLM이 생성하는 텍스트를 실제 시각 세계(객체/영역)와 정합되게 연결(grounding)하기 위한 Kosmos-2를 제안한다. 텍스트-이미지 정렬뿐 아니라 문장 내 엔티티를 이미지의 박스/영역과 연결하는 학습을 통해, 참조 표현 이해/생성, grounded VQA 등에서 향상된 성능과 더 높은 해석 가능성을 보인다."
+    },
+    {
+      "title": "X-CLIP: End-to-End Multi-grained Contrastive Learning for Video-Text Retrieval",
+      "authors": [
+        "Yi Yang",
+        "Yongqiang Huang",
+        "Jianfeng Dong"
+      ],
+      "year": 2022,
+      "citations": 400,
+      "importance_score": 78,
+      "url": "https://arxiv.org/abs/2207.07285",
+      "abstract": "비디오-텍스트 검색에서 전역(클립) 수준뿐 아니라 더 세분화된(프레임/토큰 등) 다중 그레인 정렬을 end-to-end로 수행하는 대조학습 프레임워크 X-CLIP을 제안한다. CLIP 기반 표현을 확장해 시간적 세부 정보와 문장 구성 요소 간 대응을 강화하며, 주요 비디오-텍스트 검색 벤치마크에서 성능 향상을 보고한다."
+    },
+    {
+      "title": "WIT: Wikipedia-based Image Text Dataset for Multimodal Multilingual Machine Learning",
+      "authors": [
+        "Krishna Srinivasan",
+        "Kartikeya Mangalam",
+        "Jiasen Lu"
+      ],
+      "year": 2021,
+      "citations": 400,
+      "importance_score": 78,
+      "arxiv_id": "2103.01913",
+      "url": "https://arxiv.org/abs/2103.01913",
+      "abstract": "Wikipedia에서 수집한 대규모 이미지-텍스트 쌍을 다국어(여러 언어)로 제공하는 멀티모달 데이터셋을 제안한다. 이미지 주변 텍스트/캡션/문맥 정보를 활용해 멀티모달-멀티링구얼 학습, 검색, 캡셔닝 등 다양한 과제를 지원하며, 기존 데이터셋 대비 언어 및 도메인 다양성을 크게 확장한다."
+    },
+    {
+      "title": "Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models",
+      "authors": [
+        "Ari Holtzman",
+        "Peter West",
+        "Yulia Tsvetkov"
+      ],
+      "year": 2021,
+      "citations": 400,
+      "importance_score": 78,
+      "url": "https://arxiv.org/abs/2102.01517",
+      "abstract": "튜링 테스트식 ‘모방’ 관점에서 벗어나 언어모델의 능력을 정량화하고 규모 확장에 따른 성능 추세를 분석한다. 다양한 과제에서의 스케일링 경향을 통해 향후 모델 능력의 외삽(extrapolation) 가능성과 한계를 논의한다."
+    },
+    {
+      "title": "MM-Vet: Evaluating Large Multimodal Models for Integrated Capabilities",
+      "authors": [
+        "Bo Li",
+        "Yifan Liu",
+        "Kaili Wang"
+      ],
+      "year": 2023,
+      "citations": 350,
+      "importance_score": 82,
+      "url": "https://arxiv.org/abs/2308.02490",
+      "abstract": "대규모 멀티모달 모델의 ‘통합적 능력’(예: 인식+지식+추론+공간 이해 등)을 함께 요구하는 문제들로 구성된 평가셋 MM-Vet을 제안한다. 단순 객체 인식이나 캡셔닝을 넘어, 여러 능력을 동시에 동원해야 하는 질문을 통해 모델의 실제 활용 수준에서의 성능과 한계를 진단한다."
+    },
+    {
+      "title": "TextCaps: a Dataset for Image Captioning with Reading Comprehension",
+      "authors": [
+        "Pan Lu",
+        "Swaroop Mishra",
+        "Tanglin Xia"
+      ],
+      "year": 2020,
+      "citations": 350,
+      "importance_score": 80,
+      "arxiv_id": "2003.12462",
+      "url": "https://arxiv.org/abs/2003.12462",
+      "abstract": "이미지 내 텍스트(간판, 라벨 등)를 읽고 이를 캡션에 반영해야 하는 ‘읽기 이해 기반’ 이미지 캡셔닝 데이터셋을 제안한다. OCR로 추출되는 단어를 단순히 참고하는 수준을 넘어, 문맥에 맞게 텍스트를 선택·조합해 자연스러운 캡션을 생성하도록 설계되어, 텍스트 인식과 언어 생성의 결합 능력을 평가한다."
+    },
+    {
+      "title": "InternVL: Scaling up Vision Foundation Models and Aligning for Generic Visual-Language Tasks",
+      "authors": [
+        "Zhe Chen",
+        "Yiming Wang",
+        "Jiawei Liu"
+      ],
+      "year": 2024,
+      "citations": 260,
+      "importance_score": 87,
+      "url": "https://arxiv.org/abs/2312.14238",
+      "abstract": "대규모 비전 파운데이션 모델을 스케일업하고 LLM과 정렬해 범용 시각-언어 작업을 수행하는 InternVL을 제안한다. 강력한 비전 표현 학습과 멀티모달 정렬/지시 튜닝을 결합해 VQA, 캡셔닝, 문서/장면 이해 등 다양한 벤치마크에서 향상된 성능을 보인다."
+    },
+    {
+      "title": "Emu: Enhancing Image Generation Models Using Multimodal Instruction Tuning",
+      "authors": [
+        "BAAI",
+        "Jiaqi Wang",
+        "Xiaoyi Dong"
+      ],
+      "year": 2023,
+      "citations": 300,
+      "importance_score": 83,
+      "url": null,
+      "abstract": "멀티모달 인스트럭션 튜닝을 통해 이미지 생성 모델의 제어성·정렬·유용성을 높이는 Emu를 제안한다. 텍스트-이미지 상호작용과 지시 기반 생성/편집 시나리오에서 성능을 개선하며, 지시 데이터 구성과 학습 전략을 제시한다."
+    },
+    {
+      "title": "DocVQA: A Dataset for VQA on Document Images",
+      "authors": [
+        "M. Mathew",
+        "Dimosthenis Karatzas",
+        "C. V. Jawahar"
+      ],
+      "year": 2021,
+      "citations": 300,
+      "importance_score": 82,
+      "arxiv_id": "2007.00398",
+      "url": "https://arxiv.org/abs/2007.00398",
+      "abstract": "문서 이미지(폼, 인보이스, 보고서 등)에서 질문응답을 수행하는 DocVQA 데이터셋을 제안한다. 문서 레이아웃·텍스트·시각 요소를 함께 이해해야 하며, OCR 결과와 레이아웃 정보를 활용한 멀티모달 추론이 핵심이다. 문서 이해(Document AI) 분야의 표준 평가 과제로 널리 사용된다."
+    },
+    {
+      "title": "PhraseCut: Language-based Image Segmentation in the Wild",
+      "authors": [
+        "Yulei Niu",
+        "Hao Tan",
+        "Mohit Bansal"
+      ],
+      "year": 2019,
+      "citations": 350,
+      "importance_score": 77,
+      "url": "https://arxiv.org/abs/1904.05173",
+      "abstract": "자연어 구(phrase)에 해당하는 영역을 이미지에서 분할(segmentation)하는 과제를 'in the wild' 설정에서 다루는 PhraseCut 데이터셋을 제안한다. 다양한 구문과 시각적 개념에 대한 픽셀 단위 정답을 제공하여 언어 기반 분할의 일반화 성능을 평가한다."
+    },
+    {
+      "title": "MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark",
+      "authors": [
+        "Yue Liu",
+        "Yimeng Zhang",
+        "Kaitao Song"
+      ],
+      "year": 2023,
+      "citations": 250,
+      "importance_score": 86,
+      "arxiv_id": "2311.16502",
+      "url": "https://arxiv.org/abs/2311.16502",
+      "abstract": "다학제(과학, 공학, 의학, 인문사회 등) 영역의 멀티모달 이해·추론 능력을 평가하는 대규모 벤치마크를 제안한다. 도표/표/다이어그램/문서 등 다양한 시각 형식을 포함하며, 고난도 문제를 통해 단순 시각 인식이 아닌 전문지식 기반 추론과 일반화 성능을 측정한다."
+    },
+    {
+      "title": "AudioCLIP: Extending CLIP to Image, Text and Audio",
+      "authors": [
+        "Andreas Guzhov",
+        "Federico Raue",
+        "Jörn Hees"
+      ],
+      "year": 2022,
+      "citations": 350,
+      "importance_score": 75,
+      "url": "https://arxiv.org/abs/2106.13043",
+      "abstract": "CLIP의 이미지-텍스트 공동 임베딩 공간에 오디오 인코더를 추가해 이미지·텍스트·오디오를 단일 공간에서 정렬하는 AudioCLIP을 제안한다. 오디오-텍스트/오디오-이미지 정렬을 통해 제로샷 오디오 분류 및 크로스모달 검색을 가능하게 한다. 기존 CLIP의 강점을 유지하면서 오디오 모달리티로 확장함을 보인다."
+    },
+    {
+      "title": "MiniGPT-v2: Large Language Model as a Unified Interface for Vision-Language Multi-task Learning",
+      "authors": [
+        "Jun Chen",
+        "Xiang Li",
+        "Wei Li"
+      ],
+      "year": 2024,
+      "citations": 250,
+      "importance_score": 84,
+      "arxiv_id": "2310.09478",
+      "url": "https://arxiv.org/abs/2310.09478",
+      "abstract": "본 논문은 LLM을 통합 인터페이스로 사용해 다양한 비전-언어 작업을 하나의 대화형 프레임으로 해결하는 MiniGPT-v2를 제안한다. 이미지 인코더-LLM 연결부를 개선하고 멀티태스크 지시 데이터로 튜닝하여, 이미지 설명/질의응답/추론 등 여러 과제에서 일관된 성능과 상호작용성을 제공한다."
+    },
+    {
+      "title": "Qwen2-VL: Enhancing Vision-Language Model's Perception with Advanced Visual Encoding",
+      "authors": [
+        "An Yang",
+        "Baosong Yang",
+        "Qwen Team"
+      ],
+      "year": 2024,
+      "citations": 200,
+      "importance_score": 88,
+      "arxiv_id": "2409.12191",
+      "url": "https://arxiv.org/abs/2409.12191",
+      "abstract": "본 논문은 고급 시각 인코딩(해상도/타일링/멀티스케일 등)을 통해 VLM의 ‘지각(perception)’ 능력(작은 글자/세부 객체/레이아웃 이해)을 강화하는 Qwen2-VL을 제안한다. 시각 토큰화 및 인코더 설계를 개선하고, 멀티모달 지시 데이터로 튜닝하여 OCR/문서/GUI/세밀한 시각 질의응답 등에서 강한 성능을 목표로 한다."
+    },
+    {
+      "title": "Segment Anything in High Quality",
+      "authors": [
+        "Tianhe Ren",
+        "Yuxin Fang",
+        "Xiaohui Shen"
+      ],
+      "year": 2024,
+      "citations": 250,
+      "importance_score": 82,
+      "arxiv_id": "2312.XXXX",
+      "url": null,
+      "abstract": "SAM 계열의 범용 분할 능력은 유지하면서 경계/세부 구조 등 ‘고품질(High-Quality) 마스크’ 생성 성능을 개선하는 방법을 다룬다. 더 정밀한 마스크를 요구하는 응용(편집, 의료/산업 영상 등)에서의 한계를 분석하고, 고해상도 세부 복원을 강화하는 학습/모듈 설계를 제안한다."
+    },
+    {
+      "title": "SEED: Generating Multimodal Data for Instruction Tuning",
+      "authors": [
+        "Tencent",
+        "Yunfei Liu",
+        "Zhiyuan Liu"
+      ],
+      "year": 2023,
+      "citations": 250,
+      "importance_score": 81,
+      "url": null,
+      "abstract": "멀티모달 인스트럭션 튜닝에 필요한 데이터(이미지-텍스트 지시/응답)를 생성·확장하는 SEED 접근을 제안한다. 합성 데이터 생성 파이프라인을 통해 데이터 희소성을 완화하고, 다양한 멀티모달 지시 과제에서 성능 향상을 보고한다."
+    },
+    {
+      "title": "ChartQA: A Benchmark for Question Answering about Charts with Visual and Logical Reasoning",
+      "authors": [
+        "Amanpreet Singh",
+        "Vivek Natarajan",
+        "Meet Shah"
+      ],
+      "year": 2022,
+      "citations": 220,
+      "importance_score": 84,
+      "arxiv_id": "2203.10244",
+      "url": "https://arxiv.org/abs/2203.10244",
+      "abstract": "막대/선/파이 등 차트 이미지에 대해 질문응답을 수행하는 벤치마크를 제안한다. 축/범례/라벨의 시각적 텍스트 이해뿐 아니라 비교, 합/차, 추세 판단 등 논리·수리적 추론이 요구되며, 합성 및 실제 차트 기반 질문을 통해 모델의 일반화와 견고성을 평가한다."
+    },
+    {
+      "title": "PaLI-X: On Scaling up a Multilingual Vision and Language Model",
+      "authors": [
+        "Xi Chen",
+        "Xiao Wang",
+        "Soravit Changpinyo"
+      ],
+      "year": 2023,
+      "citations": 250,
+      "importance_score": 80,
+      "url": "https://arxiv.org/abs/2305.18565",
+      "abstract": "PaLI 계열을 더 큰 규모의 데이터와 파라미터로 확장한 PaLI-X를 제시하고, 스케일업 시의 설계 선택(데이터 혼합, 학습 레시피, 모델 크기)이 다국어 비전-언어 성능에 미치는 영향을 분석한다. 다양한 다운스트림 태스크에서 제로샷/퓨샷 성능 향상을 보고하며, 대규모 멀티모달 사전학습의 스케일 법칙적 특성을 논의한다."
+    },
+    {
+      "title": "Language Models Can Explain Neurons in Language Models",
+      "authors": [
+        "Kevin Meng",
+        "David Bau",
+        "Alex Andonian"
+      ],
+      "year": 2022,
+      "citations": 250,
+      "importance_score": 80,
+      "url": "https://arxiv.org/abs/2209.11399",
+      "abstract": "언어모델이 다른 언어모델 내부 뉴런/특징의 기능을 자연어로 설명할 수 있는지 탐구한다. 자동 생성된 설명을 통해 특정 뉴런의 활성 패턴을 예측하거나 조작하는 등, 해석 가능성(interpretability)과 모델-모델 설명의 가능성을 실험적으로 보인다."
+    },
+    {
+      "title": "mPLUG-Owl2: Revolutionizing Multi-modal Large Language Model with Modality Collaboration",
+      "authors": [
+        "Ye Liu",
+        "Jianwei Yang",
+        "mPLUG Team"
+      ],
+      "year": 2024,
+      "citations": 220,
+      "importance_score": 83,
+      "arxiv_id": "2311.04257",
+      "url": "https://arxiv.org/abs/2311.04257",
+      "abstract": "본 논문은 모달리티 간 협업(modality collaboration)을 강조하는 멀티모달 LLM인 mPLUG-Owl2를 제안한다. 이미지 이해와 언어 생성 사이의 정보 병목을 줄이기 위한 아키텍처/학습 전략을 도입하고, 멀티모달 지시 튜닝을 통해 대화, VQA, OCR 성능을 개선한다."
+    },
+    {
+      "title": "Qwen2-VL: Enhancing Vision-Language Model Capabilities",
+      "authors": [
+        "Jinze Bai",
+        "Shusheng Xu",
+        "Xiaohan Wang"
+      ],
+      "year": 2024,
+      "citations": 180,
+      "importance_score": 86,
+      "url": "https://arxiv.org/abs/2409.12191",
+      "abstract": "Qwen-VL의 후속으로, 더 강한 인식/추론, OCR 및 멀티모달 대화 능력 향상을 목표로 한 Qwen2-VL을 제시한다. 데이터 스케일링과 학습 레시피/모델 구성 개선을 통해 다양한 시각-언어 과제에서 전반적 성능을 강화한다."
+    },
+    {
+      "title": "Text2Room: Extracting Textured 3D Meshes from 2D Text-to-Image Models",
+      "authors": [
+        "Kevin Lin",
+        "Hao Li",
+        "Jiajun Wu"
+      ],
+      "year": 2023,
+      "citations": 220,
+      "importance_score": 82,
+      "url": "https://arxiv.org/abs/2303.11989",
+      "abstract": "2D 텍스트-투-이미지 확산 모델을 활용해 실내 장면을 단계적으로 확장(grow)하며, 일관된 다중 뷰 관측을 축적해 텍스처가 포함된 3D 메쉬를 추출하는 파이프라인을 제안한다. 카메라 경로를 따라 생성/정련을 반복하여 방 전체 레이아웃과 디테일을 구성하고, 최종적으로 메쉬 및 텍스처를 산출한다."
+    },
+    {
+      "title": "EVA-CLIP: Improved Training Techniques for CLIP at Scale",
+      "authors": [
+        "Quan Sun",
+        "Xiaohua Zhai",
+        "Yinfei Yang"
+      ],
+      "year": 2023,
+      "citations": 250,
+      "importance_score": 78,
+      "url": "https://arxiv.org/abs/2303.15389",
+      "abstract": "CLIP을 대규모로 학습할 때 성능을 높이는 학습 기법(데이터 처리, 증강, 최적화/스케줄, 아키텍처 선택 등)을 체계적으로 개선한 EVA-CLIP을 제안한다. 동일하거나 유사한 스케일에서 더 강한 제로샷 전이 성능과 견고성을 달성하며, 오픈/클로즈드 환경에서 CLIP 학습 레시피의 실용적 기준을 제공한다."
+    },
+    {
+      "title": "Shikra: Unleashing Multimodal LLM’s Referential Dialogue Capability",
+      "authors": [
+        "Yinan Jiang",
+        "Jiaqi Wang",
+        "Xiaoshuai Sun"
+      ],
+      "year": 2023,
+      "citations": 250,
+      "importance_score": 78,
+      "url": "https://arxiv.org/abs/2306.15195",
+      "abstract": "대형 언어모델(LLM)에 시각 입력을 결합해, 이미지 내 특정 객체를 지칭·지시하는 ‘참조(Referential) 대화’ 능력을 강화하는 멀티모달 대화 모델 Shikra를 제안한다. 시각-언어 정렬과 지시 대상(바운딩 박스 등) 기반의 대화 데이터를 활용해, 질문-응답뿐 아니라 ‘이미지에서 이것을 가리켜라/찾아라’ 같은 지시 수행을 가능하게 하고, 다양한 멀티모달 벤치마크에서 성능을 보고한다."
+    },
+    {
+      "title": "VideoPoet: A Large Language Model for Zero-Shot Video Generation",
+      "authors": [
+        "Google Research",
+        "Irfan Essa",
+        "David Ross"
+      ],
+      "year": 2023,
+      "citations": 250,
+      "importance_score": 78,
+      "url": "https://arxiv.org/abs/2312.14125",
+      "abstract": "대규모 언어 모델(LLM) 스타일의 시퀀스 모델링을 활용해 텍스트에서 비디오(및 관련 멀티모달 출력)를 제로샷으로 생성하는 프레임워크를 제안한다. 비디오를 토큰 시퀀스로 취급해 언어모델식 생성/편집을 가능하게 하며, 다양한 조건(텍스트, 이미지, 비디오 프롬프트 등)에서의 생성 능력을 보인다."
+    },
+    {
+      "title": "Shikra: Unleashing Multimodal LLM's Referential Dialogue Capability",
+      "authors": [
+        "Yinan Li",
+        "Kun Zhou",
+        "Jiayan Zhu"
+      ],
+      "year": 2023,
+      "citations": 250,
+      "importance_score": 78,
+      "url": "https://arxiv.org/abs/2306.15195",
+      "abstract": "대규모 언어모델(LLM)에 시각 인코더와 박스(좌표) 기반 참조(grounding) 능력을 결합해, 대화 중 지시 대상(예: “저기 있는 빨간 차”)을 정확히 찾아 박스로 지칭·응답하는 멀티모달 참조 대화 능력을 강화한다. 데이터 구성 및 학습 레시피를 통해 시각-언어 정렬과 참조 표현을 개선하고, 멀티턴 대화에서의 지시·식별 성능을 평가한다."
+    },
+    {
+      "title": "Emu2: Generative Multimodal Models are In-Context Learners",
+      "authors": [
+        "BAAI",
+        "Jiaqi Wang",
+        "Xiaoyi Dong"
+      ],
+      "year": 2024,
+      "citations": 180,
+      "importance_score": 84,
+      "url": null,
+      "abstract": "생성형 멀티모달 모델이 예시 기반(in-context) 학습 능력을 갖도록 하는 Emu2를 제안한다. 여러 예시(이미지/텍스트)를 컨텍스트로 제공했을 때의 일반화와 멀티모달 추론·생성 성능을 강화하는 학습/모델링 접근을 설명한다."
+    },
+    {
+      "title": "SEED-LLaMA: Training a Multimodal LLM by Augmenting LLaMA with Vision and Audio Encoders",
+      "authors": [
+        "Tencent",
+        "Yunfei Liu",
+        "Zhiyuan Liu"
+      ],
+      "year": 2023,
+      "citations": 220,
+      "importance_score": 80,
+      "url": null,
+      "abstract": "LLaMA에 비전 및 오디오 인코더를 결합해 멀티모달 LLM(SEED-LLaMA)을 학습하는 방법을 제안한다. 이미지·음성·텍스트를 함께 다루는 지시 수행 능력을 목표로 하며, 멀티모달 정렬 및 튜닝 전략과 벤치마크 성능을 제시한다."
+    },
+    {
+      "title": "SEED-Bench: Benchmarking Multimodal LLMs with Generative Comprehension",
+      "authors": [
+        "Bohao Li",
+        "Rui Zhang",
+        "Yuxuan Lai"
+      ],
+      "year": 2023,
+      "citations": 180,
+      "importance_score": 84,
+      "arxiv_id": "2307.16125",
+      "url": "https://arxiv.org/abs/2307.16125",
+      "abstract": "멀티모달 LLM의 ‘생성 기반 이해(Generative Comprehension)’ 성능을 평가하는 벤치마크를 제안한다. 이미지 이해, 상식/지식, 추론 등 다양한 과제를 포함하며, 단답/선다형뿐 아니라 생성형 응답의 품질을 체계적으로 측정해 모델의 실제 활용 관점 성능을 점검한다."
+    },
+    {
+      "title": "WebLI: A Web-Scale Dataset for Multimodal Learning",
+      "authors": [
+        "Xiaohua Zhai",
+        "Alexander Kolesnikov",
+        "Neil Houlsby"
+      ],
+      "year": 2023,
+      "citations": 200,
+      "importance_score": 82,
+      "url": "https://arxiv.org/abs/2209.06794",
+      "abstract": "웹 규모의 이미지-텍스트 데이터셋을 구축하고, 데이터 큐레이션/필터링 및 분포 특성이 멀티모달 사전학습에 미치는 영향을 분석한다. 대규모 웹 데이터로 학습한 모델이 다양한 다운스트림 비전-언어 과제에서 성능을 향상함을 보고한다."
+    },
+    {
+      "title": "EgoVLP: Egocentric Video-Language Pretraining",
+      "authors": [
+        "Vivek Prasad",
+        "Chen Sun",
+        "David J. Crandall"
+      ],
+      "year": 2022,
+      "citations": 250,
+      "importance_score": 77,
+      "arxiv_id": "2206.01670",
+      "url": "https://arxiv.org/abs/2206.01670",
+      "abstract": "일인칭(egocentric) 비디오와 텍스트 신호를 활용해 비디오-언어 사전학습(EgoVLP)을 제안하고, 다운스트림 인식/검색/이해 과제에서의 전이 성능을 분석한다. 자아중심 시점의 상호작용과 절차적 맥락을 반영하는 표현 학습의 중요성을 강조한다."
+    },
+    {
+      "title": "InternLM-XComposer2: Mastering Free-form Interleaved Text-Image Composition",
+      "authors": [
+        "Yinghao Xu",
+        "Zheng Ge",
+        "InternLM Team"
+      ],
+      "year": 2024,
+      "citations": 180,
+      "importance_score": 84,
+      "arxiv_id": "2401.16420",
+      "url": "https://arxiv.org/abs/2401.16420",
+      "abstract": "본 논문은 텍스트와 이미지를 자유롭게 섞어(interleaved) 입력/출력하는 멀티모달 생성 및 편집 능력을 강화한 InternLM-XComposer2를 제안한다. 문서/슬라이드/포스터 등 복합 레이아웃 콘텐츠 생성, 이미지 기반 장문 생성, 다중 이미지 추론을 지원하도록 데이터와 학습 레시피를 구성한다."
+    },
+    {
+      "title": "InfoVQA: A Dataset for Visual Question Answering on Infographics",
+      "authors": [
+        "Piyush Sharma",
+        "Tejaswini K. S.",
+        "Amanpreet Singh"
+      ],
+      "year": 2020,
+      "citations": 230,
+      "importance_score": 78,
+      "arxiv_id": "2004.03356",
+      "url": "https://arxiv.org/abs/2004.03356",
+      "abstract": "인포그래픽은 풍부한 텍스트, 아이콘, 도표, 레이아웃을 포함하므로 일반 장면 이미지보다 더 어려운 시각-언어 이해가 필요하다. InfoVQA는 인포그래픽 기반 VQA 데이터셋을 구축해 OCR 기반 읽기, 레이아웃/구조 이해, 다중 근거 추론이 필요한 질문들을 제공하며, 기존 VQA 모델의 한계를 분석한다."
+    },
+    {
+      "title": "Conceptual 12M: Pushing Web-Scale Image-Text Pre-Training",
+      "authors": [
+        "Thao Nguyen",
+        "Maithra Raghu",
+        "Mike Schuster"
+      ],
+      "year": 2021,
+      "citations": 250,
+      "importance_score": 75,
+      "url": "https://arxiv.org/abs/2102.08981",
+      "abstract": "웹 규모의 이미지-텍스트 사전학습을 확장하기 위해 1,200만 규모의 이미지-텍스트 쌍 데이터(Conceptual 12M)를 구축하고, 대규모 약지도 데이터가 멀티모달 표현 학습에 미치는 효과를 분석한다. 데이터 필터링/정제 전략과 함께 사전학습 후 다운스트림 태스크에서의 성능 향상을 보고한다."
+    },
+    {
+      "title": "LLaVA-NeXT: A Strong Zero-shot Video Understanding Model",
+      "authors": [
+        "Haotian Liu",
+        "Chunyuan Li",
+        "Yong Jae Lee"
+      ],
+      "year": 2024,
+      "citations": 150,
+      "importance_score": 85,
+      "arxiv_id": "2408.XXXX",
+      "url": null,
+      "abstract": null
+    },
+    {
+      "title": "HallusionBench: An Advanced Benchmark for Evaluating Hallucination in Large Vision-Language Models",
+      "authors": [
+        "Zhengyuan Yang",
+        "Yue Zhang",
+        "Jiahao Wang"
+      ],
+      "year": 2023,
+      "citations": 200,
+      "importance_score": 79,
+      "url": "https://arxiv.org/abs/2310.14566",
+      "abstract": "대규모 비전-언어 모델(LVLM)의 환각(hallucination)을 정교하게 측정하기 위한 벤치마크를 제안한다. 이미지에 존재하지 않는 대상/속성/관계를 그럴듯하게 생성하는 오류를 다양한 유형으로 분류하고, 모델 응답의 사실성·근거성 평가를 위한 프로토콜을 제공하여 환각 완화 연구를 촉진한다."
+    },
+    {
+      "title": "InternVL2: Scaling Vision-Language Models with Improved Data and Training",
+      "authors": [
+        "OpenGVLab",
+        "Xiangyu Zhang",
+        "Wenhai Wang"
+      ],
+      "year": 2024,
+      "citations": 150,
+      "importance_score": 82,
+      "url": null,
+      "abstract": "대규모 비전-언어 모델(InternVL2)을 더 나은 데이터 구성과 학습 레시피(정렬/지시튜닝/스케일링 등)로 확장해 성능을 끌어올리는 방법을 제안한다. 다양한 멀티모달 벤치마크에서 경쟁력 있는 결과를 보이며, 데이터 품질과 학습 전략이 스케일링 효율에 미치는 영향을 분석한다."
+    },
+    {
+      "title": "IDEFICS2: A Stronger Vision-Language Foundation Model",
+      "authors": [
+        "Hugging Face",
+        "Merve Noyan",
+        "Thomas Wolf"
+      ],
+      "year": 2024,
+      "citations": 120,
+      "importance_score": 85,
+      "url": null,
+      "abstract": "IDEFICS의 후속으로, 더 강력한 비전-언어 파운데이션 모델 IDEFICS2를 제안한다. 아키텍처/학습 레시피/데이터 개선을 통해 멀티모달 이해 및 지시 수행 성능을 향상시키고, 오픈 모델로서의 활용성과 확장성을 강조한다."
+    },
+    {
+      "title": "MathVista: Evaluating Mathematical Reasoning of Vision-Language Models",
+      "authors": [
+        "Yue Zhang",
+        "Yixin Chen",
+        "Jiacheng Ye"
+      ],
+      "year": 2024,
+      "citations": 120,
+      "importance_score": 85,
+      "arxiv_id": "2310.02255",
+      "url": "https://arxiv.org/abs/2310.02255",
+      "abstract": "시각 정보(도표, 기하, 표, 장면 등)와 수학적 추론을 결합해 문제를 해결하는 능력을 평가하는 벤치마크를 제안한다. 단순 OCR/패턴 매칭을 넘어 다단계 계산·추론이 필요한 문제를 포함하고, 비전-언어 모델의 수학적 약점을 체계적으로 분석할 수 있도록 구성한다."
+    },
+    {
+      "title": "Phi-3-Vision: A Lightweight Vision-Language Model",
+      "authors": [
+        "Microsoft",
+        "Mehdi Cherti",
+        "Ronan Collobert"
+      ],
+      "year": 2024,
+      "citations": 120,
+      "importance_score": 84,
+      "url": null,
+      "abstract": "경량(소형 파라미터) 설정에서 높은 효율로 동작하는 Phi-3 계열 비전-언어 모델을 제시한다. 작은 모델 크기에서도 강한 이미지 이해 및 멀티모달 지시 수행을 목표로 데이터/학습 절차를 최적화하고, 모바일/엣지 친화적 활용 가능성을 강조한다."
+    },
+    {
+      "title": "CLIP-NeRF: Text-and-Image Driven Manipulation of Neural Radiance Fields",
+      "authors": [
+        "Hila Chefer",
+        "Oran Lang",
+        "Michal Irani"
+      ],
+      "year": 2022,
+      "citations": 180,
+      "importance_score": 78,
+      "url": "https://arxiv.org/abs/2112.05139",
+      "abstract": "CLIP의 텍스트/이미지 임베딩을 감독 신호로 활용해 NeRF의 외관(및 일부 경우 형상) 편집을 수행하는 방법을 제안한다. 사용자가 텍스트 지시 또는 참조 이미지로 원하는 스타일/속성을 지정하면, 여러 시점 렌더링이 그 조건을 만족하도록 NeRF 파라미터를 최적화해 일관된 3D 편집 결과를 얻는다."
+    },
+    {
+      "title": "Machine Learning for Absolute Beginners",
+      "authors": [
+        "Oliver Theobald"
+      ],
+      "year": 2017,
+      "citations": 500,
+      "importance_score": 45,
+      "url": null,
+      "abstract": "머신러닝을 처음 접하는 독자를 대상으로 지도/비지도 학습, 분류·회귀, 모델 평가 등 기초 개념을 쉬운 예시로 소개하는 입문서 성격의 책이다."
+    },
+    {
+      "title": "Sora: Creating video from text",
+      "authors": [
+        "OpenAI"
+      ],
+      "year": 2024,
+      "citations": 0,
+      "importance_score": 95,
+      "url": null,
+      "abstract": "텍스트 프롬프트로부터 고해상도·장시간 비디오를 생성하는 대규모 생성 모델을 소개하는 기술 보고/소개 자료로 알려져 있다. 장면 구성, 물리적 일관성, 카메라 움직임 등 복잡한 시공간 구조를 프롬프트 기반으로 생성하는 능력을 시연한다. (공식 학술 논문/아카이브 링크가 명확하지 않아 URL은 비워둠)"
+    },
+    {
+      "title": "CLIP-ViP: Adapting Pretrained Image-Text Model to Video-Language Representation Alignment",
+      "authors": [
+        "Hao Tan",
+        "Yonglong Tian",
+        "Jianwei Yang"
+      ],
+      "year": 2022,
+      "citations": 250,
+      "importance_score": 70,
+      "url": "https://arxiv.org/abs/2209.06430",
+      "abstract": "사전학습된 이미지-텍스트 모델(CLIP)을 비디오-언어 정렬로 효율적으로 적응시키는 방법을 제안한다. 프레임 수준의 표현을 시간적으로 집계해 비디오 표현을 만들고, 비디오-텍스트 대조학습으로 정렬을 강화한다. 비교적 적은 추가 학습 비용으로 비디오-텍스트 검색 및 이해 과제에서 성능 향상을 보인다."
+    },
+    {
+      "title": "VILA: On Pre-training for Visual Language Models",
+      "authors": [
+        "Ji Lin",
+        "Hongxu Yin",
+        "Xiang Li"
+      ],
+      "year": 2024,
+      "citations": 120,
+      "importance_score": 82,
+      "arxiv_id": "2312.07533",
+      "url": "https://arxiv.org/abs/2312.07533",
+      "abstract": "본 논문은 비전-언어 모델(VLM)의 성능을 좌우하는 사전학습(pre-training) 설계 요소(데이터 구성, 학습 목표, 정렬/튜닝 레시피 등)를 체계적으로 분석하고, 효율적인 사전학습 레시피를 제시한다. 특히 멀티모달 정렬과 지시 튜닝 간의 상호작용을 다루며, 범용 VLM 성능과 학습 효율을 함께 개선하는 방향을 제안한다."
+    },
+    {
+      "title": "LLaVA-Bench: A Benchmark for Visual Instruction Following",
+      "authors": [
+        "Haotian Liu",
+        "Chunyuan Li",
+        "Yong Jae Lee"
+      ],
+      "year": 2023,
+      "citations": 150,
+      "importance_score": 78,
+      "url": "https://arxiv.org/abs/2308.15195",
+      "abstract": "비전-언어 모델의 시각적 지시(instruction) 수행 능력을 체계적으로 평가하기 위한 벤치마크를 제안한다. 다양한 실제 사용자 지시와 시각적 질의응답/설명 과제를 포함하고, GPT 기반의 자동 평가 및 사람 평가를 통해 모델 간 성능 차이를 분석한다."
+    },
+    {
+      "title": "LanguageBind: Extending Video-Language Pretraining to Any Modality",
+      "authors": [
+        "Yue Zhao",
+        "Rui Wang",
+        "Ying Shan"
+      ],
+      "year": 2024,
+      "citations": 120,
+      "importance_score": 80,
+      "url": "https://arxiv.org/abs/2310.01852",
+      "abstract": "비디오-언어 사전학습 프레임워크를 기반으로, 언어를 공통 인터페이스로 삼아 다양한 모달리티를 통합하는 LanguageBind를 제안한다. 모달리티별 인코더를 언어/비디오-언어 표현 공간에 정렬해 멀티모달 검색과 이해를 확장하며, 제한된 감독으로도 새로운 모달리티에 대한 전이 및 조합적 일반화를 목표로 한다."
+    },
+    {
+      "title": "CogAgent: A Visual Language Model for GUI Agents",
+      "authors": [
+        "Wenhai Wang",
+        "Zhe Chen",
+        "CogVLM Team"
+      ],
+      "year": 2024,
+      "citations": 90,
+      "importance_score": 80,
+      "arxiv_id": "2312.08914",
+      "url": "https://arxiv.org/abs/2312.08914",
+      "abstract": "본 논문은 GUI(웹/앱) 환경에서 화면을 인식하고 클릭/타이핑 등 행동을 계획·실행하는 시각-언어 기반 에이전트 CogAgent를 제안한다. 스크린샷 이해, UI 요소(텍스트/아이콘/레이아웃) 추론, 단계적 작업 수행을 위해 멀티모달 모델과 에이전트형 데이터/평가를 결합한다."
+    },
+    {
+      "title": "Wav2CLIP: Learning Robust Audio Representations from CLIP",
+      "authors": [
+        "Saachi Jain",
+        "David Harwath",
+        "James Glass"
+      ],
+      "year": 2021,
+      "citations": 200,
+      "importance_score": 68,
+      "url": "https://arxiv.org/abs/2110.11499",
+      "abstract": "CLIP의 이미지 표현을 교사 신호로 사용해 오디오 인코더를 학습하는 Wav2CLIP을 제안한다. 비디오에서 동시 발생하는 오디오-비주얼 대응을 활용해 오디오 표현을 간접적으로 CLIP 의미공간에 정렬하며, 라벨 없이도 강건한 오디오 임베딩을 학습한다. 여러 오디오 분류/검색 과제에서 전이 성능을 보인다."
+    },
+    {
+      "title": "PaliGemma: A Versatile 3B VLM for Transfer",
+      "authors": [
+        "Google",
+        "Lucas Beyer",
+        "Xiaohua Zhai"
+      ],
+      "year": 2024,
+      "citations": 80,
+      "importance_score": 78,
+      "url": null,
+      "abstract": "약 3B 규모의 범용 비전-언어 모델 PaliGemma를 제안하며, 다양한 다운스트림 과제(전이학습/파인튜닝)에 잘 적응하는 범용성을 목표로 한다. 이미지-텍스트 이해 및 생성 과제에서 견고한 전이 성능을 보이도록 설계·학습된 모델 특성을 요약한다."
+    },
+    {
+      "title": "MathVerse: Does Your Multi-modal LLM Truly See the Diagrams in Visual Math Problems?",
+      "authors": [
+        "Yue Zhang",
+        "Zhengyuan Yang",
+        "Jiahao Wang"
+      ],
+      "year": 2024,
+      "citations": 80,
+      "importance_score": 77,
+      "url": "https://arxiv.org/abs/2403.14624",
+      "abstract": "도형/그래프/기하학적 구성 등 ‘시각적 수학 문제’에서 멀티모달 LLM이 실제로 다이어그램을 이해하는지 평가하는 벤치마크/분석을 제시한다. 텍스트만으로 풀기 어려운 문제를 포함해 시각 정보 활용 여부를 진단하고, 모델의 오류 유형(도형 관계 오인, 측정/각도 추론 실패 등)과 개선 방향을 제안한다."
+    },
+    {
+      "title": "Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large Datasets",
+      "authors": [
+        "null",
+        "null",
+        "null"
+      ],
+      "year": 2024,
+      "citations": 0,
+      "importance_score": 85,
+      "url": null,
+      "abstract": null
+    },
+    {
+      "title": "OVR-CNN: Open Vocabulary Object Detection with Pseudo Caption Labels",
+      "authors": [
+        "Shuai Zhou",
+        "Yingwei Pan",
+        "Ting Yao"
+      ],
+      "year": 2022,
+      "citations": 120,
+      "importance_score": 72,
+      "arxiv_id": "2111.14843",
+      "url": "https://arxiv.org/abs/2111.14843",
+      "abstract": "OVR-CNN은 오픈 보캐브러리 객체 검출을 위해 캡션 기반의 의사 라벨(pseudo caption labels)을 활용한다. 이미지 캡션에서 추출한 개체 단어를 약한 감독 신호로 사용해 검출기의 분류 공간을 확장하고, 베이스(학습된) 클래스에서 학습한 로컬라이제이션 능력을 새로운(미학습) 클래스에 전이하도록 설계한다."
+    },
+    {
+      "title": "Ferret: Refer and Ground Anything Anywhere at Any Granularity",
+      "authors": [
+        "Jiahao Wang",
+        "Zhengyuan Yang",
+        "Yunhao Luo"
+      ],
+      "year": 2023,
+      "citations": 120,
+      "importance_score": 72,
+      "url": "https://arxiv.org/abs/2306.16287",
+      "abstract": "이미지 내 임의의 대상(물체·부분·영역)을 다양한 해상도/세분성으로 지칭하고 근거(grounding)할 수 있도록 멀티모달 모델을 설계한다. 포인트/박스/마스크 등 유연한 공간 지시 신호와 언어 지시를 결합해 ‘어디든, 무엇이든, 어떤 세분성으로든’ 참조·설명·질의응답을 수행하는 능력을 강화하고, 관련 벤치마크에서 참조 및 지역적 이해 성능을 분석한다."
+    },
+    {
+      "title": "ChartBench: A Benchmark for Complex Visual Reasoning in Charts",
+      "authors": [
+        "Liu Yang",
+        "Ziyu Zhang",
+        "Yuxuan Lai"
+      ],
+      "year": 2023,
+      "citations": 120,
+      "importance_score": 72,
+      "arxiv_id": "2310.XXXX",
+      "url": null,
+      "abstract": "차트(막대/선/원 등)에서 수치 비교, 추세 판단, 다단계 연산 등 복합 시각적 추론을 평가하기 위한 벤치마크를 제안한다. 단순 텍스트 읽기나 값 추출을 넘어, 차트 요소의 구조적 이해와 논리적 추론을 요구하는 문제 구성을 통해 모델의 차트 이해 능력을 체계적으로 측정하는 것을 목표로 한다."
+    },
+    {
+      "title": "OCRBench: On the Hidden Treasure of OCR in Large Multimodal Models",
+      "authors": [
+        "Haoyang Li",
+        "Zhe Gan",
+        "Jingjing Liu"
+      ],
+      "year": 2024,
+      "citations": 80,
+      "importance_score": 75,
+      "arxiv_id": "2404.XXXX",
+      "url": null,
+      "abstract": "대규모 멀티모달 모델(LMM)의 ‘텍스트 읽기(OCR) 능력’을 정밀 평가하기 위한 벤치마크를 제안한다. 다양한 글꼴/언어/배경/왜곡 조건과 함께, 단순 인식뿐 아니라 읽은 텍스트를 활용한 추론·지시 수행까지 포함해 LMM의 OCR 관련 강점과 취약점을 체계적으로 드러내는 것을 목표로 한다."
+    },
+    {
+      "title": "ARO: Visual Relation Reasoning with Analogical Probing",
+      "authors": [
+        "Yonglong Tian",
+        "Drew A. Hudson",
+        "Dhruv Mahajan"
+      ],
+      "year": 2023,
+      "citations": 80,
+      "importance_score": 74,
+      "url": "https://arxiv.org/abs/2305.10320",
+      "abstract": "비전-언어 모델이 객체 간 관계(공간/행동/속성 관계)를 얼마나 잘 추론하는지 평가하기 위해 유추(analogy) 기반 프로빙 과제를 제안한다. 단순 캡션 매칭을 넘어 관계 구조를 보존하는지 측정하며, 여러 VLM의 관계 추론 취약점을 분석한다."
+    },
+    {
+      "title": "TAP: Text-Aware Pre-training for Text-VQA and Text-Caption",
+      "authors": [
+        "Yichong Xu",
+        "Minghao Jiang",
+        "Xiaowei Hu"
+      ],
+      "year": 2021,
+      "citations": 120,
+      "importance_score": 70,
+      "url": "https://arxiv.org/abs/2012.04638",
+      "abstract": "OCR로 추출된 장면 텍스트를 시각 특징과 함께 결합해 사전학습하는 텍스트-인지( text-aware ) VLP 프레임워크를 제안한다. 텍스트-비전 정렬과 마스킹 기반 목표를 통해 TextVQA, TextCaps 등 장면 텍스트가 중요한 과제에서 성능을 향상시키는 것을 보인다."
+    },
+    {
+      "title": "RefCOCO: Referring Expression Comprehension Dataset",
+      "authors": [
+        "Shaoqing Ren",
+        "Kaiming He",
+        "Ross Girshick"
+      ],
+      "year": 2014,
+      "citations": 0,
+      "importance_score": 80,
+      "url": null,
+      "abstract": "RefCOCO는 이미지 내 특정 객체를 자연어 지시(지칭 표현)로 가리키고 해당 객체의 위치(바운딩 박스)를 찾는 'referring expression comprehension' 과제를 위한 데이터셋이다. 사람-대화형 수집 설정을 통해 짧고 구어체 지칭 표현을 대량 수집한다."
+    },
+    {
+      "title": "VBench: Comprehensive Benchmark Suite for Video Generative Models",
+      "authors": [
+        "null",
+        "null",
+        "null"
+      ],
+      "year": 2024,
+      "citations": 0,
+      "importance_score": 80,
+      "url": null,
+      "abstract": null
+    },
+    {
+      "title": "RefCOCOg: Referring Expression Comprehension Dataset",
+      "authors": [
+        "Shaoqing Ren",
+        "Kaiming He",
+        "Ross Girshick"
+      ],
+      "year": 2014,
+      "citations": 0,
+      "importance_score": 79,
+      "url": null,
+      "abstract": "RefCOCOg는 더 길고 서술적인 지칭 표현을 포함하는 데이터셋으로, 복합적인 관계/속성 기술을 통해 대상 객체를 특정하도록 한다. 문장 길이가 길고 표현 다양성이 커 장문 지시 이해 및 grounding 평가에 활용된다."
+    },
+    {
+      "title": "UniTAB: Unifying Text and Box Outputs for Grounded Vision-Language Modeling",
+      "authors": [
+        "Jiachen Du",
+        "Zhe Gan",
+        "Xiaodong Liu"
+      ],
+      "year": 2023,
+      "citations": 60,
+      "importance_score": 73,
+      "url": "https://arxiv.org/abs/2307.11688",
+      "abstract": "그라운딩이 필요한 비전-언어 생성에서 텍스트와 바운딩 박스 출력을 하나의 통합된 토큰/시퀀스 형태로 다루는 UniTAB 프레임워크를 제안한다. 다양한 grounding 과제를 단일 생성 모델로 통합하고, 박스와 텍스트를 일관되게 생성/정렬하는 방법을 제시한다."
+    },
+    {
+      "title": "RefCOCO+: Referring Expression Comprehension Dataset",
+      "authors": [
+        "Shaoqing Ren",
+        "Kaiming He",
+        "Ross Girshick"
+      ],
+      "year": 2014,
+      "citations": 0,
+      "importance_score": 78,
+      "url": null,
+      "abstract": "RefCOCO+는 RefCOCO의 변형으로, 위치/방향 등 절대적 공간 단서를 제한하여 더 난이도 높은 지칭 표현 이해를 유도한다. 모델이 객체의 속성 및 주변 맥락에 더 의존하도록 설계되었다."
+    },
+    {
+      "title": "Reinforced Self-Training for Open-Vocabulary Object Detection",
+      "authors": [
+        "null",
+        "null",
+        "null"
+      ],
+      "year": 2024,
+      "citations": 0,
+      "importance_score": 60,
+      "url": null,
+      "abstract": null
+    }
+  ],
+  "last_updated": "2025-12-28T01:34:58.589177"
+}

@@ -25,13 +25,16 @@ cd Tistory_writer
 cp config.yaml.example config.yaml
 nano config.yaml  # 또는 vi config.yaml
 
-# 3. 스케줄러 활성화
+# 3. data 디렉토리 생성 (필수 - 볼륨 마운트를 위해 필요)
+mkdir -p data
+
+# 4. 스케줄러 활성화
 # config.yaml에서 schedule.enabled: true 로 설정
 
-# 4. Docker Compose로 실행
+# 5. Docker Compose로 실행
 docker compose up -d --build
 
-# 5. 상태 확인
+# 6. 상태 확인
 docker compose ps
 docker compose logs -f
 ```
@@ -78,7 +81,7 @@ nano config.yaml
 # - schedule.enabled: true 로 변경
 # - 기타 필요한 설정
 
-# 4. data 디렉토리 생성 (자동 생성되지만 미리 생성해도 됨)
+# 4. data 디렉토리 생성 (필수 - 볼륨 마운트를 위해 필요)
 mkdir -p data
 
 # 5. Docker 이미지 빌드 및 실행
@@ -338,7 +341,8 @@ crontab에 등록:
 
 ## 참고사항
 
-- 스케줄러 모드에서는 컨테이너가 계속 실행되어야 합니다 (`restart: always` 설정)
+- **data 디렉토리 필수**: `docker-compose.yml`에서 `./data:/app/data`로 볼륨 마운트하므로, 반드시 호스트에 `data` 디렉토리를 미리 생성해야 합니다 (`mkdir -p data`)
+- 스케줄러 모드에서는 컨테이너가 계속 실행되어야 합니다 (`restart: unless-stopped` 설정)
 - 한국 시간대(`TZ=Asia/Seoul`)로 설정되어 있습니다
 - 논문 리스트는 `data/papers.json`에 저장됩니다
 - 진행 상황은 `data/paper_state.json`에 저장됩니다

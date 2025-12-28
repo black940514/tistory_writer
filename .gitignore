@@ -12,7 +12,7 @@ tistory_poster.log
 data/*.log
 
 # 데이터 디렉토리
-data/
+# data/
 
 # Python
 __pycache__/
