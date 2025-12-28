@@ -420,7 +420,11 @@ class TistoryAutoPoster:
             
             logger.info(f"포스트 작성 완료: {title}")
             logger.info(f"포스트 URL: {result.get('url', 'N/A')}")
-            logger.info(f"진행 상황: {self.paper_manager.get_reviewed_count()}/{self.paper_manager.get_paper_count()} 논문 리뷰 완료")
+            
+            # 진행 상황 상세 정보 로깅
+            progress_info = self.paper_manager.get_progress_info()
+            logger.info(f"진행 상황: {progress_info['reviewed_count']}/{progress_info['total_papers']} 논문 리뷰 완료 ({progress_info['progress_percent']}%)")
+            logger.info(f"현재 인덱스: {progress_info['current_index']}, 남은 논문: {progress_info['remaining_count']}개")
             
             return result
             

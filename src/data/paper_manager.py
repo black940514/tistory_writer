@@ -13,11 +13,12 @@ logger = logging.getLogger(__name__)
 class PaperManager:
     """논문 리스트 관리 및 순차 선택"""
     
-    def __init__(self, papers_file: str = "data/papers.json", state_file: str = "data/paper_state.json"):
+    def __init__(self, papers_file: str = "data/papers.json", state_file: str = "data/paper_state.json", reset_on_first_run: bool = True):
         """
         Args:
             papers_file: 논문 리스트 저장 파일 경로
             state_file: 현재 진행 상태 저장 파일 경로
+            reset_on_first_run: 첫 실행 시 진행 상태 리셋 여부 (기본값: True)
         """
         self.papers_file = Path(papers_file)
         self.state_file = Path(state_file)
@@ -27,7 +28,16 @@ class PaperManager:
         self.state_file.parent.mkdir(parents=True, exist_ok=True)
         
         self.papers = self._load_papers()
-        self.state = self._load_state()
+        
+        # 첫 실행 감지 (state_file이 없거나 빈 경우)
+        is_first_run = not self.state_file.exists() or (self.state_file.exists() and self.state_file.stat().st_size == 0)
+        
+        if is_first_run and reset_on_first_run:
+            logger.info("첫 실행 감지: 진행 상태를 초기화합니다.")
+            self.state = {'current_index': 0, 'reviewed_papers': [], 'last_processed': None, 'first_run_at': datetime.now().isoformat()}
+            self._save_state()
+        else:
+            self.state = self._load_state()
     
     def _load_papers(self) -> List[Dict]:
         """논문 리스트 로드"""
@@ -84,17 +94,37 @@ class PaperManager:
         if self.state_file.exists():
             try:
                 with open(self.state_file, 'r', encoding='utf-8') as f:
-                    return json.load(f)
+                    state = json.load(f)
+                    # 기존 형식 호환성 유지 (필드가 없으면 기본값 추가)
+                    if 'last_processed' not in state:
+                        state['last_processed'] = None
+                    if 'first_run_at' not in state:
+                        state['first_run_at'] = None
+                    return state
             except Exception as e:
                 logger.error(f"상태 파일 로드 실패: {e}")
-                return {'current_index': 0, 'reviewed_papers': []}
-        return {'current_index': 0, 'reviewed_papers': []}
+                return {'current_index': 0, 'reviewed_papers': [], 'last_processed': None, 'first_run_at': None}
+        return {'current_index': 0, 'reviewed_papers': [], 'last_processed': None, 'first_run_at': None}
     
     def _save_state(self):
-        """진행 상태 저장"""
+        """진행 상태 저장 (상세 정보 포함)"""
         try:
+            # 저장할 때 통계 정보 추가
+            state_to_save = {
+                'current_index': self.state.get('current_index', 0),
+                'reviewed_papers': self.state.get('reviewed_papers', []),
+                'last_processed': self.state.get('last_processed'),
+                'first_run_at': self.state.get('first_run_at'),
+                'last_updated': datetime.now().isoformat(),
+                'statistics': {
+                    'total_papers': len(self.papers),
+                    'reviewed_count': len(self.state.get('reviewed_papers', [])),
+                    'remaining_count': len(self.papers) - len(self.state.get('reviewed_papers', [])),
+                    'progress_percent': round((len(self.state.get('reviewed_papers', [])) / len(self.papers) * 100), 2) if self.papers else 0
+                }
+            }
             with open(self.state_file, 'w', encoding='utf-8') as f:
-                json.dump(self.state, f, ensure_ascii=False, indent=2)
+                json.dump(state_to_save, f, ensure_ascii=False, indent=2)
         except Exception as e:
             logger.error(f"상태 파일 저장 실패: {e}")
     
@@ -130,9 +160,15 @@ class PaperManager:
             paper_id = self._get_paper_id(paper)
             
             if paper_id not in reviewed_papers:
-                # 상태 업데이트
+                # 상태 업데이트 (마지막 처리 논문 정보 추가)
                 self.state['current_index'] = i + 1
                 self.state['reviewed_papers'].append(paper_id)
+                self.state['last_processed'] = {
+                    'paper_id': paper_id,
+                    'title': paper.get('title', 'N/A'),
+                    'index': i,
+                    'processed_at': datetime.now().isoformat()
+                }
                 self._save_state()
                 
                 logger.info(f"다음 논문 선택: {paper.get('title', 'N/A')} (인덱스: {i})")
@@ -184,7 +220,26 @@ class PaperManager:
     
     def reset_progress(self):
         """진행 상태 초기화 (모든 논문을 다시 리뷰하도록)"""
-        self.state = {'current_index': 0, 'reviewed_papers': []}
+        self.state = {
+            'current_index': 0,
+            'reviewed_papers': [],
+            'last_processed': None,
+            'first_run_at': datetime.now().isoformat()
+        }
         self._save_state()
         logger.info("진행 상태가 초기화되었습니다.")
+    
+    def get_progress_info(self) -> Dict:
+        """진행 상태 정보 반환 (추적용)"""
+        last_processed = self.state.get('last_processed')
+        return {
+            'current_index': self.state.get('current_index', 0),
+            'total_papers': len(self.papers),
+            'reviewed_count': len(self.state.get('reviewed_papers', [])),
+            'remaining_count': len(self.papers) - len(self.state.get('reviewed_papers', [])),
+            'progress_percent': round((len(self.state.get('reviewed_papers', [])) / len(self.papers) * 100), 2) if self.papers else 0,
+            'last_processed': last_processed,
+            'first_run_at': self.state.get('first_run_at'),
+            'last_updated': self.state.get('last_updated')
+        }
 

@@ -134,10 +134,22 @@ class TistoryAPI:
             
             # 로그아웃 버튼이나 관리 메뉴가 있는지 확인
             if response.status_code == 200:
-                if '로그아웃' in response.text or 'logout' in response.text.lower() or '관리' in response.text:
+                # 여러 방법으로 로그인 상태 확인
+                text_lower = response.text.lower()
+                login_indicators = [
+                    '로그아웃' in response.text,
+                    'logout' in text_lower,
+                    '관리' in response.text,
+                    '/manage/' in final_url,  # 관리 페이지 URL
+                    'newpost' in text_lower,  # 글쓰기 링크
+                    'tistory.com/manage' in final_url  # 관리 페이지 경로
+                ]
+                
+                if any(login_indicators):
                     logger.info("로그인 상태 확인 완료: 정상적으로 로그인되어 있습니다.")
                 else:
-                    logger.warning("로그인 상태를 명확히 확인할 수 없지만 계속 진행합니다.")
+                    # 컨테이너 환경에서는 HTML 구조가 다를 수 있으므로 경고만 출력
+                    logger.warning("로그인 상태를 명확히 확인할 수 없지만 계속 진행합니다. (컨테이너 환경에서는 HTML 구조 차이로 인해 정확한 확인이 어려울 수 있습니다)")
             else:
                 logger.warning(f"로그인 상태 확인 중 예상치 못한 상태 코드: {response.status_code}")
                 

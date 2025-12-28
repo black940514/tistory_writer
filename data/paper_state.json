@@ -1,5 +1,5 @@
 {
-  "current_index": 51,
+  "current_index": 58,
   "reviewed_papers": [
     "Deep Residual Learning for Image Recognition_2015",
     "ImageNet Classification with Deep Convolutional Neural Networks_2012",
@@ -51,6 +51,13 @@
     "Improving Language Understanding by Generative Pre-Training_2018",
     "UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction_2018",
     "Deep Learning with Python_2017",
-    "A Tutorial on Principal Component Analysis_2014"
+    "A Tutorial on Principal Component Analysis_2014",
+    "Training language models to follow instructions with human feedback_2022",
+    "LightGBM: A Highly Efficient Gradient Boosting Decision Tree_2017",
+    "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows_2021",
+    "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer_2020",
+    "LLaMA: Open and Efficient Foundation Language Models_2023",
+    "Python Machine Learning_2015",
+    "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks_2020"
   ]
 }
