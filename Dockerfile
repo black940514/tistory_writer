@@ -11,7 +11,7 @@
 # ============================================================================
 
 ARG PYTHON_VERSION=3.11.8
-FROM python:${PYTHON_VERSION}-slim as base
+FROM python:${PYTHON_VERSION}-slim AS base
 
 # Python 최적화 환경 변수
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -21,7 +21,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-# 시스템 의존성 설치
+# 시스템 의존성 설치 (최소 구성)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \

@@ -9,6 +9,16 @@ if [ -d "/app/data" ]; then
     chown -R 10001:10001 /app/data 2>/dev/null || true
 fi
 
+# Selenium 캐시 디렉토리 생성 및 권한 설정
+mkdir -p /app/.cache/selenium/chrome 2>/dev/null || true
+chmod -R 777 /app/.cache 2>/dev/null || true
+chown -R 10001:10001 /app/.cache 2>/dev/null || true
+
+# HOME 환경 변수가 /nonexistent로 설정되어 있으면 /app으로 변경
+if [ "$HOME" = "/nonexistent" ] || [ -z "$HOME" ]; then
+    export HOME=/app
+fi
+
 # appuser로 전환하여 명령 실행
 if [ "$(id -u)" = "0" ]; then
     # root로 실행 중이면 appuser로 전환

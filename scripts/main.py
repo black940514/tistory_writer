@@ -5,7 +5,7 @@ import sys
 import yaml
 import logging
 from pathlib import Path
-from typing import List
+from typing import List, Dict
 
 # 프로젝트 루트 경로
 project_root = Path(__file__).parent.parent
@@ -16,10 +16,17 @@ sys.path.insert(0, str(project_root))
 from src.api.tistory_api import TistoryAPI
 from src.content.content_generator import generate_paper_review_content
 from src.data.post_manager import PostManager
-from src.client.openai_client import OpenAIClient
+from src.client.claude_client import ClaudeClient
 from src.data.paper_manager import PaperManager
 from src.data.paper_collector import PaperCollector
 from src.content.image_finder import ImageFinder, insert_images_to_content
+
+# 쿠키 갱신 모듈 (선택적)
+try:
+    from src.utils.cookie_refresher import CookieRefresher
+    COOKIE_REFRESH_AVAILABLE = True
+except ImportError:
+    COOKIE_REFRESH_AVAILABLE = False
 
 # 로그 디렉토리 생성
 log_dir = project_root / 'data'
@@ -51,51 +58,72 @@ class TistoryAutoPoster:
     티스토리 자동 포스터
     
     논문 리스트에서 순차적으로 논문을 선택하여
-    OpenAI로 리뷰를 생성하고 티스토리에 자동으로 포스팅합니다.
+    Claude로 리뷰를 생성하고 티스토리에 자동으로 포스팅합니다.
     """
     
-    def __init__(self, config_path: str = None):
+    def __init__(self, config_path: str = None, md_only: bool = False):
         """
         자동 포스터 초기화
-        
+
         Args:
             config_path: 설정 파일 경로 (기본값: 프로젝트 루트의 config.yaml)
+            md_only: True면 티스토리 API 초기화 없이 MD 생성만 가능한 모드
         """
         if config_path is None:
             config_path = project_root / "config.yaml"
         self.config = self._load_config(str(config_path))
-        tistory_config = self.config['tistory']
-        
-        # 쿠키 우선, 없으면 ID/PW 사용
-        blog_id = tistory_config.get('blog_id')  # 블로그 ID (선택적)
-        if 'cookies' in tistory_config and tistory_config['cookies']:
-            self.api = TistoryAPI(
-                blog_name=tistory_config['blog_name'],
-                cookies=tistory_config['cookies'],
-                blog_id=blog_id
-            )
-        else:
-            self.api = TistoryAPI(
-                user_id=tistory_config['user_id'],
-                user_pw=tistory_config['user_pw'],
-                blog_name=tistory_config['blog_name'],
-                blog_id=blog_id
-            )
+        self.md_only = md_only
+        self.api = None  # md_only 모드에서는 None
+
+        # 쿠키 자동 갱신 시도 (설정된 경우, md_only가 아닐 때만)
+        if not md_only and COOKIE_REFRESH_AVAILABLE:
+            browser_auth_config = self.config.get('browser_auth', {})
+            if browser_auth_config.get('auto_refresh', False):
+                try:
+                    refresher = CookieRefresher(str(config_path))
+                    if refresher.refresh_cookies_if_needed():
+                        # 갱신 후 설정 다시 로드
+                        self.config = self._load_config(str(config_path))
+                        logger.info("쿠키 자동 갱신으로 설정 파일을 다시 로드했습니다.")
+                except Exception as e:
+                    logger.warning(f"쿠키 자동 갱신 실패 (기존 쿠키 사용): {e}")
+
+        # 티스토리 API 초기화 (md_only가 아닐 때만)
+        if not md_only:
+            tistory_config = self.config['tistory']
+
+            # 쿠키 우선, 없으면 ID/PW 사용
+            blog_id = tistory_config.get('blog_id')  # 블로그 ID (선택적)
+            if 'cookies' in tistory_config and tistory_config['cookies']:
+                self.api = TistoryAPI(
+                    blog_name=tistory_config['blog_name'],
+                    cookies=tistory_config['cookies'],
+                    blog_id=blog_id
+                )
+            else:
+                self.api = TistoryAPI(
+                    user_id=tistory_config['user_id'],
+                    user_pw=tistory_config['user_pw'],
+                    blog_name=tistory_config['blog_name'],
+                    blog_id=blog_id
+                )
+
         self.post_manager = PostManager(state_file=str(project_root / "data/post_state.json"))
         self.paper_manager = PaperManager(papers_file=str(project_root / "data/papers.json"))
         self.category_id = None
         
-        # OpenAI 클라이언트 초기화 (API 키가 있는 경우)
-        self.openai_client = None
-        if 'openai' in self.config and self.config['openai'].get('api_key'):
+        # Claude 클라이언트 초기화 (API 키가 있는 경우)
+        self.claude_client = None
+        if 'claude' in self.config and self.config['claude'].get('api_key'):
             prompts_file = self.config.get('prompts_file', 'prompts.yaml')
             prompts_path = project_root / prompts_file
-            self.openai_client = OpenAIClient(
-                api_key=self.config['openai']['api_key'],
-                model=self.config['openai'].get('model', 'gpt-4o-mini'),
+            self.claude_client = ClaudeClient(
+                api_key=self.config['claude']['api_key'],
+                model=self.config['claude'].get('model', 'claude-sonnet-4-20250514'),
+                search_model=self.config['claude'].get('search_model', 'claude-3-5-haiku-20241022'),
                 prompts_file=str(prompts_path)
             )
-            logger.info("OpenAI 클라이언트 초기화 완료")
+            logger.info("Claude 클라이언트 초기화 완료")
         
         # 이미지 찾기 클라이언트 초기화 (선택)
         self.image_finder = None
@@ -332,14 +360,54 @@ class TistoryAutoPoster:
         
         return first_word
     
-    def create_post(self):
-        """포스트 작성"""
+    def create_post(self, paper_index: int = None, save_md_only: bool = False, output_dir: str = None, progress_callback=None):
+        """
+        포스트 작성
+
+        Args:
+            paper_index: 발행할 논문 인덱스 (None이면 자동 선택)
+            save_md_only: True면 발행하지 않고 MD 파일만 저장
+            output_dir: MD 저장 디렉토리 (기본값: output/)
+            progress_callback: 진행 상황 콜백 함수
+
+        Returns:
+            dict: {
+                'success': bool,
+                'paper': dict,
+                'title': str,
+                'content': str (마크다운),
+                'html_content': str,
+                'url': str or None,
+                'md_path': str or None
+            }
+        """
+        def notify(msg):
+            if progress_callback:
+                progress_callback(msg)
+
+        result = {
+            'success': False,
+            'paper': None,
+            'title': None,
+            'content': None,
+            'html_content': None,
+            'url': None,
+            'md_path': None,
+            'error': None
+        }
+
         try:
-            # 논문 리스트에서 다음 논문 가져오기
-            paper = self.paper_manager.get_next_paper()
+            notify("📋 논문 정보 로딩 중...")
             
+            # 논문 선택 (인덱스 지정 또는 자동 선택)
+            if paper_index is not None:
+                paper = self.paper_manager.get_paper_for_post(paper_index)
+            else:
+                paper = self.paper_manager.get_next_paper()
+
             if not paper:
                 logger.error("리뷰할 논문이 없습니다. 논문 리스트를 먼저 생성해주세요.")
+                result['error'] = "논문 리스트가 비어있습니다."
                 raise Exception("논문 리스트가 비어있습니다.")
             
             # 제목 생성: [{약어}] 제목 전체
@@ -353,19 +421,28 @@ class TistoryAutoPoster:
             authors_display = authors[:3] if isinstance(authors, list) else authors
             logger.info(f"논문 정보: {authors_display}, {paper.get('year', 'N/A')}년")
             
-            # 콘텐츠 생성 (OpenAI 사용)
-            review_model = self.config.get('openai', {}).get('review_model')
+            notify("🤖 AI 리뷰 생성 중... (1~2분 소요)")
+            
+            # 콘텐츠 생성 (Claude 사용, Scientific Skills 지원)
+            review_model = self.config.get('claude', {}).get('review_model')
+            scientific_config = self.config.get('scientific_skills', {})
+            use_scientific = scientific_config.get('enabled', False)
+            scientific_style = scientific_config.get('default_style', 'peer-review')
+
             content = generate_paper_review_content(
                 paper=paper,
-                openai_client=self.openai_client,
+                claude_client=self.claude_client,
                 review_number=post_number,
-                review_model=review_model
+                review_model=review_model,
+                use_scientific_skills=use_scientific,
+                scientific_style=scientific_style
             )
             
             # 이미지 찾기 및 삽입 (아키텍처 필수, 최대 5개)
             image_urls_to_embed = []
             if self.image_finder:
                 try:
+                    notify("🖼️ 논문 이미지 검색 중...")
                     logger.info("논문 이미지 검색 중... (아키텍처, 실험결과, 직관적 이미지)")
                     images = self.image_finder.find_images_for_paper(
                         paper,
@@ -404,34 +481,283 @@ class TistoryAutoPoster:
             
             meta_info += "\n---\n\n"
             full_content = meta_info + content
+
+            # 결과 저장
+            result['paper'] = paper
+            result['title'] = title
+            result['content'] = full_content
+
+            notify("💾 마크다운 저장 중...")
+            
+            # MD 저장 (요청된 경우 또는 항상 백업)
+            if output_dir is None:
+                output_dir = str(project_root / "output")
+            Path(output_dir).mkdir(parents=True, exist_ok=True)
+
+            # 파일명 생성 (안전한 문자만 사용)
+            safe_title = "".join(c for c in paper_title if c.isalnum() or c in (' ', '-', '_')).strip()[:50]
+            md_filename = f"{safe_title}_{paper.get('year', 'unknown')}.md"
+            md_path = Path(output_dir) / md_filename
+
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(full_content)
+            result['md_path'] = str(md_path)
+            logger.info(f"마크다운 저장: {md_path}")
+
+            # MD만 저장하는 경우 여기서 반환
+            if save_md_only:
+                result['success'] = True
+                notify("✅ 마크다운 저장 완료!")
+                logger.info(f"마크다운만 저장 완료: {title}")
+                return result
+
+            notify("📝 HTML 변환 중...")
             
             # HTML로 변환 (간단한 마크다운 → HTML)
             html_content = self._markdown_to_html(full_content, image_urls_to_embed)
+            result['html_content'] = html_content
+
+            notify("🌐 티스토리 발행 중...")
             
             # 티스토리에 글 작성
-            result = self.api.write_post(
+            api_result = self.api.write_post(
                 title=title,
                 content=html_content,
                 category_id=self.category_id
             )
-            
+
             # 논문 리뷰 완료 표시
             self.paper_manager.mark_paper_reviewed(paper)
-            
+
+            result['success'] = True
+            result['url'] = api_result.get('url')
+
+            notify("✅ 발행 완료!")
             logger.info(f"포스트 작성 완료: {title}")
-            logger.info(f"포스트 URL: {result.get('url', 'N/A')}")
-            
+            logger.info(f"포스트 URL: {result['url']}")
+
             # 진행 상황 상세 정보 로깅
             progress_info = self.paper_manager.get_progress_info()
             logger.info(f"진행 상황: {progress_info['reviewed_count']}/{progress_info['total_papers']} 논문 리뷰 완료 ({progress_info['progress_percent']}%)")
             logger.info(f"현재 인덱스: {progress_info['current_index']}, 남은 논문: {progress_info['remaining_count']}개")
-            
+
             return result
-            
+
         except Exception as e:
             logger.error(f"포스트 작성 실패: {e}", exc_info=True)
-            raise
-    
+            result['error'] = str(e)
+            # MD가 이미 저장되었다면 경로 유지
+            return result
+
+    def create_post_from_paper(self, paper: Dict, save_md_only: bool = False, output_dir: str = None, progress_callback=None):
+        """
+        외부 논문 정보를 받아서 포스트 작성 (리스트에 없는 논문용)
+
+        Args:
+            paper: 논문 정보 딕셔너리 (title, authors, year, citations, url, abstract 등)
+            save_md_only: True면 발행하지 않고 MD 파일만 저장
+            output_dir: MD 저장 디렉토리 (기본값: output/)
+            progress_callback: 진행 상황 콜백 함수
+
+        Returns:
+            dict: create_post와 동일한 형식
+        """
+        def notify(msg):
+            if progress_callback:
+                progress_callback(msg)
+
+        result = {
+            'success': False,
+            'paper': None,
+            'title': None,
+            'content': None,
+            'html_content': None,
+            'url': None,
+            'md_path': None,
+            'error': None
+        }
+
+        try:
+            notify("📋 논문 정보 확인 중...")
+            
+            if not paper or not paper.get('title'):
+                result['error'] = "논문 정보가 없습니다."
+                raise Exception("논문 정보가 없습니다.")
+
+            # 제목 생성: [{약어}] 제목 전체
+            paper_title = paper.get('title', '논문 리뷰')
+            post_number = self.post_manager.get_next_post_number()
+            abbreviation = self._extract_abbreviation(paper_title)
+            title = f"[{abbreviation}] {paper_title}"
+
+            logger.info(f"외부 논문 포스트 작성 시작: {title}")
+            authors = paper.get('authors', [])
+            authors_display = authors[:3] if isinstance(authors, list) else authors
+            logger.info(f"논문 정보: {authors_display}, {paper.get('year', 'N/A')}년")
+
+            notify("🤖 AI 리뷰 생성 중... (1~2분 소요)")
+            
+            # 콘텐츠 생성 (Claude 사용, Scientific Skills 지원)
+            review_model = self.config.get('claude', {}).get('review_model')
+            scientific_config = self.config.get('scientific_skills', {})
+            use_scientific = scientific_config.get('enabled', False)
+            scientific_style = scientific_config.get('default_style', 'peer-review')
+
+            content = generate_paper_review_content(
+                paper=paper,
+                claude_client=self.claude_client,
+                review_number=post_number,
+                review_model=review_model,
+                use_scientific_skills=use_scientific,
+                scientific_style=scientific_style
+            )
+
+            # 이미지 찾기 및 삽입
+            image_urls_to_embed = []
+            if self.image_finder:
+                try:
+                    notify("🖼️ 논문 이미지 검색 중...")
+                    logger.info("논문 이미지 검색 중...")
+                    images = self.image_finder.find_images_for_paper(
+                        paper,
+                        min_images=1,
+                        max_images=5
+                    )
+                    if images:
+                        logger.info(f"총 {len(images)}개의 이미지를 찾았습니다.")
+                        content = insert_images_to_content(content, images, paper_title)
+                        image_urls_to_embed = [img.get('url', '') for img in images if img.get('url')]
+                    else:
+                        logger.warning("이미지를 찾지 못했습니다.")
+                except Exception as e:
+                    logger.warning(f"이미지 검색 중 오류 발생 (계속 진행): {e}")
+
+            # 논문 메타정보 추가
+            authors = paper.get('authors', [])
+            authors_display = ', '.join(authors[:3]) if isinstance(authors, list) else str(authors)
+            if isinstance(authors, list) and len(authors) > 3:
+                authors_display += f" 외 {len(authors) - 3}명"
+
+            meta_info = f"""# {paper_title}
+
+**저자**: {authors_display}
+**발행년도**: {paper.get('year', 'N/A')}년
+**인용수**: {paper.get('citations', 'N/A')}회
+"""
+            if paper.get('url'):
+                meta_info += f"**논문 링크**: [{paper.get('url')}]({paper.get('url')})  \n"
+            if paper.get('arxiv_id'):
+                meta_info += f"**arXiv ID**: {paper.get('arxiv_id')}  \n"
+
+            meta_info += "\n---\n\n"
+            full_content = meta_info + content
+
+            # 결과 저장
+            result['paper'] = paper
+            result['title'] = title
+            result['content'] = full_content
+
+            notify("💾 마크다운 저장 중...")
+            
+            # MD 저장
+            if output_dir is None:
+                output_dir = str(project_root / "output")
+            Path(output_dir).mkdir(parents=True, exist_ok=True)
+
+            safe_title = "".join(c for c in paper_title if c.isalnum() or c in (' ', '-', '_')).strip()[:50]
+            md_filename = f"{safe_title}_{paper.get('year', 'unknown')}.md"
+            md_path = Path(output_dir) / md_filename
+
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(full_content)
+            result['md_path'] = str(md_path)
+            logger.info(f"마크다운 저장: {md_path}")
+
+            # MD만 저장하는 경우 여기서 반환
+            if save_md_only:
+                result['success'] = True
+                notify("✅ 마크다운 저장 완료!")
+                logger.info(f"마크다운만 저장 완료: {title}")
+                return result
+
+            notify("📝 HTML 변환 중...")
+            
+            # HTML로 변환
+            html_content = self._markdown_to_html(full_content, image_urls_to_embed)
+            result['html_content'] = html_content
+
+            notify("🌐 티스토리 발행 중...")
+            
+            # 티스토리에 글 작성
+            api_result = self.api.write_post(
+                title=title,
+                content=html_content,
+                category_id=self.category_id
+            )
+
+            result['success'] = True
+            result['url'] = api_result.get('url')
+
+            notify("✅ 발행 완료!")
+            logger.info(f"외부 논문 포스트 작성 완료: {title}")
+            logger.info(f"포스트 URL: {result['url']}")
+
+            return result
+
+        except Exception as e:
+            logger.error(f"외부 논문 포스트 작성 실패: {e}", exc_info=True)
+            result['error'] = str(e)
+            return result
+
+    def search_paper_info(self, paper_title: str) -> Dict:
+        """
+        논문 제목으로 상세 정보 검색
+
+        Args:
+            paper_title: 검색할 논문 제목
+
+        Returns:
+            논문 정보 딕셔너리 (없으면 빈 딕셔너리)
+        """
+        try:
+            papers = self.claude_client.generate_paper_details([paper_title])
+            if papers and len(papers) > 0:
+                return papers[0]
+            return {}
+        except Exception as e:
+            logger.error(f"논문 검색 실패: {e}")
+            return {}
+
+    def search_latest_papers_by_category(self, category: str, keywords: List[str], count: int = 5) -> List[Dict]:
+        """
+        분야별 최신 논문 검색
+
+        Args:
+            category: 분야명 (예: "Computer Vision", "NLP & Language Models")
+            keywords: 해당 분야 키워드 리스트
+            count: 검색할 논문 개수
+
+        Returns:
+            논문 정보 리스트
+        """
+        try:
+            # 키워드 기반 검색 쿼리 생성
+            keyword_str = ", ".join(keywords[:5])  # 상위 5개 키워드
+            search_query = f"latest {category} AI papers 2024 2025 {keyword_str}"
+
+            logger.info(f"분야별 최신 논문 검색: {category}")
+            papers = self.claude_client.generate_paper_details([search_query], is_category_search=True, count=count)
+
+            if papers:
+                # 각 논문에 분야 정보 추가
+                for paper in papers:
+                    paper['searched_category'] = category
+                return papers
+            return []
+        except Exception as e:
+            logger.error(f"분야별 논문 검색 실패: {e}")
+            return []
+
     def _markdown_to_html(self, markdown: str, image_urls: List[str] = None) -> str:
         """
         간단한 마크다운을 HTML로 변환

@@ -23,9 +23,10 @@ services:
     # 볼륨 마운트: 설정 파일 및 상태 파일 영속화
     volumes:
       - ./config.yaml:/app/config.yaml:ro  # 읽기 전용
+      - ./prompts.yaml:/app/prompts.yaml:ro  # 프롬프트 파일 (읽기 전용)
       # 상태 및 로그는 디렉토리로 마운트하여 파일이 없을 때 자동 생성 가능하도록
       - ./data:/app/data  # post_state.json과 log 파일 저장용
-    
+      - ./output:/app/output  # 출력 파일 저장용
     # 환경 변수
     environment:
       - PYTHONUNBUFFERED=1
@@ -33,6 +34,8 @@ services:
       - UV_CACHE_DIR=/app/.cache/uv
       - UV_NO_PROJECT=1
       - TZ=Asia/Seoul  # 한국 시간대 설정
+      - HOME=/app  # Selenium 캐시 경로 문제 해결
+      - SELENIUM_CACHE_DIR=/app/.cache/selenium
     
     # 작업 디렉토리
     working_dir: /app

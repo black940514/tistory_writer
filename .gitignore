@@ -5,6 +5,11 @@ prompts.yaml
 # 상태 파일
 post_state.json
 data/post_state.json
+data/paper_state.json
+
+# 민감한 데이터
+data/cookies.json
+data/search_history.json
 
 # 로그 파일
 *.log
@@ -25,6 +30,15 @@ venv/
 ENV/
 .venv
 
+# PyInstaller
+build/
+dist/
+*.spec
+
+# 출력물
+output/
+pdfs/
+
 # IDE
 .vscode/
 .idea/
@@ -35,4 +49,16 @@ ENV/
 # OS
 .DS_Store
 Thumbs.db
+
+# MCP 캐시
+.serena/
+.playwright-mcp/
+
+# Claude Code
+.omc/
+
+# 임시 파일
+*.tmp
+*.bak
+*~
 

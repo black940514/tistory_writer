@@ -1,11 +1,11 @@
 """
-논문 리스트 수집기 (OpenAI 활용)
+논문 리스트 수집기 (Claude 활용)
 """
 import logging
 from typing import TYPE_CHECKING, List, Dict
 
 if TYPE_CHECKING:
-    from ..client.openai_client import OpenAIClient
+    from ..client.claude_client import ClaudeClient
     from .paper_manager import PaperManager
 
 logger = logging.getLogger(__name__)
@@ -13,14 +13,14 @@ logger = logging.getLogger(__name__)
 
 class PaperCollector:
     """논문 리스트 수집 및 관리"""
-    
-    def __init__(self, openai_client: "OpenAIClient", paper_manager: "PaperManager"):
+
+    def __init__(self, claude_client: "ClaudeClient", paper_manager: "PaperManager"):
         """
         Args:
-            openai_client: OpenAI 클라이언트
+            claude_client: Claude 클라이언트
             paper_manager: 논문 매니저
         """
-        self.openai_client = openai_client
+        self.claude_client = claude_client
         self.paper_manager = paper_manager
     
     def collect_and_save_papers(
@@ -69,12 +69,12 @@ class PaperCollector:
                 
                 try:
                     # 제목만 한 번에 요청
-                    category_titles = self.openai_client.generate_paper_list_titles_only(
-                        topic=topic,
-                        count=count,
+                    category_titles = self.claude_client.generate_paper_list_titles_only(
+                topic=topic,
+                count=count,
                         recent_years=recent_years,
                         exclude_titles=exclude_titles
-                    )
+            )
                     
                     # 중복 제거 및 정리
                     unique_titles = []
@@ -110,7 +110,7 @@ class PaperCollector:
                     logger.info(f"[2단계] {name} - 배치 {batch_num}/{total_batches}: {len(batch_titles)}개 논문 상세 정보 요청 중...")
                     
                     try:
-                        batch_details = self.openai_client.generate_paper_details(batch_titles)
+                        batch_details = self.claude_client.generate_paper_details(batch_titles)
                         detailed_papers.extend(batch_details)
                         logger.info(f"[2단계] 배치 {batch_num} 완료: {len(batch_details)}개 논문 상세 정보 추가")
                         

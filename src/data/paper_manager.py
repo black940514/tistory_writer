@@ -243,3 +243,73 @@ class PaperManager:
             'last_updated': self.state.get('last_updated')
         }
 
+    def get_all_papers(self) -> List[Dict]:
+        """전체 논문 리스트 반환"""
+        return self.papers
+
+    def get_paper_by_index(self, index: int) -> Optional[Dict]:
+        """
+        특정 인덱스의 논문 반환
+
+        Args:
+            index: 논문 인덱스 (0부터 시작)
+
+        Returns:
+            논문 정보 또는 None
+        """
+        if 0 <= index < len(self.papers):
+            return self.papers[index]
+        return None
+
+    def get_unreviewed_papers(self) -> List[Dict]:
+        """
+        아직 리뷰하지 않은 논문 리스트 반환
+
+        Returns:
+            미리뷰 논문 리스트 (인덱스 포함)
+        """
+        reviewed_papers = self.state.get('reviewed_papers', [])
+        unreviewed = []
+        for i, paper in enumerate(self.papers):
+            paper_id = self._get_paper_id(paper)
+            if paper_id not in reviewed_papers:
+                paper_with_index = paper.copy()
+                paper_with_index['_index'] = i
+                unreviewed.append(paper_with_index)
+        return unreviewed
+
+    def get_paper_for_post(self, index: int = None) -> Optional[Dict]:
+        """
+        발행할 논문 가져오기 (인덱스 지정 또는 자동 선택)
+
+        Args:
+            index: 논문 인덱스 (None이면 다음 미리뷰 논문 자동 선택)
+
+        Returns:
+            논문 정보 또는 None
+        """
+        if index is not None:
+            paper = self.get_paper_by_index(index)
+            if paper:
+                # 상태 업데이트
+                paper_id = self._get_paper_id(paper)
+                if paper_id not in self.state.get('reviewed_papers', []):
+                    self.state.setdefault('reviewed_papers', []).append(paper_id)
+                self.state['last_processed'] = {
+                    'paper_id': paper_id,
+                    'title': paper.get('title', 'N/A'),
+                    'index': index,
+                    'processed_at': datetime.now().isoformat()
+                }
+                self._save_state()
+                logger.info(f"지정된 논문 선택: {paper.get('title', 'N/A')} (인덱스: {index})")
+                return paper
+            return None
+        else:
+            return self.get_next_paper()
+
+    def is_paper_reviewed(self, paper: Dict) -> bool:
+        """논문이 이미 리뷰되었는지 확인"""
+        paper_id = self._get_paper_id(paper)
+        return paper_id in self.state.get('reviewed_papers', [])
+

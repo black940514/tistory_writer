@@ -6,6 +6,7 @@ from http.cookiejar import Cookie
 import logging
 import re
 from typing import Optional, Dict, List
+from datetime import datetime
 from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
@@ -36,6 +37,10 @@ class TistoryAPI:
         self.blog_name = blog_name
         self.blog_id = blog_id  # 블로그 ID (예: 99)
         self.session = requests.Session()
+        
+        # 쿠키 사용 시간 추적 (카카오 로그인 쿠키 수명 관리)
+        self.cookie_set_time = None
+        self.last_success_time = None
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -49,8 +54,10 @@ class TistoryAPI:
             # 쿠키 문자열을 파싱하여 세션에 추가 (카카오 로그인 시 사용)
             self._set_cookies(cookies)
             logger.info("쿠키를 사용하여 세션 설정 (카카오 로그인 또는 세션 쿠키)")
-            # 로그인 상태 확인
+            # 로그인 상태 확인 (쿠키 수명 추적 포함)
             self._verify_login()
+            # 쿠키 사용 시간 확인
+            self._check_cookie_age()
         elif user_id and user_pw:
             logger.info("ID/비밀번호로 로그인 시도")
             self._login()
@@ -115,6 +122,10 @@ class TistoryAPI:
             logger.info(f"인증 쿠키 확인됨: {', '.join(important_cookies)}")
         else:
             logger.warning("인증 쿠키(TSSESSION, _T_ANO, JSESSIONID, TISTORY 등)를 찾을 수 없습니다.")
+        
+        # 쿠키 설정 시간 기록 (수명 추적용)
+        self.cookie_set_time = datetime.now()
+        logger.info(f"쿠키 설정 시간: {self.cookie_set_time.strftime('%Y-%m-%d %H:%M:%S')}")
     
     def _verify_login(self):
         """로그인 상태 확인 (HTTP 상태 코드 기반, HTML 파싱 없이)"""
@@ -137,7 +148,7 @@ class TistoryAPI:
                 try:
                     # allow_redirects=False로 설정하여 리다이렉트를 명확히 확인
                     response = self.session.get(test_url, allow_redirects=False, timeout=10)
-                    
+            
                     # 로그인 페이지로 리다이렉트 (302, 301)
                     if response.status_code in [301, 302]:
                         location = response.headers.get('Location', '')
@@ -147,18 +158,25 @@ class TistoryAPI:
                         else:
                             # 다른 페이지로 리다이렉트 (인증 가능한 상태)
                             logger.info(f"로그인 상태 확인 완료: {test_url} 접근 성공 (리다이렉트: {location})")
+                            self.last_success_time = datetime.now()
                             return True
                     
                     # 200 OK: 정상적으로 로그인되어 있음
                     if response.status_code == 200:
-                        logger.info(f"로그인 상태 확인 완료: {test_url} 접근 성공")
+                        logger.info(f"✅ 로그인 상태 확인 완료: {test_url} 접근 성공")
+                        self.last_success_time = datetime.now()
+                        # 성공 시 쿠키 수명 확인 메시지 출력 (20일 이상일 때만)
+                        if self.cookie_set_time:
+                            age = datetime.now() - self.cookie_set_time
+                            if age.days >= 20:
+                                logger.info(f"쿠키 사용 기간: {age.days}일째 (정상 작동 중)")
                         return True
-                    
+
                     # 401 Unauthorized, 403 Forbidden: 인증 실패
                     if response.status_code in [401, 403]:
                         # 다음 URL 시도
                         continue
-                    
+
                     # 기타 상태 코드 (일부 환경에서는 작동할 수 있으므로 경고만)
                     logger.debug(f"로그인 상태 확인: {test_url} - 상태 코드 {response.status_code}")
                     
@@ -167,10 +185,9 @@ class TistoryAPI:
                     logger.debug(f"로그인 상태 확인: {test_url} - 네트워크 오류: {e}")
                     continue
             
-            # 모든 URL에서 확인 실패
-            logger.error("로그인 상태 확인 실패: 모든 관리 페이지 접근 실패")
-            logger.error("쿠키가 만료되었거나 잘못된 쿠키입니다. 새로 추출해주세요.")
-            raise Exception("쿠키가 유효하지 않습니다. 브라우저에서 다시 로그인하여 쿠키를 추출해주세요.")
+            # 모든 URL에서 확인 실패 - 쿠키 만료 안내
+            self._print_cookie_expired_guide()
+            raise Exception("쿠키가 만료되었습니다. config.yaml을 업데이트하세요.")
                 
         except requests.exceptions.RequestException as e:
             logger.error(f"로그인 상태 확인 네트워크 오류: {e}")
@@ -178,10 +195,53 @@ class TistoryAPI:
             logger.warning("로그인 상태 확인 실패했지만 계속 진행합니다. 네트워크 문제일 수 있습니다.")
         except Exception as e:
             # 명시적으로 raise한 인증 실패 예외는 그대로 전파
-            if "유효하지 않습니다" in str(e):
+            if "만료되었습니다" in str(e) or "유효하지 않습니다" in str(e):
                 raise
             # 기타 예외는 경고만 출력하고 계속 진행
             logger.warning(f"로그인 상태 확인 중 오류: {e}, 계속 진행합니다.")
+    
+    def _print_cookie_expired_guide(self):
+        """쿠키 만료 시 안내 메시지 출력 (간단한 알림)"""
+        logger.warning("쿠키 만료됨 - 티스토리 로그인 후 config.yaml 쿠키 갱신 필요")
+    
+    def _check_cookie_age(self):
+        """쿠키 사용 시간 확인 및 경고"""
+        if not self.cookie_set_time:
+            return
+        
+        age = datetime.now() - self.cookie_set_time
+        days = age.days
+        
+        if days >= 30:
+            logger.warning(f"⚠️  쿠키를 {days}일째 사용 중입니다. 곧 만료될 수 있으니 새 쿠키 준비를 권장합니다.")
+        elif days >= 20:
+            logger.info(f"ℹ️  쿠키를 {days}일째 사용 중입니다. (정상 작동 중)")
+        elif days >= 7:
+            logger.debug(f"쿠키 사용 기간: {days}일")
+    
+    def _refresh_session(self):
+        """세션 갱신 (쿠키 만료 전에 접속하여 세션 유지)"""
+        try:
+            # 가벼운 요청으로 세션 유지
+            if self.blog_name:
+                test_url = f"https://{self.blog_name}.tistory.com/manage/posts"
+            else:
+                test_url = f"{self.BASE_URL}/manage/posts"
+            
+            response = self.session.get(test_url, allow_redirects=True, timeout=5)
+            final_url = response.url
+            
+            # 로그인 페이지로 리다이렉트되지 않으면 성공
+            if '/login' not in final_url and '/auth/login' not in final_url:
+                self.last_success_time = datetime.now()
+                logger.debug("세션 갱신 완료")
+                return True
+            else:
+                logger.debug("세션 갱신 실패: 로그인 페이지로 리다이렉트됨")
+                return False
+        except Exception as e:
+            logger.debug(f"세션 갱신 중 오류 (무시): {e}")
+            return False
     
     def _login(self):
         """티스토리에 로그인"""
@@ -399,7 +459,7 @@ class TistoryAPI:
         tag: str = ""
     ) -> Dict:
         """
-        글 작성
+        글 작성 (쿠키 만료 감지 및 세션 유지 포함)
         
         Args:
             title: 제목
@@ -412,6 +472,11 @@ class TistoryAPI:
             작성된 글 정보
         """
         try:
+            # 쿠키 사용 시간 확인 및 경고
+            self._check_cookie_age()
+            
+            # 세션 갱신 시도 (쿠키가 만료되지 않도록)
+            self._refresh_session()
             # 글 작성 페이지 접근하여 필요한 토큰 및 정보 획득
             # 새로운 티스토리 글 작성 페이지 URL 패턴 사용
             if self.blog_id:
@@ -427,10 +492,23 @@ class TistoryAPI:
                 write_url = write_urls[0]
             
             response = self.session.get(write_url, allow_redirects=True)
+            
+            # 로그인 페이지로 리다이렉트된 경우 쿠키 만료
+            final_url = response.url
+            if '/login' in final_url or '/auth/login' in final_url:
+                logger.error("글 작성 페이지 접근 실패: 로그인 페이지로 리다이렉트됨")
+                self._print_cookie_expired_guide()
+                raise Exception("쿠키가 만료되었습니다. config.yaml을 업데이트하세요.")
                 
             if response.status_code != 200:
                 logger.error(f"글 작성 페이지 접근 실패: HTTP {response.status_code}, URL: {write_url}")
-                logger.error(f"최종 리다이렉트 URL: {response.url}")
+                logger.error(f"최종 리다이렉트 URL: {final_url}")
+                
+                # 401, 403 오류는 쿠키 만료 가능성
+                if response.status_code in [401, 403]:
+                    self._print_cookie_expired_guide()
+                    raise Exception("쿠키가 만료되었습니다. config.yaml을 업데이트하세요.")
+                
                 raise Exception(f"글 작성 페이지 접근 실패: HTTP {response.status_code}")
             
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -504,182 +582,172 @@ class TistoryAPI:
                     else:
                         # 재시도할 이유가 없으면 종료
                         break
-                
-                # 글 작성 데이터 (JSON API용과 Form용 두 가지 형식 준비)
-                blog_base_url = f"https://{self.blog_name}.tistory.com" if self.blog_id else self.BASE_URL
-                
-                # JSON API용 데이터 (post.json 엔드포인트 - 티스토리 실제 형식)
-                json_data = {
-                    'id': '0',  # 새 글 작성은 항상 0
-                    'title': title,
-                    'content': content,
-                    'slogan': title,  # 슬로건은 제목과 동일하게
-                    'category': int(category_id) if category_id.isdigit() else 0,
-                    'tag': tag if tag else '',
-                    'visibility': 20 if visibility == 0 else (10 if visibility == 1 else 30),  # 20: 공개, 10: 비공개, 30: 보호
-                    'published': 1 if visibility == 0 else 0,  # 공개일 때만 발행
-                    'type': 'post',
-                    'uselessMarginForEntry': 1,
-                    'attachments': [],
-                    'cclCommercial': 0,
-                    'cclDerive': 0,
-                    'daumLike': '401',
-                    'password': '',
-                    'recaptchaValue': '',
-                    'draftSequence': None
-                }
-                
-                # Form 데이터 (기존 엔드포인트용)
-                form_data = {
-                    'blogName': self.blog_name,
-                    'title': title,
-                    'content': content,
-                    'categoryId': category_id,
-                    'tag': tag
-                }
-                
-                if csrf_token:
-                    form_data['_csrf'] = csrf_token
-                    # JSON 요청에는 CSRF 토큰을 헤더에 포함하거나 요청에 포함할 수 있음
-                    # 필요시 추가
-                
-                # 공개 설정 (Form용)
-                if visibility == 0:  # 공개
-                    form_data['visibility'] = '0'
-                    form_data['publish'] = '1'
-                elif visibility == 1:  # 비공개
-                    form_data['visibility'] = '1'
-                    form_data['publish'] = '0'
-                else:  # 보호
-                    form_data['visibility'] = '3'
-                    form_data['publish'] = '0'
-                
-                # 헤더 설정 (브라우저와 동일하게)
-                headers_json = {
-                    'Accept': 'application/json, text/plain, */*',
-                    'Content-Type': 'application/json',
-                    'Origin': blog_base_url,
-                    'Referer': write_url,
-                    'Sec-Fetch-Dest': 'empty',
-                    'Sec-Fetch-Mode': 'cors',
-                    'Sec-Fetch-Site': 'same-origin',
-                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
-                }
-                
-                # CSRF 토큰은 쿠키에 이미 포함되어 있으므로 헤더에 별도로 추가하지 않음
-                
-                headers_form = {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Referer': write_url,
-                    'Origin': blog_base_url
-                }
             
-                for endpoint in endpoints:
-                    try:
-                        response = None
+            # 글 작성 데이터 (JSON API용과 Form용 두 가지 형식 준비)
+            blog_base_url = f"https://{self.blog_name}.tistory.com" if self.blog_id else self.BASE_URL
+            
+            # JSON API용 데이터 (post.json 엔드포인트 - 티스토리 실제 형식)
+            json_data = {
+                'id': '0',  # 새 글 작성은 항상 0
+                'title': title,
+                'content': content,
+                'slogan': title,  # 슬로건은 제목과 동일하게
+                'category': int(category_id) if category_id.isdigit() else 0,
+                'tag': tag if tag else '',
+                'visibility': 20 if visibility == 0 else (10 if visibility == 1 else 30),  # 20: 공개, 10: 비공개, 30: 보호
+                'published': 1 if visibility == 0 else 0,  # 공개일 때만 발행
+                'type': 'post',
+                'uselessMarginForEntry': 1,
+                'attachments': [],
+                'cclCommercial': 0,
+                'cclDerive': 0,
+                'daumLike': '401',
+                'password': '',
+                'recaptchaValue': '',
+                'draftSequence': None
+            }
+            
+            # Form 데이터 (기존 엔드포인트용)
+            form_data = {
+                'blogName': self.blog_name,
+                'title': title,
+                'content': content,
+                'categoryId': category_id,
+                'tag': tag
+            }
+            
+            if csrf_token:
+                form_data['_csrf'] = csrf_token
+                # JSON 요청에는 CSRF 토큰을 헤더에 포함하거나 요청에 포함할 수 있음
+                # 필요시 추가
+            
+            # 공개 설정 (Form용)
+            if visibility == 0:  # 공개
+                form_data['visibility'] = '0'
+                form_data['publish'] = '1'
+            elif visibility == 1:  # 비공개
+                form_data['visibility'] = '1'
+                form_data['publish'] = '0'
+            else:  # 보호
+                form_data['visibility'] = '3'
+                form_data['publish'] = '0'
+            
+            # 헤더 설정 (브라우저와 동일하게)
+            headers_json = {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
+                'Origin': blog_base_url,
+                'Referer': write_url,
+                'Sec-Fetch-Dest': 'empty',
+                'Sec-Fetch-Mode': 'cors',
+                'Sec-Fetch-Site': 'same-origin',
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+            }
+            
+            # CSRF 토큰은 쿠키에 이미 포함되어 있으므로 헤더에 별도로 추가하지 않음
+            
+            headers_form = {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Referer': write_url,
+                'Origin': blog_base_url
+            }
+            
+            for endpoint in endpoints:
+                try:
+                    response = None
+                    
+                    # JSON API 엔드포인트인 경우
+                    if endpoint.endswith('.json'):
+                        logger.info(f"POST 요청 시도 (JSON API): {endpoint}")
+                        response = self.session.post(
+                            endpoint,
+                            json=json_data,
+                            headers=headers_json,
+                            allow_redirects=True
+                        )
                         
-                        # JSON API 엔드포인트인 경우
-                        if endpoint.endswith('.json'):
-                            logger.info(f"POST 요청 시도 (JSON API): {endpoint}")
-                            response = self.session.post(
-                                endpoint,
-                                json=json_data,
-                                headers=headers_json,
-                                allow_redirects=True
-                            )
-                        
-                            # 200 응답이면 성공
-                            if response.status_code == 200:
-                                try:
-                                    result = response.json()
-                                    logger.info(f"JSON API 응답 내용: {result}")
-                                    
-                                    # 응답에서 URL 또는 ID 추출
-                                    post_url = result.get('entryUrl') or result.get('permalink') or result.get('url', '')
-                                    post_id = result.get('id', '')
-                                    
-                                    if post_url or post_id:
-                                        logger.info(f"포스트 작성 성공 (JSON API): {title}, URL: {post_url}")
-                                        return {
-                                            'status': 'success',
-                                            'title': title,
-                                            'id': post_id,
-                                            'url': post_url
-                                        }
-                                    else:
-                                        # URL/ID가 없어도 200이면 성공
-                                        logger.info(f"포스트 작성 성공 (JSON API, 200 OK): {title}")
-                                        return {'status': 'success', 'title': title}
-                                except Exception as e:
-                                    logger.warning(f"JSON 파싱 실패: {e}, 응답: {response.text[:200]}")
-                                    # 200이면 성공으로 간주
-                                    logger.info(f"포스트 작성 성공 (200 OK): {title}")
+                        # 200 응답이면 성공
+                        if response.status_code == 200:
+                            try:
+                                result = response.json()
+                                logger.info(f"JSON API 응답 내용: {result}")
+                                
+                                # 응답에서 URL 또는 ID 추출
+                                post_url = result.get('entryUrl') or result.get('permalink') or result.get('url', '')
+                                post_id = result.get('id', '')
+                                
+                                if post_url or post_id:
+                                    logger.info(f"포스트 작성 성공 (JSON API): {title}, URL: {post_url}")
+                                    return {
+                                        'status': 'success',
+                                        'title': title,
+                                        'id': post_id,
+                                        'url': post_url
+                                    }
+                                else:
+                                    # URL/ID가 없어도 200이면 성공
+                                    logger.info(f"포스트 작성 성공 (JSON API, 200 OK): {title}")
                                     return {'status': 'success', 'title': title}
-                            elif response.status_code == 403:
-                                # 일일 발행 제한 등의 403 오류 처리
-                                error_text = response.text[:200] if response.text else ""
-                                logger.warning(f"JSON API 403 오류: {error_text}")
-                                if ("15개" in error_text or "발행" in error_text) and original_visibility == 0:
-                                    # 일일 발행 제한에 도달했고 원래 공개였으면 비공개로 재시도
-                                    logger.warning("일일 발행 제한에 도달했습니다. 비공개로 발행을 시도합니다.")
-                                    tried_private = True
-                                continue
-                            else:
-                                logger.warning(f"JSON API 응답 상태 코드: {response.status_code}, 응답 내용: {response.text[:200]}")
-                                continue
+                            except Exception as e:
+                                logger.warning(f"JSON 파싱 실패: {e}, 응답: {response.text[:200]}")
+                                # 200이면 성공으로 간주
+                                logger.info(f"포스트 작성 성공 (200 OK): {title}")
+                                return {'status': 'success', 'title': title}
+                        elif response.status_code == 403:
+                            # 일일 발행 제한 등의 403 오류 처리
+                            error_text = response.text[:200] if response.text else ""
+                            logger.warning(f"JSON API 403 오류: {error_text}")
+                            if ("15개" in error_text or "발행" in error_text) and original_visibility == 0:
+                                # 일일 발행 제한에 도달했고 원래 공개였으면 비공개로 재시도
+                                logger.warning("일일 발행 제한에 도달했습니다. 비공개로 발행을 시도합니다.")
+                                tried_private = True
+                            continue
                         else:
-                            # Form 엔드포인트인 경우
-                            logger.info(f"POST 요청 시도 (Form API): {endpoint}")
-                            response = self.session.post(
-                                endpoint,
-                                data=form_data,
-                                headers=headers_form,
-                                allow_redirects=True
-                            )
-                        
-                            if not response:
-                                logger.warning(f"응답이 없습니다: {endpoint}")
-                                continue
-                            
-                            # Form 엔드포인트 응답 처리
-                            if response.status_code in [200, 201, 302]:
-                                
-                                # 리다이렉트 응답 처리
-                                if response.status_code == 302:
-                                    location = response.headers.get('Location', '')
-                                    if '/manage/post/list' in location or '/manage/post/view' in location or '/manage/posts' in location:
-                                        success = True
-                                        logger.info(f"포스트 작성 성공 (리다이렉트): {title}")
-                                        return {'status': 'success', 'title': title, 'url': location}
-                                
-                                # 일반 응답 처리
-                                if response.status_code in [200, 201]:
-                                    # 응답 텍스트 확인
-                                    response_text = response.text.lower()
-                                    if 'success' in response_text or '작성되었습니다' in response_text or '/manage/post/list' in response.url or '/manage/posts' in response.url:
-                                        success = True
-                                        logger.info(f"포스트 작성 성공: {title}")
-                                        return {'status': 'success', 'title': title}
-                    except Exception as e:
-                        logger.debug(f"엔드포인트 {endpoint} 시도 실패: {e}")
-                        continue
-                    
-                    # 응답 저장 (에러 메시지용)
-                    if response:
-                        last_response = response
-                    
-                    # 성공했으면 외부 루프도 종료
-                    if success:
-                        break
-                
-                # 성공했으면 재시도 루프 종료
-                if success:
-                    break
-                
-                # 실패했는데 비공개로 재시도해야 하면 다음 시도로
-                if not success and tried_private and attempt < max_attempts - 1:
+                            logger.warning(f"JSON API 응답 상태 코드: {response.status_code}, 응답 내용: {response.text[:200]}")
+                            continue
+                    else:
+                        # Form 엔드포인트인 경우
+                        logger.info(f"POST 요청 시도 (Form API): {endpoint}")
+                        response = self.session.post(
+                            endpoint,
+                            data=form_data,
+                            headers=headers_form,
+                            allow_redirects=True
+                        )
+
+                        if not response:
+                            logger.warning(f"응답이 없습니다: {endpoint}")
+                            continue
+
+                        # Form 엔드포인트 응답 처리
+                        if response.status_code in [200, 201, 302]:
+
+                            # 리다이렉트 응답 처리
+                            if response.status_code == 302:
+                                location = response.headers.get('Location', '')
+                                if '/manage/post/list' in location or '/manage/post/view' in location or '/manage/posts' in location:
+                                    success = True
+                                    logger.info(f"포스트 작성 성공 (리다이렉트): {title}")
+                                    return {'status': 'success', 'title': title, 'url': location}
+
+                            # 일반 응답 처리
+                            if response.status_code in [200, 201]:
+                                # 응답 텍스트 확인
+                                response_text = response.text.lower()
+                                if 'success' in response_text or '작성되었습니다' in response_text or '/manage/post/list' in response.url or '/manage/posts' in response.url:
+                                    success = True
+                                    logger.info(f"포스트 작성 성공: {title}")
+                                    return {'status': 'success', 'title': title}
+
+                except Exception as e:
+                    logger.debug(f"엔드포인트 {endpoint} 시도 실패: {e}")
                     continue
-            
+
+                # 응답 저장 (에러 메시지용)
+                if response:
+                    last_response = response
+
+            # 모든 엔드포인트 시도 후 실패 처리
             if not success:
                 # 마지막 응답 정보 포함
                 last_status = last_response.status_code if last_response else "N/A"
@@ -687,5 +755,16 @@ class TistoryAPI:
                 raise Exception(f"글 작성 실패: 모든 엔드포인트 시도 실패 (마지막 상태 코드: {last_status}, 응답: {last_response_text})")
             
         except Exception as e:
-            logger.error(f"글 작성 오류: {e}")
+            error_msg = str(e).lower()
+            error_str = str(e)
+            
+            # 로그인/인증 관련 오류인 경우 쿠키 만료로 간주
+            if any(keyword in error_msg for keyword in ['login', '인증', '401', '403', 'unauthorized', 'forbidden', '만료', 'expired', '쿠키']):
+                logger.error("=" * 70)
+                logger.error("⚠️  쿠키 만료 또는 인증 오류로 인해 글 작성에 실패했습니다!")
+                logger.error("=" * 70)
+                self._print_cookie_expired_guide()
+                logger.error("=" * 70)
+            else:
+                logger.error(f"글 작성 오류: {e}", exc_info=True)
             raise

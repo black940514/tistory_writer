@@ -1,15 +1,15 @@
 """
-논문 리뷰 콘텐츠 생성기 (OpenAI 활용)
+논문 리뷰 콘텐츠 생성기 (Claude 활용)
 """
 import logging
 from typing import Dict, Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from ..client.openai_client import OpenAIClient
+    from ..client.claude_client import ClaudeClient
 
 logger = logging.getLogger(__name__)
 
-# 논문 리뷰 템플릿들 (OpenAI 사용 불가 시 fallback)
+# 논문 리뷰 템플릿들 (Claude 사용 불가 시 fallback)
 REVIEW_TEMPLATES = [
     """# 논문 제목 분석
 
@@ -130,34 +130,44 @@ AI 분야의 지속적인 발전을 보여주는 의미 있는 연구라고 평�
 
 def generate_paper_review_content(
     paper: Dict,
-    openai_client: Optional["OpenAIClient"] = None,
+    claude_client: Optional["ClaudeClient"] = None,
     review_number: Optional[int] = None,
-    review_model: Optional[str] = None
+    review_model: Optional[str] = None,
+    use_scientific_skills: bool = False,
+    scientific_style: str = "peer-review"
 ) -> str:
     """
     논문 리뷰 콘텐츠 생성
-    
+
     Args:
         paper: 논문 정보 (title, authors, year, abstract 등)
-        openai_client: OpenAI 클라이언트 (None이면 템플릿 사용)
+        claude_client: Claude 클라이언트 (None이면 템플릿 사용)
         review_number: 리뷰 번호 (선택)
         review_model: 리뷰 작성용 모델 (None이면 클라이언트 기본 모델 사용)
-    
+        use_scientific_skills: Scientific Skills 스타일 사용 여부
+        scientific_style: Scientific Skills 스타일 (peer-review, literature-review 등)
+
     Returns:
         생성된 리뷰 콘텐츠 (마크다운)
     """
-    # OpenAI 클라이언트가 있으면 사용
-    if openai_client:
+    # Claude 클라이언트가 있으면 사용
+    if claude_client:
         try:
-            review = openai_client.generate_paper_review(paper, language="ko", model=review_model)
+            review = claude_client.generate_paper_review(
+                paper,
+                language="ko",
+                model=review_model,
+                use_scientific_skills=use_scientific_skills,
+                scientific_style=scientific_style
+            )
             return review
         except Exception as e:
-            # quota 초과 등 예상 가능한 에러는 경고 레벨, 기타 에러는 에러 레벨
+            # rate limit 등 예상 가능한 에러는 경고 레벨, 기타 에러는 에러 레벨
             error_msg = str(e)
-            if "quota" in error_msg.lower() or "429" in error_msg or "insufficient_quota" in error_msg.lower():
-                logger.warning(f"OpenAI API 할당량 초과, 템플릿 사용: {type(e).__name__}")
+            if "rate" in error_msg.lower() or "429" in error_msg or "overloaded" in error_msg.lower():
+                logger.warning(f"Claude API 할당량 초과, 템플릿 사용: {type(e).__name__}")
             else:
-                logger.error(f"OpenAI 리뷰 생성 실패, 템플릿 사용: {type(e).__name__}: {error_msg[:100]}")
+                logger.error(f"Claude 리뷰 생성 실패, 템플릿 사용: {type(e).__name__}: {error_msg[:100]}")
     
     # 템플릿 사용 (fallback)
     import random

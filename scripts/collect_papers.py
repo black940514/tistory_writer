@@ -9,7 +9,7 @@ from pathlib import Path
 # src 모듈 import를 위한 경로 추가
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.client.openai_client import OpenAIClient
+from src.client.claude_client import ClaudeClient
 from src.data.paper_manager import PaperManager
 from src.data.paper_collector import PaperCollector
 
@@ -34,25 +34,25 @@ def main():
         with open(config_path, 'r', encoding='utf-8') as f:
             config = yaml.safe_load(f)
         
-        # OpenAI API 키 확인
-        if 'openai' not in config or not config['openai'].get('api_key'):
-            print("❌ OpenAI API 키가 설정되지 않았습니다. config.yaml에 openai.api_key를 추가해주세요.")
+        # Claude API 키 확인
+        if 'claude' not in config or not config['claude'].get('api_key'):
+            print("❌ Claude API 키가 설정되지 않았습니다. config.yaml에 claude.api_key를 추가해주세요.")
             return
-        
-        # OpenAI 클라이언트 초기화
+
+        # Claude 클라이언트 초기화
         prompts_file = config.get('prompts_file', 'prompts.yaml')
-        openai_client = OpenAIClient(
-            api_key=config['openai']['api_key'],
-            model=config['openai'].get('model', 'gpt-4o-mini'),
+        claude_client = ClaudeClient(
+            api_key=config['claude']['api_key'],
+            model=config['claude'].get('model', 'claude-sonnet-4-20250514'),
             prompts_file=prompts_file
         )
-        
+
         # 논문 매니저 초기화
         papers_file = project_root / "data/papers.json"
         paper_manager = PaperManager(papers_file=str(papers_file))
-        
+
         # 논문 수집기 초기화
-        collector = PaperCollector(openai_client, paper_manager)
+        collector = PaperCollector(claude_client, paper_manager)
         
         # 논문 수집 설정
         paper_collection_config = config.get('paper_collection', {})
